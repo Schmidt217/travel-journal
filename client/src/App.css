@@ -2,37 +2,114 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+li{
+  list-style: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/*-------NavBar---------*/
+.nav {
+  width: 100vw;
+  height: 60px;
+  /* position: fixed; */
+  margin: 0 auto;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: left;
+  align-items:center;
+  align-content: center;
+  flex-direction: row;
+  z-index: 1;
+  max-width: 1500px;
+  background-color: var(--seed-green);
+  backdrop-filter: blur(5px);
 }
 
-.App-link {
-  color: #61dafb;
+.nav-menu {
+  display: flex;
+  justify-content: space-between;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.nav-menu a{
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none; 
+  padding: 25px 0; 
+  margin: 0 25px;
+  transition: 0.2s ease-in-out;
+  color: rgb(53, 53, 93);
+} 
+
+.nav a:hover{
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+.nav span{
+  margin-left: auto;
+  margin-top: 15px;
+  padding-right: 20px;
+  color: var(--white);
+}
+
+.hamburger {
+	border: 0;
+	height: 40px;
+	width: 40px;
+	padding: 0.5rem;
+	border-radius: 50%;
+	background-color: transparent;
+  color: var(--white);
+	cursor: pointer;
+	transition: background-color 0.2s ease-in-out;
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	display: none;
+}
+
+.logout-btn{
+  margin-left: 10px;
+}
+
+/* ------- Profile -------- */
+
+.profile-img{
+  width: 400px;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+
+/* ------- Media Queries -------- */
+
+@media screen and (max-width: 768px) {
+  .hamburger {
+		display: block;
+    background-color: rgb(46, 44, 44);
+    z-index: 10;
+	}
+
+  .nav-menu{
+    flex-direction: column;
+    justify-content: left;
+    margin-top: 200px;
+    padding: 10px 0;
+    /* background-color: black; */
+    border-radius: 0 0 7px 0;
+    transform: translateX(-100%);
+		transition: 0.2s ease-in-out;
   }
-  to {
-    transform: rotate(360deg);
+
+  .nav-menu a{
+    padding: 5px;
+    color: rgb(121, 114, 114);
+    font-size: 12px;
+  }
+
+  .expanded {
+    transform: translateX(0%);
   }
 }

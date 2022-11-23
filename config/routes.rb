@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
+  resources :activities, only: []
+  resources :trips, only: []
   resources :users, only: []
-  
-  #unique auth routes
+
+  #unique User auth routes
   post '/signup', to: "users#create"
   get '/auth', to: "users#show"
   post '/login', to: "sessions#create"
@@ -15,4 +17,4 @@ end
 
  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
- 
+
