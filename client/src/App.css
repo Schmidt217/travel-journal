@@ -1,3 +1,7 @@
+:root{
+  --dark-blue: rgb(53, 53, 93);
+}
+
 .App {
   text-align: center;
 }
@@ -38,7 +42,7 @@ li{
   padding: 25px 0; 
   margin: 0 25px;
   transition: 0.2s ease-in-out;
-  color: rgb(53, 53, 93);
+  color: var(--dark-blue);
 } 
 
 .nav a:hover{
@@ -50,7 +54,7 @@ li{
   margin-left: auto;
   margin-top: 15px;
   padding-right: 20px;
-  color: var(--white);
+  color: var(--dark-blue);
 }
 
 .hamburger {
@@ -60,7 +64,7 @@ li{
 	padding: 0.5rem;
 	border-radius: 50%;
 	background-color: transparent;
-  color: var(--white);
+  color: white;
 	cursor: pointer;
 	transition: background-color 0.2s ease-in-out;
 	position: absolute;
@@ -80,6 +84,39 @@ li{
   height: 350px;
   object-fit: cover;
   border-radius: 50%;
+}
+
+
+/* ------- Trip-Form-Page -------- */
+.trip-form-page{
+  width: 60vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+
+}
+
+.trip-form{
+  display: flex;
+  flex-direction: column;
+  width: 30vw;
+  margin: 0 auto;
+}
+
+.trip-form input, .submit-btn{
+  width: 60%;
+  margin: 10px auto;
+  padding: 5px;
+  border-radius: 7px;
+  border: solid 1px var(--dark-blue);
+  
+}
+
+.submit-btn{
+  padding: 7px;
+  width: 45%;
+ 
 }
 
 

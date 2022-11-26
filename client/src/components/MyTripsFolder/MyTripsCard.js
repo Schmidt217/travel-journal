@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import MyActivityCard from './MyActivityCard'
 
 const MyTripsCard = ({ userTrip }) => {
@@ -6,7 +7,7 @@ const MyTripsCard = ({ userTrip }) => {
     const renderActivities = userTrip.activities.map(act =>{
         return(
             //activity is nested again so to get to individual activity, need act.activity
-            <MyActivityCard key={act.id} activity={act.activity}/>
+            <MyActivityCard key={act.activity.id} activity={act.activity}/>
         )
 
     })
@@ -21,6 +22,9 @@ const MyTripsCard = ({ userTrip }) => {
             <h3>Activities</h3>
             {renderActivities}
         </div>
+        <Link to={`/editTrip/${userTrip.id}`}>
+             <button className='edit-trip'>Edit Trip</button>
+        </Link>
 
     </div>
   )

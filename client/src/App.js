@@ -9,12 +9,15 @@ import Home from './components/Home'
 import Profile from './components/UserProfile/Profile'
 import MyTrips from './components/MyTripsFolder/MyTrips'
 import Explore from './components/ExploreFolder/Explore'
+import EditTrip from './components/TripForms/EditTrip'
 
 function App() {
   const [user, setUser] = useState("")
   const [errors, setErrors] = useState([])
+  // const [addNewTrip, setAddNewTrip] = useState(true)
+  const [refreshPage, setRefreshPage] = useState(false);
 
-  let navigate = useNavigate();
+  // let navigate = useNavigate();
 
   // auto-login if user_id in session from previous login
   useEffect(() => {
@@ -27,7 +30,7 @@ function App() {
       }
     });
 
-  }, []);
+  }, [refreshPage]);
   console.log(user)
   
 
@@ -37,12 +40,13 @@ function App() {
     <div className="App">
       <NavBar user={user} setUser={setUser} />
       <Routes>
-        <Route path="/" element ={ <Home /> } />
+        <Route path="/" element ={ <Home user={user} setRefreshPage={setRefreshPage}/> } />
         <Route path="login" element ={ <Login /> } />
         <Route path="signup" element ={ <Signup /> } />
         <Route path="profile" element ={ <Profile user={user} /> } />
         <Route path="myTrips" element ={ <MyTrips user={user}/> } />
         <Route path="explore" element ={ <Explore /> } />
+        <Route path="editTrip/:id" element ={ <EditTrip /> } />
       </Routes>
 
       

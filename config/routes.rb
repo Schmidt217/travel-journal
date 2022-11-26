@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :activities, only: []
-  resources :trips, only: []
+  resources :trips, only: [:index, :show, :create, :update]
   resources :users, only: []
 
   #unique User auth routes
