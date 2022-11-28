@@ -16,7 +16,8 @@ class TripsController < ApplicationController
     end
 
     def update 
-        trip = Trip.update!(trip_params)
+        trip = Trip.find(params[:id])
+        trip.update!(trip_params)
         render json: trip, status: :ok
     end
 

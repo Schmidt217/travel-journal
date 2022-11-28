@@ -1,3 +1,4 @@
+import './LoginFormStyle.css'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import Login from './Login'
@@ -8,7 +9,6 @@ const LoginContainer = ({ setUser }) => {
 
   return (
     <div className="login-container">
-        <div>Login Container</div>
          {showLogin ? (
                 <div className="login">
                     <Login setUser={setUser}/>

@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  resources :activities, only: []
+  resources :activities, only: [:show, :create, :update]
   resources :trips, only: [:index, :show, :create, :update]
-  resources :users, only: []
+  resources :users, only: [:update]
 
   #unique User auth routes
   post '/signup', to: "users#create"

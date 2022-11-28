@@ -37,8 +37,8 @@ const Login = ({ setUser }) => {
     ))
   return (
 
-    <div className='login-page'>
-            <form className='login-form' onSubmit={handleSubmit}>
+    <div className='user-profile-form-page login-page' >
+            <form className='user-profile-form login-form' onSubmit={handleSubmit}>
                 <h1>Login</h1>
 
                 <label htmlFor="username">Username</label>
@@ -56,7 +56,7 @@ const Login = ({ setUser }) => {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                 />
-                <button type="submit">{isLoading ? "Loading..." : "Login"}</button>
+                <button className='submit-btn' type="submit">{isLoading ? "Loading..." : "Login"}</button>
             </form>
 
             <ul>{formErrorMsg}</ul>

@@ -1,7 +1,7 @@
 import {useState, useEffect} from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 
-const EditTrip = () => {
+const EditTrip = ({ setRefreshPage }) => {
     const [errors, setErrors] = useState([]);
     const [tripFormData, setTripFormData] = useState('')
     const [userId, setUserId] = useState('')
@@ -13,13 +13,12 @@ const EditTrip = () => {
 
     const tripId = parseInt(params.id)
 
-    //get specific trip info
+    //get specific trip info to prefill form 
     useEffect(() => {
         fetch(`/trips/${params.id}`)
         .then((res) => {
             if (res.ok) {
               res.json().then((tripData) => {
-                //   console.log(tripData.user.id)
                   setUserId(tripData.user.id)
                   setTripFormData({
                     name: tripData.name,
@@ -27,6 +26,7 @@ const EditTrip = () => {
                     date: tripData.date,
                     details: tripData.details,
                   })
+                  setRefreshPage(tripData)
               });
             } else {
               res.json().then((err) => setErrors(err.errors))
@@ -38,7 +38,7 @@ const EditTrip = () => {
     
 
 
-//get user input form text input areas
+//get user input from changes to text input areas
 const handleUserTextInput = (e) => {
     const { name, value } = e.target
     setTripFormData(tripFormData => {
@@ -70,7 +70,7 @@ const handleSubmit = (e) =>{
         res.json().then((userData) => {
             console.log(userData)
             setTripFormData({})
-            // setRefreshPage(userData)
+            setRefreshPage(userData)
             navigate('/myTrips')
         });
       } else {

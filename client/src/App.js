@@ -10,6 +10,10 @@ import Profile from './components/UserProfile/Profile'
 import MyTrips from './components/MyTripsFolder/MyTrips'
 import Explore from './components/ExploreFolder/Explore'
 import EditTrip from './components/TripForms/EditTrip'
+import EditProfile from './components/UserProfile/EditProfile'
+import ViewTrip from './components/MyTripsFolder/ViewTrip'
+import AddActivityForm from './components/MyActivities/AddActivityForm'
+import EditActivityForm from './components/MyActivities/EditActivityForm'
 
 function App() {
   const [user, setUser] = useState("")
@@ -31,7 +35,6 @@ function App() {
     });
 
   }, [refreshPage]);
-  console.log(user)
   
 
   if(!user) return <LoginContainer setUser={setUser}/>
@@ -46,8 +49,13 @@ function App() {
         <Route path="profile" element ={ <Profile user={user} /> } />
         <Route path="myTrips" element ={ <MyTrips user={user}/> } />
         <Route path="explore" element ={ <Explore /> } />
-        <Route path="editTrip/:id" element ={ <EditTrip /> } />
+        <Route path="viewTrip/:id" element ={ <ViewTrip user={user}/> } />
+        <Route path="editTrip/:id" element ={ <EditTrip setRefreshPage={setRefreshPage} /> } />
+        <Route path="editProfile/:id" element ={ <EditProfile setRefreshPage={setRefreshPage} user={user}/> } />
+        <Route path="addActivity/:id" element ={ <AddActivityForm setRefreshPage={setRefreshPage}/> } />
+        <Route path="editActivity/:id" element ={ <EditActivityForm setRefreshPage={setRefreshPage}/> } />
       </Routes>
+      
 
       
     </div>

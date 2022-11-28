@@ -1,0 +1,37 @@
+.myTrips-page{
+    display: flex;
+    margin: 0 auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    border: 2px solid black;
+    width: 90vw;
+    height: 100vh; 
+}
+
+.myTrip-card{
+    border: 2px solid black;
+    margin: 10px;
+    width: 15vw;
+    padding: 5px;
+}
+
+.single-trip-container{
+    display: flex;
+    margin: 0 auto;
+    flex-direction: row;
+    flex-wrap: none;
+    justify-content: space-evenly;
+    /* border: 2px solid black; */
+    width: 80vw;
+    margin: 50px auto;
+}
+.single-trip-details, .single-trip-images{
+    width: 50%;
+}
+
+.single-trip-details{
+    border-right: 2px solid black; 
+}
+
+

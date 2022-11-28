@@ -1,4 +1,4 @@
 class ActivitySerializer < ActiveModel::Serializer
-  attributes :id, :title, :type, :description
+  attributes :id, :title, :category, :description
   has_one :trip
 end

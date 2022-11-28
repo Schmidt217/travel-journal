@@ -10,32 +10,51 @@ li{
   list-style: none;
 }
 
+button{
+  margin: 10px auto;
+  padding: 5px;
+  border-radius: 15px;
+  border: solid 1px var(--dark-blue);
+  padding: 8px;
+}
+
+button:hover{
+  font-weight: bold;
+  transform: scale(1.1);
+  cursor: pointer;
+  color: white;
+  background-color: var(--dark-blue);
+}
+
 /*-------NavBar---------*/
 .nav {
   width: 100vw;
   height: 60px;
   /* position: fixed; */
   margin: 0 auto;
+  position: relative;
   display: flex;
   justify-content: left;
   align-items:center;
   align-content: center;
   flex-direction: row;
   z-index: 1;
-  max-width: 1500px;
-  background-color: var(--seed-green);
+  /* width: 70vw; */
+  /* max-width: 1500px; */
   backdrop-filter: blur(5px);
+  background-color: aqua;
 }
 
 .nav-menu {
   display: flex;
   justify-content: space-between;
+  padding-left: 25px;
 }
 
 .nav-menu a{
   display: flex;
   flex-direction: row;
-  justify-content: left;
+  justify-content: center;
   font-size: 16px;
   font-weight: bold;
   text-decoration: none; 
@@ -51,9 +70,8 @@ li{
 }
 
 .nav span{
-  margin-left: auto;
-  margin-top: 15px;
-  padding-right: 20px;
+  position: absolute;
+  right: 125px;
   color: var(--dark-blue);
 }
 
@@ -74,7 +92,9 @@ li{
 }
 
 .logout-btn{
-  margin-left: 10px;
+  position: absolute;
+  right: 50px;
+  
 }
 
 /* ------- Profile -------- */
@@ -108,7 +128,6 @@ li{
   width: 60%;
   margin: 10px auto;
   padding: 5px;
-  border-radius: 7px;
   border: solid 1px var(--dark-blue);
   
 }
@@ -149,4 +168,8 @@ li{
   .expanded {
     transform: translateX(0%);
   }
+}
+
+.hidden{
+  display: none;
 }

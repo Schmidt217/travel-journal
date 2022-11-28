@@ -1,0 +1,40 @@
+.login-container{
+    background-color: aqua;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+}
+
+.login{
+    width: 30vw;
+    margin: 0 auto;
+    /* border: 2px solid black; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 0px;
+}
+
+/* .user-profile-form-page{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+} */
+
+.user-profile-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.user-profile-form label{
+    margin: 10px 0px;
+}
+
+.user-profile-form input{
+    padding: 5px;
+    border-radius: 15px;
+    border: none;
+}

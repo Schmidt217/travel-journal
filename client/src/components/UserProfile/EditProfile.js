@@ -1,21 +1,25 @@
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 
-const initialState = {
-    name: "",
-    username: "",
-    password: "",
-    password_confirmation: "",
-    bio: "Complete my bio.",
-}
 
-const Signup = ({ setUser }) => {
-    const [formData, setFormData] = useState(initialState)
+const EditProfile = ({ user, setRefreshPage }) => {
+    console.log(user.bio)
+    
+    const initFormData = {
+        name: user.name,
+        username: user.username,
+        bio: user.bio,
+        password: ''
+    }
+
+    const [formData, setFormData] = useState(initFormData)
     const [errors, setErrors] = useState([])
     const [isLoading, setIsLoading] = useState(false)
 
-    let navigate = useNavigate();
-
+    let navigate = useNavigate()
+    let params = useParams()
+    const userId = parseInt(params.id)
+    
     //handle form data from user input
     const handleOnChange = (e) => {
         const { name, value } = e.target
@@ -24,8 +28,7 @@ const Signup = ({ setUser }) => {
         setFormData(formData => {
             return{
                 ...formData,
-                [name]:value,
-                bio: 'Complete your bio'
+                [name]:value
             }
         })
     }
@@ -33,10 +36,9 @@ const Signup = ({ setUser }) => {
     //submit signup form
     function handleSubmit(e) {
       e.preventDefault();
-    //   console.log(formData)
       setIsLoading(true)
-      fetch("/signup", {
-        method: "POST",
+      fetch(`/users/${userId}`, {
+        method: "PATCH",
         headers: {
           "Content-Type": "application/json",
         },
@@ -45,9 +47,8 @@ const Signup = ({ setUser }) => {
         setIsLoading(false)
         if (res.ok) {
             res.json().then((userData) => {
-            setUser(userData)
-            setFormData(initialState)
-            navigate('/')
+                setRefreshPage(userData)
+            navigate('/profile')
           })
         }else{
           res.json().then((err) => setErrors(err.errors))
@@ -58,12 +59,10 @@ const Signup = ({ setUser }) => {
     const formErrorMsg = errors.map((err) => (
       <li key={err}>{err}</li>
     ))
-
   return (
-
-    <div className='user-profile-form-page signup-page'>
-            <form className='user-profile-form signup-form' onSubmit={handleSubmit}>
-                <h1>Sign Up</h1>
+    <div className='user-profile-form-page profile-page'>
+            <form className='user-profile-form profile-form' onSubmit={handleSubmit}>
+                <h1>Edit Your Profile</h1>
 
                 <label htmlFor="name">Name</label>
                 <input
@@ -80,30 +79,39 @@ const Signup = ({ setUser }) => {
                     value={formData.username}
                     onChange={handleOnChange}
                 />
+                <label htmlFor="bio">Bio</label>
+                <textarea
+                    type="text"
+                    name="bio"
+                    value={formData.bio}
+                    onChange={handleOnChange}
+                />
 
-                <label htmlFor="password">Password</label>
+                <label htmlFor="password">Password
                 <input
                     type="password"
                     name="password"
                     value={formData.password}
                     onChange={handleOnChange}
                 />
+                </label>
 
-                <label htmlFor="password">Confirm Password</label>
+                {/* <label htmlFor="password">Confirm Password</label>
                 <input
                     type="password"
                     name="password_confirmation"
                     value={formData.password_confirmation}
                     onChange={handleOnChange}
-                />
+                /> */}
 
-                <button className="submit-btn" type="submit">{isLoading ? "Loading..." : "Sign Up"}</button>
+                <button type="submit">{isLoading ? "Loading..." : "Submit Changes"}</button>
             </form>
 
             <ul>{formErrorMsg}</ul>
     </div>
-
   )
 }
 
-export default Signup
+export default EditProfile
+
+//edit User by id

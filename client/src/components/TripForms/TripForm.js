@@ -53,9 +53,7 @@ const TripForm = ({ userId, setRefreshPage }) => {
             res.json().then((err) => setErrors(err.errors))
           }
         })
-        //data to send to backend for new trip 
-        // console.log({...userInputTextData, private: isPrivate, user_id: userId})
-
+       
     }
 
     const formErrorMsg = errors.map((err) => (

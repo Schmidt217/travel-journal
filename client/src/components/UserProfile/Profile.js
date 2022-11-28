@@ -10,7 +10,10 @@ const Profile = ({ user }) => {
         <h2>Bio</h2>
         <p>{user.bio}</p>
         <p>{user.username}</p>
+        <Link to={`/editProfile/${user.id}`}>
         <button className='btn edit-profile'>Edit Profile</button>
+        </Link>
+        
         <Link to="/myTrips">
           <button className='btn view-myTrips'>View My Trips</button>
         </Link>

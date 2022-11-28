@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_23_212043) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_28_191800) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "activities", force: :cascade do |t|
     t.string "title"
-    t.string "activity_type"
+    t.string "category"
     t.string "description"
     t.bigint "trip_id", null: false
     t.datetime "created_at", null: false
