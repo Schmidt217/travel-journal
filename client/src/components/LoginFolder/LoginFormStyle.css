@@ -36,5 +36,5 @@
 .user-profile-form input{
     padding: 5px;
     border-radius: 15px;
-    border: none;
+    border: 1px solid var(--dark-blue);
 }

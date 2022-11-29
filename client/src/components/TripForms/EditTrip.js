@@ -86,7 +86,8 @@ const formErrorMsg = errors.map((err) => (
 
 return (
 <div className='trip-form-container'>
-    <form className="trip-form" autoComplete='off' onSubmit={handleSubmit} >
+  <h2>Edit Trip</h2>
+    <form className="trip-form edit-trip-form" autoComplete='off' onSubmit={handleSubmit} >
             <label>Trip Name </label>
             <input type='text'id="name" name="name" value={tripFormData.name} onChange={handleUserTextInput} required />
            

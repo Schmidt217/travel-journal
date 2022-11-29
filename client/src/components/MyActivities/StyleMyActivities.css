@@ -3,7 +3,8 @@
     position: relative;
     width: 80vw;
     margin: 5px auto;
-    border-top: 2px solid var(--dark-blue);
+    border-TOP: 2px solid var(--dark-blue);
+    max-width: 1600px;
 }
 
 .myActivity-card{
