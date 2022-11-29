@@ -7,7 +7,7 @@ const Home = ({ user, setRefreshPage }) => {
 
   return (
     <div className='pate-contianer'>
-      <h1>Travel Journal</h1>
+      <h1>Notable Adventure</h1>
       <div className="trip-form-page">
         <h3>Add a new Trip!</h3>
         <TripForm userId={user.id} setRefreshPage={setRefreshPage}/>

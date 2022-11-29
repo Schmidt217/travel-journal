@@ -9,6 +9,9 @@ Rails.application.routes.draw do
   post '/login', to: "sessions#create"
   delete '/logout', to: "sessions#destroy"
 
+  #for image upload
+  default_url_options :host => "http://localhost:3000"
+
   #for deployed react-router to work
   get '*path',
   to: 'fallback#index',

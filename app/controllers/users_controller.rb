@@ -12,7 +12,7 @@ class UsersController < ApplicationController
          end
      end
 
-     #should we find user by session?? - I'd think by params sent from frontend 
+     #PATCH - update a user profile (except password)
      def update
         user = User.find(params[:id])
         user.update!(user_update_params)
@@ -36,10 +36,10 @@ class UsersController < ApplicationController
      #default bio param will have "complete your bio" displayed in it on creation of a user, can change this with profile edit funciton
 
      def user_params
-         params.permit(:name, :username, :bio, :password, :password_confirmation)
+         params.permit(:name, :username, :bio,:password, :password_confirmation)
      end
 
      def user_update_params
-        params.permit(:name, :username, :bio)
+        params.permit(:name, :username, :bio,  :avatar, :attachment)
      end
 end

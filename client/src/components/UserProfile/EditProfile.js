@@ -3,23 +3,22 @@ import { useNavigate, useParams } from 'react-router-dom'
 
 
 const EditProfile = ({ user, setRefreshPage }) => {
-    console.log(user.bio)
-    
+  console.log(user)
+  
     const initFormData = {
         name: user.name,
         username: user.username,
         bio: user.bio,
-        password: ''
     }
 
     const [formData, setFormData] = useState(initFormData)
+    const [avatarFile, setAvatarFile] = useState('')
     const [errors, setErrors] = useState([])
     const [isLoading, setIsLoading] = useState(false)
 
     let navigate = useNavigate()
     let params = useParams()
     const userId = parseInt(params.id)
-    
     //handle form data from user input
     const handleOnChange = (e) => {
         const { name, value } = e.target
@@ -33,36 +32,59 @@ const EditProfile = ({ user, setRefreshPage }) => {
         })
     }
 
+    //handle file upload
+    const handleAvatarUpload = (e) => {
+      setAvatarFile(e.target.files[0])
+    }
+
     //submit signup form
     function handleSubmit(e) {
       e.preventDefault();
       setIsLoading(true)
+      // console.log(formData)
+      // console.log('file from useRef',avatarFile)
+
+      // console.log({ avatar : avatarFile })
+
+      //utilize this FormData method in JS to get all data from the form 
+      const entireFormData = new FormData(e.target);
+      entireFormData.append('File', avatarFile)
+      // console.log('og form-data',formData)
+
+      // console.log(entireFormData)
+
+
+      //do not want to sent a content-type b/c will not be json w/ file attached, also do not want to send JSON.stringify
+
       fetch(`/users/${userId}`, {
         method: "PATCH",
         headers: {
-          "Content-Type": "application/json",
+          accept: "application/json",
         },
-        body: JSON.stringify(formData),
+        body: entireFormData,
       }).then((res) => {
         setIsLoading(false)
         if (res.ok) {
             res.json().then((userData) => {
-                setRefreshPage(userData)
-            navigate('/profile')
+              console.log(userData)
+              setRefreshPage(userData)
+              navigate('/profile')
           })
         }else{
           res.json().then((err) => setErrors(err.errors))
         }
       });
     }
+
     //Error message if errors exist
-    const formErrorMsg = errors.map((err) => (
+    const formErrorMsg = errors?.map((err) => (
       <li key={err}>{err}</li>
     ))
+
   return (
     <div className='user-profile-form-page profile-page'>
             <form className='user-profile-form profile-form' onSubmit={handleSubmit}>
-                <h1>Edit Your Profile</h1>
+                <h1>Edit Profile</h1>
 
                 <label htmlFor="name">Name</label>
                 <input
@@ -79,6 +101,15 @@ const EditProfile = ({ user, setRefreshPage }) => {
                     value={formData.username}
                     onChange={handleOnChange}
                 />
+
+                <label htmlFor="avatar">Profile Image</label>
+                <input
+                    id='file-upload'
+                    type="file"
+                    name="avatar"
+                    onChange={handleAvatarUpload}
+                />
+
                 <label htmlFor="bio">Bio</label>
                 <textarea
                     type="text"
@@ -97,4 +128,4 @@ const EditProfile = ({ user, setRefreshPage }) => {
 
 export default EditProfile
 
-//edit User by id
+//add a ref to controll image upload file form 

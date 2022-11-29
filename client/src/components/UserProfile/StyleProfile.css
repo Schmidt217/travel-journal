@@ -2,10 +2,11 @@
 /* ------- Profile -------- */
 
 .profile-img{
-    width: 400px;
+    width: 350px;
     height: 350px;
     object-fit: cover;
     border-radius: 50%;
+    /* border: 1px solid var(--dark-blue); */
 }
 .profile{
     height: 100vh;
@@ -37,6 +38,28 @@
     background-color: aquamarine;
 }
 
+.profile-form{
+    max-width: 50vw;
+    /* background-color: aquamarine; */
+    border: 1px solid var(--dark-blue);
+    padding: 10px;
+    border-radius: 15px;
+    margin: 20px auto;
+}
+
+.profile-form textarea{
+    padding: 5px;
+    border-radius: 15px;
+    border: 1px solid var(--dark-blue);
+    width: 60%;
+    height: 15vh;
+    margin: 10px auto;
+}
+ #file-upload{
+    border: none;
+    width: 30%;
+ }
+
 .edit-profile-btn, .delete-profile-btn{
     position: absolute;
 }
@@ -48,3 +71,4 @@
 .delete-profile-btn{
     left: 25px;
 }
+
