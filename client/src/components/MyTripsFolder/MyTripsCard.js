@@ -9,7 +9,7 @@ const MyTripsCard = ({ userTrip }) => {
         <h2>{userTrip.name}</h2>
         <h3>{userTrip.location}</h3>
         <p>Date - {userTrip.date}</p>
-        <p>Trip ID: {userTrip.id}</p>
+        {/* <p>Trip ID: {userTrip.id}</p> */}
 
         <Link to={`/viewTrip/${userTrip.id}`}>
              <button className='edit-trip'>View Trip</button>

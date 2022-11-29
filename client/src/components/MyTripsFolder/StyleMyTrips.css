@@ -1,20 +1,40 @@
+.display-my-trips-cards{
+    position: relative;
+     /* border: 2px solid black; */
+    padding: 40px;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
 .myTrips-page{
     display: flex;
     margin: 0 auto;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    border: 2px solid black;
+    /* border: 2px solid black; */
     width: 90vw;
     height: 100vh; 
+    max-width: 1600px;
 }
 
 .myTrip-card{
-    border: 2px solid black;
+    border: 1px solid var(--dark-blue);
     margin: 10px;
     width: 15vw;
-    padding: 5px;
+    padding: 10px;
 }
+.add-new-trip-link{
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: var(--dark-blue);
+}
+
+.add-new-trip-link:hover{
+   text-decoration: underline;
+}
+/* ------- Single Trip View -------*/
 
 .single-trip-container{
     display: flex;

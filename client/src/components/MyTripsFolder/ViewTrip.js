@@ -1,12 +1,15 @@
 import '../MyActivities/StyleMyActivities.css'
 import { useEffect, useState } from 'react'
-import { useParams, Link } from 'react-router-dom'
+import { useParams, useNavigate, Link } from 'react-router-dom'
 import MyActivityCard from '../MyActivities/MyActivityCard'
+import ModalComponent from '../ModalComponent'
 
-const ViewTrip = () => {
+const ViewTrip = ({ setRefreshPage, refreshPage }) => {
     const [errors, setErrors] = useState([]);
     const [userTrip, setUserTrip] = useState('')
+    const [openModal, setOpenModal] = useState(false)
 
+    let navigate = useNavigate()
     let params = useParams()
     const tripId = parseInt(params.id)
 
@@ -24,22 +27,32 @@ const ViewTrip = () => {
                   res.json().then((err) => setErrors(err.errors))
                 }
               })
-        }, [tripId])
+        }, [tripId, refreshPage])
 
         //map over and display if any activities
         const renderActivities = userTrip.activities?.map(act =>{
-                return(
-                    
-                    //activity is nested again so to get to individual activity, need act.activity
-                    <MyActivityCard key={act.activity.id} activity={act.activity}/>
-                )
+            return(
+                //activity is nested again so to get to individual activity, need act.activity
+                <MyActivityCard key={act.activity.id} activity={act.activity} refreshPage={refreshPage} setRefreshPage={setRefreshPage}/>
+            )
         })
-        
 
-        //display Errors if any
-        const formErrorMsg = errors.map((err) => (
-            <li key={err}>{err}</li>
-          ))
+    //delete a trip
+    function handleDelete(){
+      fetch(`/trips/${tripId}`, {
+        method: 'DELETE',
+      })
+      .then(setRefreshPage(refreshPage => !refreshPage))
+      .then(navigate('/myTrips'))
+    }
+      //open/close modal for delete trip
+      const handleOpen = () => setOpenModal(true);
+      const handleClose = () => setOpenModal(false);
+
+      //display message if any errors
+      const formErrorMsg = errors?.map((err) => (
+          <li key={err}>{err}</li>
+        ))
     
   return (
     <div className='single-trip-page'>
@@ -65,10 +78,13 @@ const ViewTrip = () => {
             </div>
 
         <Link to={`/editTrip/${userTrip.id}`}>
-             <button className='edit-trip'>Edit Trip</button>
-        </Link>     
-        <button className="delete-trip">Delete Trip</button>
+             <button className='edit-trip-btn'>Edit Trip</button>
+        </Link>
+
+        <button className="delete-trip-btn" onClick={handleOpen}>Delete Trip</button>
         <ul>{formErrorMsg}</ul>
+
+        <ModalComponent openModal={openModal} handleDelete={handleDelete} handleClose={handleClose}/>
     </div>
   )
 }

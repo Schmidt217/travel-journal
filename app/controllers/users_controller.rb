@@ -24,10 +24,17 @@ class UsersController < ApplicationController
          current_user = User.find(session[:user_id])
          render json: current_user, status: :ok
      end
+
+     def destroy
+        user = User.find(params[:id])
+        user.destroy
+        head :no_content
+     end
  
      private
  
      #default bio param will have "complete your bio" displayed in it on creation of a user, can change this with profile edit funciton
+
      def user_params
          params.permit(:name, :username, :bio, :password, :password_confirmation)
      end

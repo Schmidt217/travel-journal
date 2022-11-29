@@ -1,9 +1,12 @@
 :root{
   --dark-blue: rgb(53, 53, 93);
+  --white: rgb(239, 243, 251);
 }
 
 .App {
   text-align: center;
+  /* background-color: var(--white); */
+  color: var(--dark-blue);
 }
 
 li{
@@ -16,11 +19,12 @@ button{
   border-radius: 15px;
   border: solid 1px var(--dark-blue);
   padding: 8px;
+  background-color: var(--white);
 }
 
 button:hover{
   font-weight: bold;
-  transform: scale(1.1);
+  /* transform: scale(1.1); */
   cursor: pointer;
   color: white;
   background-color: var(--dark-blue);
@@ -96,16 +100,6 @@ button:hover{
   right: 50px;
   
 }
-
-/* ------- Profile -------- */
-
-.profile-img{
-  width: 400px;
-  height: 350px;
-  object-fit: cover;
-  border-radius: 50%;
-}
-
 
 /* ------- Trip-Form-Page -------- */
 .trip-form-page{

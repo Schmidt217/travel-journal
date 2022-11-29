@@ -1,7 +1,24 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import './StyleProfile.css'
+import { useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import ModalComponent from '../ModalComponent'
 
-const Profile = ({ user }) => {
+const Profile = ({ user, setUser }) => {
+  const [openModal, setOpenModal] = useState(false)
+
+  let navigate = useNavigate()
+
+  //delete a user
+  function handleDelete(){
+    fetch(`/users/${user.id}`, {
+      method: 'DELETE',
+    })
+    .then(setUser(null)).then(navigate('/'))
+  }
+    //open/close modal for delete trip
+    const handleOpen = () => setOpenModal(true);
+    const handleClose = () => setOpenModal(false);
+
   return (
     <div className='page-container'>
       <div className="profile">
@@ -10,13 +27,20 @@ const Profile = ({ user }) => {
         <h2>Bio</h2>
         <p>{user.bio}</p>
         <p>{user.username}</p>
-        <Link to={`/editProfile/${user.id}`}>
-        <button className='btn edit-profile'>Edit Profile</button>
-        </Link>
         
         <Link to="/myTrips">
-          <button className='btn view-myTrips'>View My Trips</button>
+          <button className='view-myTrips-btn'>View My Trips</button>
         </Link>
+
+        <div className="btn-container">
+          <Link to={`/editProfile/${user.id}`}>
+          <button className='edit-profile-btn'>Edit Profile</button>
+          </Link>
+          <button className='delete-profile-btn' onClick={handleOpen}>Delete Profile</button>
+        </div>
+
+        <ModalComponent openModal={openModal} handleDelete={handleDelete} handleClose={handleClose}/>
+        
         
       </div>
     </div>

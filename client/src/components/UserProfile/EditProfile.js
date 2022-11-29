@@ -87,23 +87,6 @@ const EditProfile = ({ user, setRefreshPage }) => {
                     onChange={handleOnChange}
                 />
 
-                <label htmlFor="password">Password
-                <input
-                    type="password"
-                    name="password"
-                    value={formData.password}
-                    onChange={handleOnChange}
-                />
-                </label>
-
-                {/* <label htmlFor="password">Confirm Password</label>
-                <input
-                    type="password"
-                    name="password_confirmation"
-                    value={formData.password_confirmation}
-                    onChange={handleOnChange}
-                /> */}
-
                 <button type="submit">{isLoading ? "Loading..." : "Submit Changes"}</button>
             </form>
 

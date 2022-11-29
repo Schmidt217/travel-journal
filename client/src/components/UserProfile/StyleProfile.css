@@ -1,0 +1,47 @@
+
+/* ------- Profile -------- */
+
+.profile-img{
+    width: 400px;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.profile{
+    height: 100vh;
+}
+
+.view-myTrips-btn{
+    width: 10%;
+    background-color: var(--dark-blue);
+    color: white;
+    font-weight: bold;
+
+}
+
+.view-myTrips-btn:hover{
+    background-color: transparent;
+    color: var(--dark-blue);
+    border: 1px solid var(--dark-blue);
+    font-weight: bold;
+    /* transform: scale(1.1); */
+}
+
+.btn-container{
+    position: relative;
+    width: 90vw;
+    margin: 50px auto;
+    background-color: aquamarine;
+}
+
+.edit-profile-btn, .delete-profile-btn{
+    position: absolute;
+}
+
+.edit-profile-btn{
+    right: 25px;
+}
+
+.delete-profile-btn{
+    left: 25px;
+}

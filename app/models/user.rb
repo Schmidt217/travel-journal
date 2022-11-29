@@ -11,8 +11,9 @@ class User < ApplicationRecord
         (?=.*[[:^alnum:]]) #at least one symbol
     /x
 
-    validates :name, :username, :password, :bio, presence: true
-    validates :password, format: { with: PASSWORD_REQUIREMENTS, message: "Must be at least 8 characters, include at least one upper case letter, one lower case letter, one number and one symbol."}
+    validates :name, :username, :bio, presence: true
+    validates :password, presence: true, format: { with: PASSWORD_REQUIREMENTS, message: "Must be at least 8 characters, include at least one upper case letter, one lower case letter, one number and one symbol."}, on: :create
     validates :username, uniqueness: true
     #custom validation for updatating a user profile WITHOUT requiring a passowd!!
+    
 end
