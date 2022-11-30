@@ -5,7 +5,7 @@ const EditTrip = ({ setRefreshPage }) => {
     const [errors, setErrors] = useState([]);
     const [tripFormData, setTripFormData] = useState('')
     const [userId, setUserId] = useState('')
-    // const [userInputTextData, setUserInputTextData] = useState(tripFormData)
+    const [imageArr, setImageArr] = useState([])
     const [isPrivate, setIsPrivate] = useState(true)
 
     let navigate = useNavigate();
@@ -35,8 +35,6 @@ const EditTrip = ({ setRefreshPage }) => {
     }, [tripId])
 
     console.log(tripFormData)
-    
-
 
 //get user input from changes to text input areas
 const handleUserTextInput = (e) => {
@@ -49,6 +47,23 @@ const handleUserTextInput = (e) => {
     })
 }
 
+//upload images
+const handleImageUpload = (e) =>{
+  setImageArr([])
+  //returns an object of objects
+  let imageList = e.target.files
+  //turns object of objects into arr of objects
+  for(let el of imageList){
+    setImageArr(imageArr => {
+      return[
+        ...imageArr,
+        el
+      ]
+    })
+  }
+  return imageArr   
+}
+
 //get user input from radio-button(true or false) (keep trip private or not)
 const handleIsPrivate = () => {
     setIsPrivate(isPrivate => !isPrivate)
@@ -57,19 +72,32 @@ const handleIsPrivate = () => {
 //update a trip w/ new info
 const handleSubmit = (e) =>{
     e.preventDefault()
+    const entireFormData = new FormData();
+    //must append each form area separately and not w/ e.target (this only works w/ single image, not array of images)
+    entireFormData.append("name", tripFormData.name)
+    entireFormData.append("location", tripFormData.location)
+    entireFormData.append("date", tripFormData.date)
+    entireFormData.append("details", tripFormData.details)
+    entireFormData.append("private", isPrivate)
+    entireFormData.append('user_id', userId)
+  //trying to append each element of images arr to form data
+    for(let i=0; i< imageArr.length; i++){
+      entireFormData.append(`images[]`, imageArr[i])
+    }
 
     fetch(`/trips/${params.id}`,  {
         method: "PATCH",
         headers: {
-            "Content-Type": "application/json",
+          accept: "application/json",
         },
-        body: JSON.stringify({...tripFormData, private: isPrivate, user_id: userId})
+        body: entireFormData
     })
     .then((res) => {
       if (res.ok) {
         res.json().then((userData) => {
             console.log(userData)
-            setTripFormData({})
+            setImageArr([])
+            // setTripFormData({})
             setRefreshPage(userData)
             navigate('/myTrips')
         });
@@ -106,8 +134,18 @@ return (
 
             <label>Keep this trip private</label>
                 <input type="radio" id="private" name="private" checked={isPrivate ? "checked" : ''} value={isPrivate} onChange={handleIsPrivate}/>
+
+            <label htmlFor="images">Add Trip Photos</label>
+            <input
+                id="file-upload-trip-form"
+                type="file"
+                name="images"
+                multiple
+                onChange={handleImageUpload}
+            />
     
             <button className='submit-btn' type="submit">SUBMIT</button>
+            
         </form>
 
         <ul>{formErrorMsg}</ul>

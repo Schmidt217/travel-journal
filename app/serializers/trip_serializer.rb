@@ -20,8 +20,4 @@ class TripSerializer < ActiveModel::Serializer
     end
   end
 
-  # def image_url(img)
-  #   rails_blob_path(img, only_path: true)
-  # end
-
 end

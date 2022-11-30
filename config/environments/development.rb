@@ -35,7 +35,7 @@ Rails.application.configure do
   config.active_storage.service = :local
 
   #don't replace old images with additional ones uploaded
-  # config.active.storage.replace_on_assign_to_many = false
+  config.active.storage.replace_on_assign_to_many = false
 
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false

@@ -30,6 +30,7 @@
     border-radius: 15px;
     border: 1px solid var(--dark-blue);
     width: 40vw;
+    max-width: 400px;
     height: 15vh;
     margin: 10px auto;
 }

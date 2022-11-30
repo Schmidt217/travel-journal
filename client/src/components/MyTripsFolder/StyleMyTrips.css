@@ -38,7 +38,7 @@
 /* ------- Single Trip View -------*/
 .single-trip-page{
     position: relative;
-    background-color: aqua;
+    /* background-color: aqua; */
     margin: 0;
 
 }
@@ -70,11 +70,13 @@
 }
 
 .view-all-photos-link{
-    position: absolute;
-    height: 30px;
-    width: 8vw;
+    position:absolute;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    font-size: 16px;
     bottom: 120px;
-    right: 45px;
+    right: 100px;
 
 }
 

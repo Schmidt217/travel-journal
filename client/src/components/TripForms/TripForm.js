@@ -60,12 +60,11 @@ const TripForm = ({ userId, setRefreshPage }) => {
         entireFormData.append("details", userInputTextData.details)
         entireFormData.append("private", isPrivate)
   
+        entireFormData.append('user_id', userId)
       //trying to append each element of images arr to form data
         for(let i=0; i< imageArr.length; i++){
           entireFormData.append(`images[]`, imageArr[i])
         }
-
-        entireFormData.append('user_id', userId)
 
         fetch('/trips',  {
             method: "POST",
@@ -124,8 +123,7 @@ const TripForm = ({ userId, setRefreshPage }) => {
                     multiple
                     onChange={handleImageUpload}
                 />
-                {}
-        
+            
                 <button className='submit-btn' type="submit">SUBMIT</button>
             </form>
 

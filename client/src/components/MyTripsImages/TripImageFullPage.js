@@ -46,7 +46,7 @@ const TripImageFullPage = ( setRefreshPage, refreshPage ) => {
                           <h2>Add trip photos!</h2>
               )}
 
-        <button className='add-trip-img-btn'>+</button>
+        <button className='add-trip-img-btn'>Add Photos</button>
       </div>
     </div>
   )
