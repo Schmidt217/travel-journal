@@ -60,13 +60,26 @@
 }
 
 .single-trip-details{
-    border-right: 2px solid black; 
+    border-right: 2px solid var(--light-grey); 
 }
 .single-trip-images{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-evenly;
+}
+.add-img-btn{
+    position:absolute;
+    /* height: 40px; */
+    width: 5vw;
+    /* border-radius: 50%; */
+    /* font-size: 20px; */
+    top:0px;
+    right: 60px;
+    border: none;
+    background-color: transparent;
+
+
 }
 
 .view-all-photos-link{
@@ -76,7 +89,8 @@
     border-radius: 50%;
     font-size: 16px;
     bottom: 120px;
-    right: 100px;
+    right: 150px;
+    background-color: transparent;
 
 }
 

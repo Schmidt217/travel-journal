@@ -6,7 +6,9 @@ class Trip < ApplicationRecord
 
   validates :name, :location, :date, :details, :user_id, presence: true
 
-  validates :images, content_type: [:png, :jpg, :jpeg], size: { less_than: 3.megabytes , message: 'is too large' }
+  validates :images, content_type: [:png, :jpg, :jpeg]
+
+  # , size: { less_than: 3.megabytes , message: 'is too large' }
 
   #helps us store locally during development 
   # def image_urls

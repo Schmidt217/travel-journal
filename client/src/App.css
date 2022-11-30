@@ -1,6 +1,7 @@
 :root{
   --dark-blue: rgb(53, 53, 93);
   --white: rgb(239, 243, 251);
+  --light-grey: rgb(216, 214, 214);
 }
 
 .App {

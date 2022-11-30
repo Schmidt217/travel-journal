@@ -71,8 +71,7 @@ const ViewTrip = ({ setRefreshPage, refreshPage }) => {
             <div className="single-trip-details">
                 <h2>{userTrip.name}</h2>
                 <h3>{userTrip.location}</h3>
-                <p>Date - {userTrip.date}</p>
-                <p>Trip ID: {userTrip.id}</p>
+                <p>{userTrip.date}</p>
                 <p>{userTrip.details}</p>
             </div>
 
@@ -92,9 +91,9 @@ const ViewTrip = ({ setRefreshPage, refreshPage }) => {
               <button className='view-all-photos-link'>+</button>
             </Link>
 
-            <button className='add-trip-img-btn'>Add Photos</button>
-            
+            <button className='add-img-btn'>Add Photos</button>
         </div>
+
         <div className="activities-container">
                 <h3>Activities</h3>
                 {renderActivities}

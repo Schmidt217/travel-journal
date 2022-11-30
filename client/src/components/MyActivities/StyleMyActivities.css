@@ -3,7 +3,7 @@
     position: relative;
     width: 80vw;
     margin: 5px auto;
-    border-TOP: 2px solid var(--dark-blue);
+    border-TOP: 2px solid var(--light-grey);
     max-width: 1600px;
 }
 
@@ -12,7 +12,7 @@
     text-align: left;
     width: 70%;
     margin: 5px auto;
-    border-bottom: 2px solid var(--dark-blue);
+    border-bottom: 2px solid var(--light-grey);
     padding: 10px;
 }
 
