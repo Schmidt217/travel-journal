@@ -41,19 +41,12 @@ const EditProfile = ({ user, setRefreshPage }) => {
     function handleSubmit(e) {
       e.preventDefault();
       setIsLoading(true)
-      // console.log(formData)
-      // console.log('file from useRef',avatarFile)
-
-      // console.log({ avatar : avatarFile })
 
       //utilize this FormData method in JS to get all data from the form 
       const entireFormData = new FormData(e.target);
-      entireFormData.append('File', avatarFile)
-      // console.log('og form-data',formData)
-
-      // console.log(entireFormData)
-
-
+      entireFormData.append('avatar', avatarFile)
+      debugger
+      
       //do not want to sent a content-type b/c will not be json w/ file attached, also do not want to send JSON.stringify
 
       fetch(`/users/${userId}`, {

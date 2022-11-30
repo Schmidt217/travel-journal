@@ -1,0 +1,63 @@
+/* on the view trip page (only 3 images max are shown here) */
+.trip-img-profile-page{
+    height: 200px;
+    width: 200px;
+    object-fit: cover;
+    margin: 10px;
+    border-radius: 7px;
+}
+
+.trip-images-page{
+    margin: 20px auto;
+    position:relative;
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    /* align-items: center; */
+    /* border: 1px solid black; */
+}
+
+.img-card{
+    margin: 10px auto;
+    /* border: 1px solid black; */
+    position: relative;
+
+}
+
+.single-trip-img{
+    height: 400px;
+    width: 400px;
+    object-fit: cover;
+    border-radius: 7px;
+    margin: 0 auto;
+}
+
+.delete-img{
+    position: absolute;
+    right: 3px;
+    bottom: 3px;
+    background-color: transparent;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    border: none;
+    /* border: 1px solid var(--dark-blue); */
+    padding: none;
+
+}
+
+.delete-img:hover{
+    background-color: rgb(211, 59, 9);
+}
+
+.add-trip-img-btn{
+    position:absolute;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    font-size: 20px;
+    top:0px;
+    right: 65px;
+}

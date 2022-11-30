@@ -34,10 +34,15 @@ Rails.application.configure do
   # Store uploaded files on the local file system (see config/storage.yml for options).
   config.active_storage.service = :local
 
+  #don't replace old images with additional ones uploaded
+  # config.active.storage.replace_on_assign_to_many = false
+
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
     #specify host for image upload url
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  #additional line for multiple image upload?
+  # Rails.application.routes.default_url_options[:host] = 'localhost:3000'
 
   config.action_mailer.perform_caching = false
 

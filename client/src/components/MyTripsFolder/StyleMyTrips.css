@@ -36,10 +36,16 @@
    text-decoration: underline;
 }
 /* ------- Single Trip View -------*/
+.single-trip-page{
+    position: relative;
+    background-color: aqua;
+    margin: 0;
+
+}
 
 .single-trip-container{
     display: flex;
-    margin: 0 auto;
+    /* margin: 0 auto; */
     flex-direction: row;
     flex-wrap: none;
     justify-content: space-evenly;
@@ -47,6 +53,7 @@
     width: 80vw;
     max-width: 1600px;
     margin: 50px auto;
+    padding: 10px;
 }
 .single-trip-details, .single-trip-images{
     width: 50%;
@@ -54,5 +61,20 @@
 
 .single-trip-details{
     border-right: 2px solid black; 
+}
+.single-trip-images{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.view-all-photos-link{
+    position: absolute;
+    height: 30px;
+    width: 8vw;
+    bottom: 120px;
+    right: 45px;
+
 }
 

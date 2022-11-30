@@ -6,15 +6,20 @@
     margin-top: 50px;
 }
 .trip-form{
-    max-width: 50vw;
     /* background-color: aquamarine; */
+    display: flex;
+    flex-direction: column;
     border: 1px solid var(--dark-blue);
     padding: 10px;
+    width: 80vw;
+    max-width: 500px;
     border-radius: 15px;
-    margin-top: 20px;
+    margin: 20px auto;
 }
 
 .trip-form input{
+    width: 60%;
+    margin: 10px auto;
     padding: 5px;
     border-radius: 15px;
     border: 1px solid var(--dark-blue);
@@ -24,9 +29,16 @@
     padding: 5px;
     border-radius: 15px;
     border: 1px solid var(--dark-blue);
-    width: 80%;
+    width: 40vw;
     height: 15vh;
     margin: 10px auto;
+}
+
+#file-upload-trip-form{
+    width: 50%;
+    border: none;
+    /* border: 1px solid var(--dark-blue); */
+
 }
 
 .edit-trip-form{

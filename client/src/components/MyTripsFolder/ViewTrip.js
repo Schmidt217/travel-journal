@@ -37,6 +37,17 @@ const ViewTrip = ({ setRefreshPage, refreshPage }) => {
             )
         })
 
+        //map over and display images if any images exist
+        const renderImages = userTrip.images_format?.map((img, index) => {
+          console.log(index)
+          
+          return(
+            <img className='trip-img-profile-page' src={img.url} alt='trip' key={img.id}/>
+          )
+        })
+        // console.log(renderImages?.length)
+
+
     //delete a trip
     function handleDelete(){
       fetch(`/trips/${tripId}`, {
@@ -65,8 +76,24 @@ const ViewTrip = ({ setRefreshPage, refreshPage }) => {
                 <p>{userTrip.details}</p>
             </div>
 
-            <div className="single-trip-images">Images Container
+            <div className="single-trip-images">
+              {renderImages && renderImages.length > 0 ? 
+                        ( <div>
+                              {renderImages[0]}
+                              {renderImages[1]}
+                              {renderImages[2]}
+                          </div> 
+
+                 ) : (
+                          ''
+              )}
             </div>
+            <Link to={`/viewTripImages/${tripId}`}>
+              <p className='view-all-photos-link'>All Photos</p>
+            </Link>
+
+            <button className='add-trip-img-btn'>+</button>
+            
         </div>
         <div className="activities-container">
                 <h3>Activities</h3>

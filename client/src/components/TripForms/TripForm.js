@@ -14,6 +14,7 @@ const TripForm = ({ userId, setRefreshPage }) => {
     const [errors, setErrors] = useState([]);
     const [userInputTextData, setUserInputTextData] = useState(initialFormState)
     const [isPrivate, setIsPrivate] = useState(false)
+    const [imageArr, setImageArr] = useState([])
 
     let navigate = useNavigate();
 
@@ -23,7 +24,7 @@ const TripForm = ({ userId, setRefreshPage }) => {
         setUserInputTextData(userInputTextData => {
             return{
                 ...userInputTextData,
-                [name]:value
+                [name]:value,
             }
         })
     }
@@ -33,19 +34,51 @@ const TripForm = ({ userId, setRefreshPage }) => {
         setIsPrivate(isPrivate => !isPrivate)
     }
 
+    const handleImageUpload = (e) =>{
+      setImageArr([])
+      //returns an object of objects
+      let imageList = e.target.files
+      //turns object of objects into arr of objects
+      for(let el of imageList){
+        setImageArr(imageArr => {
+          return[
+            ...imageArr,
+            el
+          ]
+        })
+      }
+      return imageArr   
+    }
+
     const handleSubmit = (e) =>{
         e.preventDefault()
+        const entireFormData = new FormData();
+        //must append each form area separately and not w/ e.target (this only works w/ single image, not array of images)
+        entireFormData.append("name", userInputTextData.name)
+        entireFormData.append("location", userInputTextData.location)
+        entireFormData.append("date", userInputTextData.date)
+        entireFormData.append("details", userInputTextData.details)
+        entireFormData.append("private", isPrivate)
+  
+      //trying to append each element of images arr to form data
+        for(let i=0; i< imageArr.length; i++){
+          entireFormData.append(`images[]`, imageArr[i])
+        }
+
+        entireFormData.append('user_id', userId)
+
         fetch('/trips',  {
             method: "POST",
             headers: {
-                "Content-Type": "application/json",
+                accept: "application/json",
             },
-            body: JSON.stringify({...userInputTextData, private: isPrivate, user_id: userId})
+            body: entireFormData,
         })
         .then((res) => {
           if (res.ok) {
             res.json().then((userData) => {
                 console.log(userData)
+                setImageArr([])
                 setUserInputTextData(initialFormState)
                 setRefreshPage(userData)
                 navigate('/')
@@ -57,7 +90,7 @@ const TripForm = ({ userId, setRefreshPage }) => {
        
     }
 
-    const formErrorMsg = errors.map((err) => (
+    const formErrorMsg = errors?.map((err) => (
         <li key={err}>{err}</li>
       ))
 
@@ -82,6 +115,16 @@ const TripForm = ({ userId, setRefreshPage }) => {
 
                 <label>Keep this trip private</label>
                     <input type="radio" id="private" name="private" checked={isPrivate ? "checked" : ''} value={isPrivate} onChange={handleIsPrivate}/>
+
+                <label htmlFor="images">Add Trip Photos</label>
+                <input
+                    id="file-upload-trip-form"
+                    type="file"
+                    name="images"
+                    multiple
+                    onChange={handleImageUpload}
+                />
+                {}
         
                 <button className='submit-btn' type="submit">SUBMIT</button>
             </form>

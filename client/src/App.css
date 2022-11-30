@@ -102,38 +102,21 @@ button:hover{
 }
 
 /* ------- Trip-Form-Page -------- */
-.trip-form-page{
-  width: 60vw;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin: 0 auto;
 
-}
-
-.trip-form{
+/* .trip-form{
   display: flex;
   flex-direction: column;
   width: 30vw;
   margin: 0 auto;
-}
-
-.trip-form input, .submit-btn{
-  width: 60%;
-  margin: 10px auto;
-  padding: 5px;
-  border: solid 1px var(--dark-blue);
-  
-}
+} */
+/* f */
 
 .submit-btn{
   padding: 7px;
   width: 45%;
-}
-
-.file-upload{
-  outline: none;
-
+  margin: 10px auto;
+  padding: 5px;
+  border: solid 1px var(--dark-blue);
 }
 
 

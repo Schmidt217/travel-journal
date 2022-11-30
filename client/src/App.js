@@ -14,6 +14,7 @@ import EditProfile from './components/UserProfile/EditProfile'
 import ViewTrip from './components/MyTripsFolder/ViewTrip'
 import AddActivityForm from './components/MyActivities/AddActivityForm'
 import EditActivityForm from './components/MyActivities/EditActivityForm'
+import TripImageFullPage from './components/MyTripsImages/TripImageFullPage'
 
 function App() {
   const [user, setUser] = useState("")
@@ -50,6 +51,7 @@ function App() {
         <Route path="myTrips" element ={ <MyTrips user={user}/> } />
         <Route path="explore" element ={ <Explore /> } />
         <Route path="viewTrip/:id" element ={ <ViewTrip user={user} refreshPage={refreshPage} setRefreshPage={setRefreshPage}/> } />
+        <Route path="viewTripImages/:id" element ={ <TripImageFullPage user={user} refreshPage={refreshPage} setRefreshPage={setRefreshPage}/> } />
         <Route path="editTrip/:id" element ={ <EditTrip setRefreshPage={setRefreshPage} /> } />
         <Route path="editProfile/:id" element ={ <EditProfile setRefreshPage={setRefreshPage} user={user}/> } />
         <Route path="addActivity/:id" element ={ <AddActivityForm setRefreshPage={setRefreshPage}/> } />

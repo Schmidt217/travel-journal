@@ -1,5 +1,4 @@
 class UserSerializer < ActiveModel::Serializer
-  # include Rails.application.routes.url_helpers
   attributes :id, :name, :username, :bio, :avatar_format, :attachment_format
   has_many :trips
 
@@ -21,9 +20,5 @@ class UserSerializer < ActiveModel::Serializer
       .merge(url: object.image_url)
       .tap { |attrs| attrs['name'] = attrs.delete('filename') }
   end
-
-  # def image_url
-  #   url_for(object.image)
-  # end
 
 end
