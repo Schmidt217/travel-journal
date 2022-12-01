@@ -31,18 +31,17 @@ button{
   margin: 10px auto;
   padding: 5px;
   border-radius: 15px;
-  border: solid 1px var(--dark-blue);
+  border: none;
+  /* border: solid 1px var(--dark-blue); */
   padding: 8px;
   color: var(--white);
   background-color: var(--dark-blue);
 }
 
 button:hover{
-  /* font-weight: bold; */
-  /* transform: scale(1.1); */
+  color: var(--dark-blue);
   cursor: pointer;
-  color: white;
-  background-color: var(--blue);
+  background-color: var(--ocean-blue);
 }
 
 /*-------NavBar---------*/
@@ -145,6 +144,7 @@ button:hover{
 .confirm-delete-btn:hover{
   background-color: var(--delete-red);
   font-weight: normal;
+  color: var(--white);
 }
 
 /* ------- Media Queries -------- */

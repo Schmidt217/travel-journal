@@ -9,7 +9,7 @@
     /* background-color: aquamarine; */
     display: flex;
     flex-direction: column;
-    border: 1px solid var(--dark-blue);
+    /* border: 1px solid var(--dark-blue); */
     padding: 10px;
     width: 80vw;
     max-width: 500px;
