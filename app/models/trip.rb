@@ -2,7 +2,7 @@ class Trip < ApplicationRecord
   include Rails.application.routes.url_helpers
   belongs_to :user
   has_many :activities, dependent: :destroy
-  has_many_attached :images
+  has_many_attached :images, dependent: :destroy
 
   validates :name, :location, :date, :details, :user_id, presence: true
 

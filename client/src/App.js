@@ -57,9 +57,6 @@ function App() {
         <Route path="addActivity/:id" element ={ <AddActivityForm setRefreshPage={setRefreshPage}/> } />
         <Route path="editActivity/:id" element ={ <EditActivityForm setRefreshPage={setRefreshPage}/> } />
       </Routes>
-      
-
-      
     </div>
   );
 }

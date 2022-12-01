@@ -11,7 +11,8 @@ const ModalComponent = ({openModal, handleClose, handleDelete}) => {
   aria-describedby="modal-modal-description"
 >
   <Box 
-        sx={{backgroundColor: "white",
+        sx={{backgroundColor: "rgb(53, 53, 93)",
+          color: "white",
 					display: "flex",
           justifyContent: "center",
           flexDirection: "row",

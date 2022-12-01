@@ -29,7 +29,7 @@ const ViewTrip = ({ setRefreshPage, refreshPage }) => {
               })
         }, [tripId, refreshPage])
 
-        //map over and display if any activities
+        //map over and display any activities 
         const renderActivities = userTrip.activities?.map(act =>{
             return(
                 //activity is nested again so to get to individual activity, need act.activity
@@ -37,7 +37,7 @@ const ViewTrip = ({ setRefreshPage, refreshPage }) => {
             )
         })
 
-        //map over and display images if any images exist
+        //map over and display any images
         const renderImages = userTrip.images_format?.map((img, index) => {
           console.log(index)
           
@@ -45,7 +45,6 @@ const ViewTrip = ({ setRefreshPage, refreshPage }) => {
             <img className='trip-img-profile-page' src={img.url} alt='trip' key={img.id}/>
           )
         })
-        // console.log(renderImages?.length)
 
 
     //delete a trip
@@ -92,7 +91,7 @@ const ViewTrip = ({ setRefreshPage, refreshPage }) => {
             </div>
 
             <button className='add-img-btn'>Add Photos</button>
-            
+
         </div>
 
         <div className="activities-container">

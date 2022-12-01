@@ -1,12 +1,29 @@
-import React from 'react'
+import { useState } from 'react'
+import ModalComponent from '../ModalComponent'
 
-const ImageCard = ({ imageInfo }) => {
+
+const ImageCard = ({ tripId, imageInfo, refreshImages, setRefreshImages }) => {
+  const [openModal, setOpenModal] = useState(false)
+// console.log(setRefreshPage)
+
+  const handleDelete = () => {
+    fetch(`/deleteImage/${tripId}/${imageInfo.id}`,{
+      method: 'DELETE',
+    })
+    .then(setRefreshImages(refreshImages => !refreshImages))
+  }
+  
+   //open/close modal for delete image
+   const handleOpen = () => setOpenModal(true);
+   const handleClose = () => setOpenModal(false);
 
   return (
 
     <div className='img-card'>
         <img className="single-trip-img"src={imageInfo.url} alt="trip" id={imageInfo.id}/>
-        <button className='delete-img'>X</button>
+        <button className='delete-img' onClick={handleOpen}>X</button>
+
+        <ModalComponent openModal={openModal} handleDelete={handleDelete} handleClose={handleClose}/>
     </div>
     
   )

@@ -3,6 +3,10 @@ Rails.application.routes.draw do
   resources :trips, only: [:index, :show, :create, :update, :destroy]
   resources :users, only: [:update, :destroy]
 
+  #custom single trip image handling routes
+  get '/findImage/:id/:attachment_id', to: "trips#findImage"
+  delete '/deleteImage/:id/:attachment_id', to: "trips#deleteImage"
+
   #unique User auth routes
   post '/signup', to: "users#create"
   get '/auth', to: "users#show"

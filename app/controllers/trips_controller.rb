@@ -33,6 +33,21 @@ class TripsController < ApplicationController
         head :no_content
     end
 
+    # ------ custom actions for trip images ------- #
+    #Get single image associated with a trip
+    def findImage
+        trip = Trip.find(params[:id])
+        image = trip.images.find(params[:attachment_id])
+        render json: image, status: :ok
+    end
+
+    def deleteImage
+        trip = Trip.find(params[:id])
+        image = trip.images.find(params[:attachment_id])
+        image.purge
+        head :no_content 
+    end
+
     private
 
     def trip_params
