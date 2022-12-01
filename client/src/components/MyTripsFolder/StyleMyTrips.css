@@ -1,6 +1,4 @@
 .display-my-trips-cards{
-    /* position: relative; */
-     /* border: 2px solid black; */
     padding: 40px;
     max-width: 1600px;
     margin: 0 auto;
@@ -19,11 +17,12 @@
 }
 
 .myTrip-card{
-    border: 1px solid var(--dark-blue);
+    background-color: var(--dark-blue);
     margin: 10px;
     width: 15vw;
     padding: 10px;
-     border-radius: 7px;
+    border-radius: 7px;
+    box-shadow: 5px 5px 10px var(--deep-blue);
 }
 
 .myTrip-card-img{
@@ -31,17 +30,31 @@
     width: 150px;
     object-fit: cover;
     border-radius: 7px;
+    box-shadow: 5px 5px 10px var(--deep-blue);
 }
+
+.view-single-trip{
+    background-color: var(--ocean-blue);
+    color: var(--dark-blue);
+    box-shadow: 5px 5px 10px var(--deep-blue);
+}
+.view-single-trip:hover{
+    background-color: var(--blue);
+    color: var(--yellow);
+}
+
 .add-new-trip-link{
     position: absolute;
     top: 20px;
     right: 35px;
-    color: var(--dark-blue);
+    color: var(--ocean-blue);
 }
 
 .add-new-trip-link:hover{
    text-decoration: underline;
+   color: var(--yellow);
 }
+
 /* ------- Single Trip View -------*/
 .single-trip-page{
     position: relative;
@@ -59,7 +72,7 @@
     /* border: 2px solid black; */
     width: 80vw;
     max-width: 1600px;
-    margin: 50px auto;
+    margin: 100px auto;
     padding: 10px;
 }
 .single-trip-details, .single-trip-images{
@@ -86,12 +99,15 @@
     flex-wrap: wrap;
     justify-content: space-evenly;
 }
+
+
 .view-images{
     position:absolute;
     width: 5vw;
     top:0px;
     right: 60px;
     border: none;
+    color: var(--dark-blue);
     background-color: transparent;
 
 }
@@ -104,7 +120,45 @@
     font-size: 16px;
     bottom: 0px;
     right: 0px;
-    background-color: transparent; 
+    color: var(--white);
+    background-color: var(--dark-blue);
+
+}
+
+.edit-trip-btn{
+    position: absolute;
+    right: 50px;
+    bottom: 0px;
+}
+
+.delete-trip-btn{
+    position: absolute;
+    left: 50px;
+    bottom: 0px;
+}
+
+
+@media screen and (max-width: 768px) {
+
+    .single-trip-container{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .single-trip-details{
+        border: none;
+        margin-bottom: 30px;
+    }
+
+    .view-images{
+        position:inherit;
+        width: 80vw;
+    }
+
+    .add-images-btn{
+        right: -80px;
+    }
 
 }
 

@@ -3,8 +3,9 @@
     position: relative;
     width: 80vw;
     margin: 5px auto;
-    border-TOP: 2px solid var(--light-grey);
+    border-top: 2px solid var(--light-grey);
     max-width: 1600px;
+    padding-bottom: 100px;
 }
 
 .myActivity-card{
@@ -20,7 +21,7 @@
     position: absolute;
     top: 5px;
     right: 10px;
-    width: 10%;
+    width: 15vw;
 }
 
 .edit-activity, .delete-activity{
@@ -38,4 +39,11 @@
 .edit-activity{
     right: 45px;
     padding: 9px;
+}
+
+@media screen and (max-width: 768px) {
+
+.add-activity{
+    font-size: 12px;
+}
 }

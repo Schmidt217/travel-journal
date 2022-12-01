@@ -31,7 +31,7 @@ const EditActivityForm = ({ setRefreshPage }) => {
             })
         }
     })
-  }, [params])
+  }, [activityId])
 
 
     //get user input from changes to form

@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import { useParams, useNavigate, Link } from 'react-router-dom'
 import MyActivityCard from '../MyActivities/MyActivityCard'
 import ModalComponent from '../ModalComponent'
+import PlaceholderImage from '../../ImageFolder/placeholder-image2.png'
 
 const ViewTrip = ({ setRefreshPage, refreshPage }) => {
     const [errors, setErrors] = useState([]);
@@ -43,6 +44,8 @@ const ViewTrip = ({ setRefreshPage, refreshPage }) => {
           )
         })
 
+        //hidden class for if images exist yet
+        const hiddenClassName = userTrip.images_format ? "view-images" : "view-images hidden"
 
     //delete a trip
     function handleDelete(){
@@ -60,6 +63,8 @@ const ViewTrip = ({ setRefreshPage, refreshPage }) => {
       const formErrorMsg = errors?.map((err) => (
           <li key={err}>{err}</li>
         ))
+
+
     
   return (
     <div className='single-trip-page'>
@@ -80,7 +85,10 @@ const ViewTrip = ({ setRefreshPage, refreshPage }) => {
                           </div> 
 
                  ) : (
-                          ''
+                        <div>
+                        <img className='trip-img-profile-page' src={PlaceholderImage} alt="trip"/>
+                        <p>Add trip photos!</p>
+                        </div>
               )}
             <Link to={`/addTripImages/${tripId}`}>
               <button title="Add images" className='add-images-btn'>+</button>
@@ -88,7 +96,7 @@ const ViewTrip = ({ setRefreshPage, refreshPage }) => {
             </div>
 
             <Link to={`/viewTripImages/${tripId}`}>
-              <button className='view-images'>View Photos</button>
+              <button className={hiddenClassName}>View Photos</button>
             </Link>
         </div>
 
@@ -96,10 +104,10 @@ const ViewTrip = ({ setRefreshPage, refreshPage }) => {
                 <h3>Activities</h3>
                 {renderActivities}
                 <Link to={`/addActivity/${userTrip.id}`}>
-                  <button className='submit-btn add-activity'>Add an Activity</button>
+                  <button className='add-activity'>Add Activity</button>
                 </Link>
               
-            </div>
+        </div>
 
         <Link to={`/editTrip/${userTrip.id}`}>
              <button className='edit-trip-btn'>Edit Trip</button>

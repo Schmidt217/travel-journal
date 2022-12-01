@@ -14,7 +14,6 @@ class TripsController < ApplicationController
 
     #POST - create a new trip
     def create
-        debugger
         newTrip = Trip.create!(trip_params)
         render json: newTrip, status: :created
     end

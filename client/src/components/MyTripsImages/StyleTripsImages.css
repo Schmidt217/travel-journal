@@ -42,7 +42,7 @@
 }
 
 .delete-img:hover{
-    background-color: rgb(211, 59, 9);
+    background-color: var(--delete-red);
 }
 
 .add-trip-img-btn{
@@ -53,7 +53,8 @@
     font-size: 16px;
     top:0px;
     right: 20px;
-    background-color: transparent;
+    color: var(--white);
+    background-color: var(--dark-blue);
 }
 
 
@@ -62,4 +63,18 @@
    .add-trip-img-btn{
     right: 5px;
    } 
+
+}
+@media screen and (max-width: 768px) {
+    .single-trip-img{
+        height: 250px;
+        width: 250px;
+       }
+
+       .add-trip-img-btn{
+        border: none;
+        font-size: 20px;
+        
+       } 
+
 }

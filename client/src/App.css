@@ -1,13 +1,22 @@
 :root{
+  --deep-blue: rgb(35, 35, 62);
   --dark-blue: rgb(53, 53, 93);
+  --blue: rgb(95, 95, 155);
+  --ocean-blue: #7fb9c6;
   --white: rgb(239, 243, 251);
   --light-grey: rgb(216, 214, 214);
+  --delete-red: rgb(211, 59, 9);
+  --orange: #F16B50;
+  --yellow: #ffd984;
 }
 
 .App {
   text-align: center;
   /* background-color: var(--white); */
-  color: var(--dark-blue);
+  color: var(--white);
+  background-color: var(--blue);
+  margin: 0;
+  padding: 0;
 }
 
 li{
@@ -24,15 +33,16 @@ button{
   border-radius: 15px;
   border: solid 1px var(--dark-blue);
   padding: 8px;
-  background-color: var(--white);
+  color: var(--white);
+  background-color: var(--dark-blue);
 }
 
 button:hover{
-  font-weight: bold;
+  /* font-weight: bold; */
   /* transform: scale(1.1); */
   cursor: pointer;
   color: white;
-  background-color: var(--dark-blue);
+  background-color: var(--blue);
 }
 
 /*-------NavBar---------*/
@@ -103,27 +113,39 @@ button:hover{
 .logout-btn{
   position: absolute;
   right: 50px;
+  color: var(--dark-blue);
+  background-color: var(--ocean-blue);
+  
+}
+.logout-btn:hover{
+  background-color: var(--delete-red);
   
 }
 
 /* ------- Trip-Form-Page -------- */
 
-/* .trip-form{
-  display: flex;
-  flex-direction: column;
-  width: 30vw;
-  margin: 0 auto;
-} */
-/* f */
 
 .submit-btn{
   padding: 7px;
-  width: 45%;
+  width: 10vw;
   margin: 10px auto;
   padding: 5px;
   border: solid 1px var(--dark-blue);
 }
 
+
+
+
+/* ------- Modal Delete -------- */
+.confirm-delete-btn{
+  margin-top: 30px;
+  font-size: 20px;
+  background-color: var(--blue);
+}
+.confirm-delete-btn:hover{
+  background-color: var(--delete-red);
+  font-weight: normal;
+}
 
 /* ------- Media Queries -------- */
 
