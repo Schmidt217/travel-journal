@@ -86,12 +86,13 @@ const ViewTrip = ({ setRefreshPage, refreshPage }) => {
                  ) : (
                           ''
               )}
+                <Link to={`/viewTripImages/${tripId}`}>
+                  <button className='view-all-photos-btn'>+</button>
+                </Link>
             </div>
-            <Link to={`/viewTripImages/${tripId}`}>
-              <button className='view-all-photos-link'>+</button>
-            </Link>
 
             <button className='add-img-btn'>Add Photos</button>
+            
         </div>
 
         <div className="activities-container">

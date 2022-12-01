@@ -1,11 +1,4 @@
-/* on the view trip page (only 3 images max are shown here) */
-.trip-img-profile-page{
-    height: 200px;
-    width: 200px;
-    object-fit: cover;
-    margin: 10px;
-    border-radius: 7px;
-}
+
 
 .trip-images-page{
     margin: 20px auto;

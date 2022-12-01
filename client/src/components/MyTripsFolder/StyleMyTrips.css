@@ -1,5 +1,5 @@
 .display-my-trips-cards{
-    position: relative;
+    /* position: relative; */
      /* border: 2px solid black; */
     padding: 40px;
     max-width: 1600px;
@@ -23,7 +23,14 @@
     margin: 10px;
     width: 15vw;
     padding: 10px;
-   
+    border-radius: 7px;
+}
+
+.myTrip-card-img{
+    height: 150px;
+    width: 150px;
+    object-fit: cover;
+    border-radius: 7px;
 }
 .add-new-trip-link{
     position: absolute;
@@ -62,7 +69,18 @@
 .single-trip-details{
     border-right: 2px solid var(--light-grey); 
 }
+
+/* on the view trip page (only 3 images max are shown here) */
+.trip-img-profile-page{
+    height: 200px;
+    width: 200px;
+    object-fit: cover;
+    margin: 10px;
+    border-radius: 7px;
+}
+
 .single-trip-images{
+    position: relative;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -82,15 +100,15 @@
 
 }
 
-.view-all-photos-link{
+.view-all-photos-btn{
     position:absolute;
     height: 40px;
     width: 40px;
     border-radius: 50%;
     font-size: 16px;
-    bottom: 120px;
-    right: 150px;
-    background-color: transparent;
+    bottom: 0px;
+    right: 0px;
+    background-color: transparent; 
 
 }
 
