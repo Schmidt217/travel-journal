@@ -23,6 +23,7 @@ module TravelJournal
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
 
+
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files
@@ -42,5 +43,8 @@ module TravelJournal
  
      # Use SameSite=Strict for all cookies to help protect against CSRF
      config.action_dispatch.cookies_same_site_protection = :strict
+
+    #include additional photos in storage when more are added after initial photos
+    config.active_storage.replace_on_assign_to_many = false
   end
 end
