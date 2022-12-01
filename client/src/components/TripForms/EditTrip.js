@@ -144,7 +144,7 @@ return (
                 onChange={handleImageUpload}
             />
     
-            <button className='submit-btn' type="submit">SUBMIT</button>
+            
             
         </form>
 

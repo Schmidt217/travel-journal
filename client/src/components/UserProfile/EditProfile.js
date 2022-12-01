@@ -45,9 +45,8 @@ const EditProfile = ({ user, setRefreshPage }) => {
       //utilize this FormData method in JS to get all data from the form 
       const entireFormData = new FormData(e.target);
       entireFormData.append('avatar', avatarFile)
-      debugger
-      
-      //do not want to sent a content-type b/c will not be json w/ file attached, also do not want to send JSON.stringify
+
+      //do not want to send a content-type b/c will not be json w/ file attached, also do not want to send JSON.stringify
 
       fetch(`/users/${userId}`, {
         method: "PATCH",

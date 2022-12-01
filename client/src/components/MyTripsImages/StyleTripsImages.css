@@ -47,12 +47,19 @@
 
 .add-trip-img-btn{
     position:absolute;
-    /* height: 40px; */
-    width: 5vw;
-    /* border-radius: 50%; */
-    /* font-size: 20px; */
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    font-size: 16px;
     top:0px;
-    right: 10px;
-    border: none;
+    right: 20px;
     background-color: transparent;
+}
+
+
+@media screen and (max-width: 970px) {
+
+   .add-trip-img-btn{
+    right: 5px;
+   } 
 }

@@ -4,7 +4,7 @@ class Trip < ApplicationRecord
   has_many :activities, dependent: :destroy
   has_many_attached :images, dependent: :destroy
 
-  validates :name, :location, :date, :details, :user_id, presence: true
+  validates :name, :location, :date, :user_id, presence: true, on: :create
 
   validates :images, content_type: [:png, :jpg, :jpeg]
 

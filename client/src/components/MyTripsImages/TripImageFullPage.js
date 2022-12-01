@@ -1,8 +1,7 @@
 import './StyleTripsImages.css'
 import { useEffect, useState } from 'react'
-import { useParams, useNavigate } from 'react-router-dom'
+import { Link, useParams, useNavigate } from 'react-router-dom'
 import ImageCard from './ImageCard';
-import { setRef } from '@mui/material';
 
 const TripImageFullPage = ( setRefreshPage, refreshPage ) => {
      const [errors, setErrors] = useState([]);
@@ -36,6 +35,11 @@ const TripImageFullPage = ( setRefreshPage, refreshPage ) => {
         )
       })
 
+         //display message if any errors
+         const formErrorMsg = errors?.map((err) => (
+          <li key={err}>{err}</li>
+        ))
+
   return (
     <div className='page-container'>
       <div className="trip-images-page">
@@ -46,9 +50,11 @@ const TripImageFullPage = ( setRefreshPage, refreshPage ) => {
                  ) : (
                           <h2>Add trip photos!</h2>
               )}
-
-        <button className='add-trip-img-btn'>Add Photos</button>
+        <Link to={`/addTripImages/${tripId}`}>
+          <button title="Add images" className='add-trip-img-btn'>+</button>
+        </Link>
       </div>
+      <ul>{formErrorMsg}</ul>
     </div>
   )
 }

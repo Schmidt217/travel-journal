@@ -1,12 +1,18 @@
 
 /* ------- Profile -------- */
+.profileImg-container{
+    position: relative;
+    width: 30vw;
+    margin: 0 auto;
+    /* background-color: aqua; */
 
+}
 .profile-img{
     width: 350px;
     height: 350px;
     object-fit: cover;
     border-radius: 50%;
-    /* border: 1px solid var(--dark-blue); */
+    border: 5px solid var(--dark-blue);
 }
 .profile{
     height: 100vh;
@@ -35,7 +41,7 @@
     width: 90vw;
     max-width: 1600px;
     margin: 50px auto;
-    background-color: aquamarine;
+    /* background-color: aquamarine; */
 }
 
 .profile-form{
@@ -70,5 +76,21 @@
 
 .delete-profile-btn{
     left: 25px;
+}
+
+.delete-profile-img-btn{
+    position: absolute;
+    /* right: 100px; */
+    background-color: transparent;
+
+}
+
+.edit-profile-img-btn{
+    position: absolute;
+    right: 40px;
+    bottom: -10px;
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
 }
 

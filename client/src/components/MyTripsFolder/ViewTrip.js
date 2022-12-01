@@ -20,8 +20,6 @@ const ViewTrip = ({ setRefreshPage, refreshPage }) => {
                 if (res.ok) {
                   res.json().then((tripData) => {
                     setUserTrip(tripData)
-                    console.log(tripData)
-                    
                   });
                 } else {
                   res.json().then((err) => setErrors(err.errors))
@@ -39,7 +37,6 @@ const ViewTrip = ({ setRefreshPage, refreshPage }) => {
 
         //map over and display any images
         const renderImages = userTrip.images_format?.map((img, index) => {
-          console.log(index)
           
           return(
             <img className='trip-img-profile-page' src={img.url} alt='trip' key={img.id}/>
@@ -85,13 +82,14 @@ const ViewTrip = ({ setRefreshPage, refreshPage }) => {
                  ) : (
                           ''
               )}
-                <Link to={`/viewTripImages/${tripId}`}>
-                  <button className='view-all-photos-btn'>+</button>
-                </Link>
+            <Link to={`/addTripImages/${tripId}`}>
+              <button title="Add images" className='add-images-btn'>+</button>
+            </Link>
             </div>
 
-            <button className='add-img-btn'>Add Photos</button>
-
+            <Link to={`/viewTripImages/${tripId}`}>
+              <button className='view-images'>View Photos</button>
+            </Link>
         </div>
 
         <div className="activities-container">

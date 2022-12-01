@@ -2,6 +2,7 @@ import './StyleProfile.css'
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import ModalComponent from '../ModalComponent'
+import PlaceholderImg from '../../ImageFolder/placeholder-image2.png'
 
 const Profile = ({ user, setUser }) => {
   const [openModal, setOpenModal] = useState(false)
@@ -24,7 +25,13 @@ const Profile = ({ user, setUser }) => {
     <div className='page-container'>
       <div className="profile">
         <h1>Welcome {user.name}!</h1>
-        <img className='profile-img' src={user.avatar_format?.url ? user.avatar_format.url : "https://thenounproject.com/api/private/icons/396915/edit/?backgroundShape=SQUARE&backgroundShapeColor=%23000000&backgroundShapeOpacity=0&exportSize=752&flipX=false&flipY=false&foregroundColor=%23676767&foregroundOpacity=1&imageFormat=png&rotation=0&token=gAAAAABjhmpm7hjdq9KRo324pPytqcIJ7mCdHgPb-SEWWHyfpLMk3-ApZmnsu4G-IlzhPHEHOBHkBxCjMihqBDw9jgTS7z9HjA%3D%3D" } alt="profile-pic" />
+        <img className='profile-img' src={user.avatar_format?.url ? user.avatar_format.url : PlaceholderImg} alt="profile-pic" />
+        <div className="profileImg-container">
+          <Link to={`/editProfileImage/${user.id}`}>
+            <button title="add/edit image" className='edit-profile-img-btn'>✎</button>
+          </Link>
+        </div>
+
         <h2>Bio</h2>
         <p>{user.bio}</p>
         <p>{user.username}</p>

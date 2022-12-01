@@ -23,7 +23,7 @@
     margin: 10px;
     width: 15vw;
     padding: 10px;
-    border-radius: 7px;
+     border-radius: 7px;
 }
 
 .myTrip-card-img{
@@ -86,21 +86,17 @@
     flex-wrap: wrap;
     justify-content: space-evenly;
 }
-.add-img-btn{
+.view-images{
     position:absolute;
-    /* height: 40px; */
     width: 5vw;
-    /* border-radius: 50%; */
-    /* font-size: 20px; */
     top:0px;
     right: 60px;
     border: none;
     background-color: transparent;
 
-
 }
 
-.view-all-photos-btn{
+.add-images-btn{
     position:absolute;
     height: 40px;
     width: 40px;
