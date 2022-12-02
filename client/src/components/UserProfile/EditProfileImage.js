@@ -56,6 +56,7 @@ const EditProfileImage = ({ setRefreshPage  }) => {
 
         <button type="submit">{isLoading ? "Loading..." : "Submit Changes"}</button>
         </form>
+        <button className='form-cancel-btn' onClick={()=> navigate(-1)}>Cancel</button>
         <ul>{formErrorMsg}</ul>
     </div>
   )

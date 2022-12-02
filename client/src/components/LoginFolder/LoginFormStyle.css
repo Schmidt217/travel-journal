@@ -28,6 +28,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    color: var(--dark-blue);
 }
 .user-profile-form label{
     margin: 10px 0px;
@@ -36,5 +37,5 @@
 .user-profile-form input{
     padding: 5px;
     border-radius: 15px;
-    border: 1px solid var(--dark-blue);
+    /* border: 1px solid var(--dark-blue); */
 }

@@ -146,6 +146,7 @@ return (
  
             <button className='submit-btn' type="submit">SUBMIT</button>
         </form>
+        <button className='form-cancel-btn' onClick={()=> navigate(-1)}>Cancel</button>
 
         <ul>{formErrorMsg}</ul>
 </div>

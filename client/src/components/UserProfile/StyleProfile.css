@@ -49,8 +49,8 @@
 .profile-form{
     max-width: 50vw;
     /* background-color: aquamarine; */
-    border: 1px solid var(--dark-blue);
-    padding: 10px;
+    /* border: 1px solid var(--dark-blue); */
+    padding: 50px;
     border-radius: 15px;
     margin: 20px auto;
 }

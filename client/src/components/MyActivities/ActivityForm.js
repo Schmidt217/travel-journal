@@ -171,7 +171,9 @@ const ActivityForm = ({ setRefreshPage }) => {
                 
         
                 <button className='submit-btn' type="submit">{isSending ? 'SUBMITTING...' : 'SUBMIT'}</button>
+                
             </form>
+            <button className='form-cancel-btn' onClick={()=> navigate(-1)}>Cancel</button>
 
             <ul>{formErrorMsg}</ul>
     </div>

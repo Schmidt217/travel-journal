@@ -68,10 +68,10 @@ const AddTripImages = ({ user, setRefreshPage }) => {
         <li key={err}>{err}</li>
       ))
   return (
-    <div>
-        <h3> Add Images to {selectedTrip.name}</h3>
+    <div className='add-images-form-page'>
+        <h2> Add Images to {selectedTrip.name}</h2>
 
-             <form className="trip-form add-images-form" autoComplete='off' onSubmit={handleSubmit} >
+             <form className="add-images-form" autoComplete='off' onSubmit={handleSubmit} >
                 <label htmlFor="images"></label>
                 <input
                     id="file-upload-trip-form"
@@ -80,7 +80,10 @@ const AddTripImages = ({ user, setRefreshPage }) => {
                     multiple
                     onChange={handleImageUpload}
                 />
-                <button className='submit-btn' type="submit">SUBMIT</button>
+                <div className="btn-container">
+                    <button className='submit-btn' type="submit">SUBMIT</button>
+                    <button className='form-cancel-btn' onClick={()=> navigate(-1)}>Cancel</button>
+                </div>
              </form>
 
              <ul>{formErrorMsg}</ul>
