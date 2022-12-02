@@ -1,6 +1,6 @@
 :root{
   --deep-blue: rgb(35, 35, 62);
-  --dark-blue: rgb(53, 53, 93);
+  --dark-blue: rgb(61, 61, 108);
   --blue: rgb(95, 95, 155);
   --ocean-blue: #7fb9c6;
   --white: rgb(239, 243, 251);
@@ -14,7 +14,7 @@
   text-align: center;
   /* background-color: var(--white); */
   color: var(--white);
-  background-color: var(--blue);
+  /* background-color: var(--blue); */
   margin: 0;
   padding: 0;
 }
@@ -25,6 +25,16 @@ li{
 
 .page-container{
   position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: var(--blue);
+  margin: 0;
+  padding: 0;
+}
+
+.page-container h1{
+  padding-top: 50px;
+  margin: 0;
 }
 
 button{
@@ -36,6 +46,7 @@ button{
   padding: 8px;
   color: var(--white);
   background-color: var(--dark-blue);
+  font-size: 16px;
 }
 
 button:hover{
@@ -116,6 +127,7 @@ button:hover{
 }
 .logout-btn:hover{
   background-color: var(--delete-red);
+  color: var(--white);
   
 }
 

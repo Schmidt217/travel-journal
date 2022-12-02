@@ -41,8 +41,15 @@
     padding: 9px;
 }
 
+.activity-form-page{
+    color: var(--dark-blue);
+    margin: 0 auto;
+    padding-top: 50px;
+}
+
 .add-activity-form{
-    
+    /* color: var(--dark-blue);
+    margin: 0 auto; */
 }
 
 .add-activity-form select{

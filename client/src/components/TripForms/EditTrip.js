@@ -143,9 +143,8 @@ return (
                 multiple
                 onChange={handleImageUpload}
             />
-    
-            
-            
+ 
+            <button className='submit-btn' type="submit">SUBMIT</button>
         </form>
 
         <ul>{formErrorMsg}</ul>

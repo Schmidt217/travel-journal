@@ -35,7 +35,7 @@ const Profile = ({ user, setUser }) => {
         <h2>Bio</h2>
         <p>{user.bio}</p>
         <p>{user.username}</p>
-        
+
         <Link to="/myTrips">
           <button className='view-myTrips-btn'>View My Trips</button>
         </Link>
@@ -48,8 +48,7 @@ const Profile = ({ user, setUser }) => {
         </div>
 
         <ModalComponent openModal={openModal} handleDelete={handleDelete} handleClose={handleClose}/>
-        
-        
+
       </div>
     </div>
   )

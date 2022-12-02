@@ -142,9 +142,19 @@ const ActivityForm = ({ setRefreshPage }) => {
     
     }
 
+          //display message if any errors
+          const formErrorMsg = errors?.map((err) => (
+            <li key={err}>{err}</li>
+          ))
+
+          //render title edit vs add activity based on params activityId(edit) vs tripId(add new activity)
+
+          const formTitle = params.activityId? 'Edit Activity' : 'Add New Activity'
+
+
   return (
-    <div className='trip-form-container'>
-      <h2>New Activity Form</h2>
+    <div className='activity-form-page'>
+      <h2> {formTitle}</h2>
         <form className="trip-form add-activity-form" autoComplete='off' onSubmit={handleSubmit} >
                 <label>Activity Name </label>
                 <input type='text'id="title" name="title" value={activityFormData.title} onChange={handleUserTextInput} required />
@@ -163,7 +173,7 @@ const ActivityForm = ({ setRefreshPage }) => {
                 <button className='submit-btn' type="submit">{isSending ? 'SUBMITTING...' : 'SUBMIT'}</button>
             </form>
 
-            <ul>{errors}</ul>
+            <ul>{formErrorMsg}</ul>
     </div>
   )
 }
