@@ -1,5 +1,6 @@
 .trip-form-container{
     max-width: 1600px;
+    height: 100vh;
 }
 
 .trip-form-container h2{

@@ -41,6 +41,17 @@
     padding: 9px;
 }
 
+.add-activity-form{
+    
+}
+
+.add-activity-form select{
+    width: 20vw;
+    margin: 0 auto;
+    padding: 5px;
+    border-radius: 7px;
+}
+
 @media screen and (max-width: 768px) {
 
 .add-activity{

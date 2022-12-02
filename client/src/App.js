@@ -13,10 +13,9 @@ import EditTrip from './components/TripForms/EditTrip'
 import EditProfile from './components/UserProfile/EditProfile'
 import EditProfileImage from './components/UserProfile/EditProfileImage'
 import ViewTrip from './components/MyTripsFolder/ViewTrip'
-import AddActivityForm from './components/MyActivities/AddActivityForm'
-import EditActivityForm from './components/MyActivities/EditActivityForm'
 import TripImageFullPage from './components/MyTripsImages/TripImageFullPage'
 import AddTripImages from './components/MyTripsImages/AddTripImages'
+import ActivityForm from './components/MyActivities/ActivityForm'
 
 function App() {
   const [user, setUser] = useState("")
@@ -58,8 +57,11 @@ function App() {
         <Route path="editTrip/:id" element ={ <EditTrip setRefreshPage={setRefreshPage} /> } />
         <Route path="editProfile/:id" element ={ <EditProfile setRefreshPage={setRefreshPage} user={user}/> } />
         <Route path="editProfileImage/:id" element ={ <EditProfileImage setRefreshPage={setRefreshPage} user={user}/> } />
-        <Route path="addActivity/:id" element ={ <AddActivityForm setRefreshPage={setRefreshPage}/> } />
-        <Route path="editActivity/:id" element ={ <EditActivityForm setRefreshPage={setRefreshPage}/> } />
+
+        <Route path="trip/:tripId/add-activity" element ={ <ActivityForm setRefreshPage={setRefreshPage}/> } />
+
+        <Route path="activities/:activityId/edit" element ={ <ActivityForm setRefreshPage={setRefreshPage}/> } />
+
       </Routes>
     </div>
   );

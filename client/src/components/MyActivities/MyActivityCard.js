@@ -23,7 +23,7 @@ const MyActivityCard = ({activity, refreshPage, setRefreshPage}) => {
         <p>Category: {activity.category}</p>
         <p>{activity.description}</p>
 
-        <Link to={`/editActivity/${activity.id}`}>
+        <Link to={`/activities/${activity.id}/edit`}>
                 <button className='edit-activity'>✎</button>
         </Link>
 

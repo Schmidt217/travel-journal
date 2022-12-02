@@ -103,7 +103,7 @@ const ViewTrip = ({ setRefreshPage, refreshPage }) => {
         <div className="activities-container">
                 <h3>Activities</h3>
                 {renderActivities}
-                <Link to={`/addActivity/${userTrip.id}`}>
+                <Link to={`/trip/${userTrip.id}/add-activity`}>
                   <button className='add-activity'>Add Activity</button>
                 </Link>
               
