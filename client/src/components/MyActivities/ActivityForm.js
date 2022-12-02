@@ -46,6 +46,8 @@ const ActivityForm = ({ setRefreshPage }) => {
 
   let navigate = useNavigate();
   let params = useParams();
+  console.log(params)
+  
   
   useEffect(() => {
     //if params.activityId, fetch current activity info so user can edit it
