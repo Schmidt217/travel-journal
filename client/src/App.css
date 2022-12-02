@@ -57,8 +57,6 @@ button:hover{
   align-content: center;
   flex-direction: row;
   z-index: 1;
-  /* width: 70vw; */
-  /* max-width: 1500px; */
   backdrop-filter: blur(5px);
   background-color: var(--dark-blue);
 }
