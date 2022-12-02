@@ -53,7 +53,7 @@ const ViewTrip = ({ setRefreshPage, refreshPage }) => {
         method: 'DELETE',
       })
       .then(setRefreshPage(refreshPage => !refreshPage))
-      .then(navigate('/myTrips'))
+      .then(navigate('/user/trips'))
     }
       //open/close modal for delete trip
       const handleOpen = () => setOpenModal(true);

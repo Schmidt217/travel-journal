@@ -37,9 +37,9 @@ const NavBar = ({ user, setUser }) => {
 
            <div className={isNavExpanded ? 'nav-menu expanded' : 'nav-menu'}>
               <NavLink to='/'>Home</NavLink>
-              <NavLink to='profile'>Profile</NavLink>
-              <NavLink to='myTrips'> My Trips</NavLink>
-              <NavLink to='explore'>Explore</NavLink>
+              <NavLink to='user/profile'>Profile</NavLink>
+              <NavLink to='user/trips'> My Trips</NavLink>
+              <NavLink to='trips/publicTrips'>Explore</NavLink>
           </div>
 
                 <span>Hello, {user.name}!</span>

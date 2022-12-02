@@ -69,12 +69,11 @@
     position: relative;
     background-color: var(--blue);
     margin: 0 auto;
-    height: 100vh;
+    /* height: 100vh; */
     width: 100%;
     overflow-y: scroll;
     background-position: fixed;
     max-width: 1800px;
-
 
 }
 
@@ -143,13 +142,13 @@
 .edit-trip-btn{
     position: absolute;
     right: 50px;
-    bottom: 20px;
+    bottom: 10px;
 }
 
 .delete-trip-btn{
     position: absolute;
     left: 50px;
-    bottom: 20px;
+    bottom: 10px;
 }
 
 

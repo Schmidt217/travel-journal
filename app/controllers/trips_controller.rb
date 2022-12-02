@@ -1,9 +1,12 @@
 class TripsController < ApplicationController
 
-    #GET all trips
+    #GET all public trips
     def index
-        trip = Trip.all
-        render json: trip, status: :ok
+        # publicTrips = []
+        publicTrips = Trip.all.select do |trip|
+            trip.private == false
+        end
+        render json: publicTrips, status: :ok
     end
 
     #GET individual trip based on id

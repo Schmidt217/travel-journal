@@ -36,11 +36,11 @@ const Profile = ({ user, setUser }) => {
         <p>{user.bio}</p>
         <p>{user.username}</p>
 
-        <Link to="/myTrips">
+        <Link to="/user/trips">
           <button className='view-myTrips-btn'>View My Trips</button>
         </Link>
 
-        <div className="btn-container">
+        <div className="profile-btn-container">
           <Link to={`/editProfile/${user.id}`}>
           <button className='edit-profile-btn'>Edit Profile</button>
           </Link>
