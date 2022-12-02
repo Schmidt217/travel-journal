@@ -2,15 +2,13 @@ import './StylePublicTrips.css'
 import { useState } from 'react'
 import PublicTripCard from './PublicTripCard'
 
-const Explore = ({ publicTrips }) => {
+const Explore = ({ publicTrips, user}) => {
 
   const renderPublicTrips = publicTrips.map(trip => {
     return (
-      <PublicTripCard key={trip.id} trip={trip}/>
+      <PublicTripCard key={trip.id} trip={trip} user={user}/>
     )
   })
-
-  console.log(renderPublicTrips)
   
   return (
     <div className='public-trips-page'>

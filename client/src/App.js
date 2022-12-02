@@ -52,7 +52,6 @@ function App() {
   }
   
   console.log(publicTrips)
-  
 
   if(!user) return <LoginContainer setUser={setUser}/>
 
@@ -65,7 +64,7 @@ function App() {
         <Route path="signup" element ={ <Signup /> } /> */}
         <Route path="user/profile" element ={ <Profile user={user} setUser={setUser}/> } />
         <Route path="user/trips" element ={ <MyTrips user={user}/> } />
-        <Route path="trips/publicTrips" element ={ <Explore publicTrips={publicTrips} /> } />
+        <Route path="trips/publicTrips" element ={ <Explore user={user} publicTrips={publicTrips} /> } />
         <Route path="viewTrip/:id" element ={ <ViewTrip user={user} refreshPage={refreshPage} setRefreshPage={setRefreshPage}/> } />
         <Route path="viewTripImages/:id" element ={ <TripImageFullPage user={user} refreshPage={refreshPage} setRefreshPage={setRefreshPage}/> } />
         <Route path="addTripImages/:id" element ={ <AddTripImages user={user} setRefreshPage={setRefreshPage}/> } />
