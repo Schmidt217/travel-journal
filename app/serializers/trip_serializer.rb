@@ -1,7 +1,7 @@
 class TripSerializer < ActiveModel::Serializer
   # include Rails.application.routes.url_helpers
   attributes :id, :name, :location, :date, :details, :private, :activities, :images_format
-
+  has_many :likes
   has_one :user
 
   def activities

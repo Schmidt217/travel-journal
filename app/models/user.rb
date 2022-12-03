@@ -2,6 +2,8 @@ class User < ApplicationRecord
     include Rails.application.routes.url_helpers
     has_many :trips, dependent: :destroy
     has_many :activities, through: :trips
+    has_many :likes, dependent: :destroy
+    has_many :liked_trips, through: :likes, :source => :trip
     has_one_attached :avatar
     has_one_attached :attachment
 
