@@ -132,16 +132,50 @@ button:hover{
   
 }
 
-/* ------- Trip-Form-Page -------- */
+/* ------- SearchBar-------- */
+.search{
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+  align-self: center;
+  margin: 0 auto;
+  padding: 50px 0 20px 0;
+  /* background-color: var(--white); */
+  width: 50vw;
+  /* border: 2px solid black; */
+  max-width: 1500px;
+  overflow-y: none;
+}
+
+.search input, .search label{
+  margin: 5px 10px;
+  font-size: 18px;
+  padding: 8px;
+}
+
+.search label{
+  color: var(--main-plum);
+  /* border-top: 2px solid var(--dark-blue);
+  border-bottom: 2px solid var(--dark-blue); */
+}
+
+.search input{
+  width: 300px;
+  border-radius: 25px;
+  border: none;
+  background-color: var(--ocean-blue);
+}
+
+/* ------- Submit-btn styling -------- */
 
 
-.submit-btn{
+/* .submit-btn{
   padding: 7px;
   width: 10vw;
   margin: 10px auto;
   padding: 5px;
   border: solid 1px var(--dark-blue);
-}
+} */
 
 
 

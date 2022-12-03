@@ -1,6 +1,6 @@
 import './App.css'
 import { useState, useEffect } from "react"
-import { Routes, Route, useNavigate } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 import NavBar from './components/NavBar'
 import LoginContainer from './components/LoginFolder/LoginContainer'
 import Login from './components/LoginFolder/Login'
@@ -20,11 +20,8 @@ import ActivityForm from './components/MyActivities/ActivityForm'
 function App() {
   const [user, setUser] = useState("")
   const[publicTrips, setPublicTrips] = useState([])
-  const [errors, setErrors] = useState([])
-  // const [addNewTrip, setAddNewTrip] = useState(true)
+  const [search, setSearch] = useState("")
   const [refreshPage, setRefreshPage] = useState(false);
-
-  let navigate = useNavigate();
 
   // auto-login if user_id in session from previous login
   useEffect(() => {
@@ -33,7 +30,7 @@ function App() {
         res.json().then((userData) => {
           setUser(userData)
           fetchPublicTrips()
-          // navigate('profile')
+
         });
       }
     });
@@ -63,8 +60,8 @@ function App() {
         {/* <Route path="login" element ={ <Login /> } />
         <Route path="signup" element ={ <Signup /> } /> */}
         <Route path="user/profile" element ={ <Profile user={user} setUser={setUser}/> } />
-        <Route path="user/trips" element ={ <MyTrips user={user}/> } />
-        <Route path="trips/publicTrips" element ={ <Explore user={user} publicTrips={publicTrips} /> } />
+        <Route path="user/trips" element ={ <MyTrips user={user} search={search} setSearch={setSearch}/>} />
+        <Route path="trips/publicTrips" element ={ <Explore user={user} publicTrips={publicTrips} search={search} setSearch={setSearch}/> } />
         <Route path="viewTrip/:id" element ={ <ViewTrip user={user} refreshPage={refreshPage} setRefreshPage={setRefreshPage}/> } />
         <Route path="viewTripImages/:id" element ={ <TripImageFullPage user={user} refreshPage={refreshPage} setRefreshPage={setRefreshPage}/> } />
         <Route path="addTripImages/:id" element ={ <AddTripImages user={user} setRefreshPage={setRefreshPage}/> } />

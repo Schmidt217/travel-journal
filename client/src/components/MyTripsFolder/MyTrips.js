@@ -1,19 +1,37 @@
 import './StyleMyTrips.css'
 import { Link } from 'react-router-dom'
 import MyTripsCard from './MyTripsCard'
+import SearchBar from '../SearchBar'
 
-const MyTrips = ({ user }) => {
+const MyTrips = ({ user, search, setSearch }) => {
 
-  const renderTrips = user.trips.map(trip => {
-    return(
-      <MyTripsCard key={trip.id} userTrip={trip}/>
-    )
+  //searchBar filter of all user's trips
+  const filterTrips = user.trips.filter((trip, index)=> {
+    //change trip name, location and user search input to lowercase
+    //then check if search input is included in any existing trip name, location, date, details
+    if(trip.name.toLowerCase().includes(search.toLowerCase())){
+      return true
+    }else if (trip.location.toLowerCase().includes(search.toLowerCase())){
+      return true
+    } else if (trip.date.toLowerCase().includes(search.toLowerCase())){
+      return true
+    } else if (trip.details.toLowerCase().includes(search.toLowerCase())){
+      return true
+    }else return false
   })
+
+    //map over and display trips (potentially filtered trips from searchbar input) to page via trip cards
+    const renderTrips = filterTrips.map(trip => {
+      return(
+        <MyTripsCard key={trip.id} userTrip={trip}/>
+      )
+    })
 
   return (
     <div className='page-container'>
       <div className="display-my-trips-cards">
         <h1>{user.name}'s Trips</h1>
+        <SearchBar search={search} setSearch={setSearch}/>
         <Link to='/'>
           <span className='add-new-trip-link'>Add New Trip</span>
         </Link>

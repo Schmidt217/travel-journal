@@ -17,15 +17,14 @@ const PublicTripCard = ({ trip, user }) => {
         setIsLiked(tripAlreadyLiked)
         //set like count state to initial amount of likes - display below and handle w/ like button clicking
         setLikeCounter(trip.likes?.length)
-        console.log('hello')
-        
+        console.log(tripAlreadyLiked)
 
     }, [user.id, trip])
 
 
-    //handle user clicking heart button
+    //handle user clicking like button
   const handleLikeBtn = () => {
-    //if user hasn't liked trip, create new like for this trip from a specific user
+    //if user hasn't liked trip, create new like for this trip from the logged in user
     if(!isLiked){
         setIsLiked(true)
         setLikeCounter(likeCounter + 1)

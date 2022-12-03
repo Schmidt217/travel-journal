@@ -18,7 +18,7 @@ const MyTripsCard = ({ userTrip }) => {
         <h2>{userTrip.name}</h2>
         <img className="myTrip-card-img" src={renderCardImg ? renderCardImg.url : PlaceholderImg} alt="trip" />
         <h3>{userTrip.location}</h3>
-        <p>Date - {userTrip.date}</p>
+        <p>{userTrip.date}</p>
 
         <Link to={`/viewTrip/${userTrip.id}`}>
              <button className='view-single-trip'>View Trip</button>
