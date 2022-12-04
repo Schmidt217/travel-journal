@@ -90,12 +90,12 @@ const ViewTrip = ({ setRefreshPage, refreshPage }) => {
                         <p>Add trip photos!</p>
                         </div>
               )}
-            <Link to={`/addTripImages/${tripId}`}>
+            <Link to={`/trips/${tripId}/addImages`}>
               <button title="Add images" className='add-images-btn'>+</button>
             </Link>
             </div>
 
-            <Link to={`/viewTripImages/${tripId}`}>
+            <Link to={`/trips/${tripId}/images`}>
               <button className={hiddenClassName}>View Photos</button>
             </Link>
         </div>
@@ -109,7 +109,7 @@ const ViewTrip = ({ setRefreshPage, refreshPage }) => {
               
         </div>
 
-        <Link to={`/editTrip/${userTrip.id}`}>
+        <Link to={`/trips/${userTrip.id}/edit`}>
              <button className='edit-trip-btn'>Edit Trip</button>
         </Link>
 

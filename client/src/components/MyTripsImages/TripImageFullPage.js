@@ -50,7 +50,7 @@ const TripImageFullPage = ( setRefreshPage, refreshPage ) => {
                  ) : (
                           <h2>Add trip photos!</h2>
               )}
-        <Link to={`/addTripImages/${tripId}`}>
+        <Link to={`/trips/${tripId}/addImages`}>
           <button title="Add images" className='add-trip-img-btn'>+</button>
         </Link>
       </div>

@@ -56,7 +56,7 @@ const AddTripImages = ({ user, setRefreshPage }) => {
                 console.log(userData)
                 setImageArr([])
                 setRefreshPage(userData)
-                navigate(`/viewTrip/${tripId}`)
+                navigate(`/trips/${tripId}`)
             });
         } else {
             res.json().then((err) => setErrors(err.errors))

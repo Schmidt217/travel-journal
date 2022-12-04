@@ -62,12 +62,12 @@ function App() {
         <Route path="user/profile" element ={ <Profile user={user} setUser={setUser}/> } />
         <Route path="user/trips" element ={ <MyTrips user={user} search={search} setSearch={setSearch}/>} />
         <Route path="trips/publicTrips" element ={ <Explore user={user} publicTrips={publicTrips} search={search} setSearch={setSearch}/> } />
-        <Route path="viewTrip/:id" element ={ <ViewTrip user={user} refreshPage={refreshPage} setRefreshPage={setRefreshPage}/> } />
-        <Route path="viewTripImages/:id" element ={ <TripImageFullPage user={user} refreshPage={refreshPage} setRefreshPage={setRefreshPage}/> } />
-        <Route path="addTripImages/:id" element ={ <AddTripImages user={user} setRefreshPage={setRefreshPage}/> } />
-        <Route path="editTrip/:id" element ={ <EditTrip setRefreshPage={setRefreshPage} /> } />
-        <Route path="editProfile/:id" element ={ <EditProfile setRefreshPage={setRefreshPage} user={user}/> } />
-        <Route path="editProfileImage/:id" element ={ <EditProfileImage setRefreshPage={setRefreshPage} user={user}/> } />
+        <Route path="trips/:id" element ={ <ViewTrip user={user} refreshPage={refreshPage} setRefreshPage={setRefreshPage}/> } />
+        <Route path="trips/:id/images" element ={ <TripImageFullPage user={user} refreshPage={refreshPage} setRefreshPage={setRefreshPage}/> } />
+        <Route path="trips/:id/addImages" element ={ <AddTripImages user={user} setRefreshPage={setRefreshPage}/> } />
+        <Route path="trips/:id/edit" element ={ <EditTrip setRefreshPage={setRefreshPage} /> } />
+        <Route path="user/:id/profile/edit" element ={ <EditProfile setRefreshPage={setRefreshPage} user={user}/> } />
+        <Route path="user/:id/profile/editImage" element ={ <EditProfileImage setRefreshPage={setRefreshPage} user={user}/> } />
 
         <Route path="trip/:tripId/add-activity" element ={ <ActivityForm setRefreshPage={setRefreshPage}/> } />
 

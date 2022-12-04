@@ -107,7 +107,7 @@ const ActivityForm = ({ setRefreshPage }) => {
                 setActivityFormData('')
                 setRefreshPage(activityData)
                 setIsSending(false)
-                navigate(`/viewTrip/${activityData.trip.id}`)
+                navigate(`/trips/${activityData.trip.id}`)
             });
           } else {
             res.json().then((err) => {
@@ -132,7 +132,7 @@ const ActivityForm = ({ setRefreshPage }) => {
                 setActivityFormData(initialState)
                 setRefreshPage(activityData)
                 setIsSending(false)
-                navigate(`/viewTrip/${params.tripId}`)
+                navigate(`/trips/${params.tripId}`)
             });
           } else {
             res.json().then((err) => setErrors(err.errors))

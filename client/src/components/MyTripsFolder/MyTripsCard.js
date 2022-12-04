@@ -20,7 +20,7 @@ const MyTripsCard = ({ userTrip }) => {
         <h3>{userTrip.location}</h3>
         <p>{userTrip.date}</p>
 
-        <Link to={`/viewTrip/${userTrip.id}`}>
+        <Link to={`/trips/${userTrip.id}`}>
              <button className='view-single-trip'>View Trip</button>
         </Link>
 

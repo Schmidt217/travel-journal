@@ -27,7 +27,7 @@ const Profile = ({ user, setUser }) => {
         <h1>Welcome {user.name}!</h1>
         <img className='profile-img' src={user.avatar_format?.url ? user.avatar_format.url : PlaceholderImg} alt="profile-pic" />
         <div className="profileImg-container">
-          <Link to={`/editProfileImage/${user.id}`}>
+          <Link to={`/user/${user.id}/profile/editImage`}>
             <button title="add/edit image" className='edit-profile-img-btn'>✎</button>
           </Link>
         </div>
@@ -41,7 +41,7 @@ const Profile = ({ user, setUser }) => {
         </Link>
 
         <div className="profile-btn-container">
-          <Link to={`/editProfile/${user.id}`}>
+          <Link to={`/user/${user.id}/profile/edit`}>
           <button className='edit-profile-btn'>Edit Profile</button>
           </Link>
           <button className='delete-profile-btn' onClick={handleOpen}>Delete Profile</button>

@@ -99,7 +99,7 @@ const handleSubmit = (e) =>{
             setImageArr([])
             // setTripFormData({})
             setRefreshPage(userData)
-            navigate(`/viewTrip/${tripId}`)
+            navigate(`/trips/${tripId}`)
         });
       } else {
         res.json().then((err) => setErrors(err.errors))
