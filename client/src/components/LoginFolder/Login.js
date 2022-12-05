@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import Logo from '../../ImageFolder/LogoImages/logo.png'
 
 const Login = ({ setUser }) => {
     const [username, setUsername] = useState("");
@@ -38,12 +39,15 @@ const Login = ({ setUser }) => {
   return (
 
     <div className='user-profile-form-page login-page' >
-            <form className='user-profile-form login-form' onSubmit={handleSubmit}>
-                <h1>Login</h1>
+      <div className="layer"></div>
+      <img src={Logo} alt="Sum Trip Logo" className='logo' />
+            <form className='user-profile-form signup-form' onSubmit={handleSubmit}>
+                <h2>Login</h2>
 
                 <label htmlFor="username">Username</label>
                 <input
                     type="text"
+                    placeholder='Username'
                     id="username"
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
@@ -52,14 +56,16 @@ const Login = ({ setUser }) => {
                 <label htmlFor="password">Password</label>
                 <input
                     type="password"
+                    placeholder='Password'
                     id="password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                 />
-                <button className='submit-btn' type="submit">{isLoading ? "Loading..." : "Login"}</button>
+                <button className='submit-btn login-btn' type="submit">{isLoading ? "Loading..." : "Login"}</button>
             </form>
 
             <ul>{formErrorMsg}</ul>
+     
     </div>
 
   )

@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import Logo from '../../ImageFolder/LogoImages/logo.png'
 
 const initialState = {
     name: "",
@@ -62,12 +63,16 @@ const Signup = ({ setUser }) => {
   return (
 
     <div className='user-profile-form-page signup-page'>
+      <div className="layer"></div>
+        <img src={Logo} alt="Sum Trip Logo" className='logo' />
+      
             <form className='user-profile-form signup-form' onSubmit={handleSubmit}>
-                <h1>Sign Up</h1>
+              <h2>Sign Up</h2>
 
                 <label htmlFor="name">Name</label>
                 <input
                     type="text"
+                    placeholder='Name'
                     name="name"
                     value={formData.name}
                     onChange={handleOnChange}
@@ -76,6 +81,7 @@ const Signup = ({ setUser }) => {
                 <label htmlFor="username">Username</label>
                 <input
                     type="text"
+                    placeholder='Username'
                     name="username"
                     value={formData.username}
                     onChange={handleOnChange}
@@ -84,6 +90,7 @@ const Signup = ({ setUser }) => {
                 <label htmlFor="password">Password</label>
                 <input
                     type="password"
+                    placeholder='Password'
                     name="password"
                     value={formData.password}
                     onChange={handleOnChange}
@@ -92,15 +99,17 @@ const Signup = ({ setUser }) => {
                 <label htmlFor="password">Confirm Password</label>
                 <input
                     type="password"
+                    placeholder='Confirm Password'
                     name="password_confirmation"
                     value={formData.password_confirmation}
                     onChange={handleOnChange}
                 />
 
-                <button className="submit-btn" type="submit">{isLoading ? "Loading..." : "Sign Up"}</button>
+                <button className="submit-btn login-btn" type="submit">{isLoading ? "Loading..." : "Sign Up"}</button>
             </form>
 
             <ul>{formErrorMsg}</ul>
+       
     </div>
 
   )
