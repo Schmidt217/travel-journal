@@ -1,12 +1,12 @@
 import { useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 
-const AddTripImages = ({ user, setRefreshPage }) => {
-    const [errors, setErrors] = useState([]);
+const AddTripImages = ({ user}) => {
+    const [errors, setErrors] = useState([])
     const [imageArr, setImageArr] = useState([])
 
-    let navigate = useNavigate();
-    let params = useParams();
+    let navigate = useNavigate()
+    let params = useParams()
     const tripId = parseInt(params.id)
 
     //get more info from the user data fro the selected trip id
@@ -30,7 +30,7 @@ const AddTripImages = ({ user, setRefreshPage }) => {
             ]
         })
         }
-        return imageArr   
+        return imageArr
   }
 
     //update a trip w/ new images
@@ -55,7 +55,6 @@ const AddTripImages = ({ user, setRefreshPage }) => {
             res.json().then((userData) => {
                 console.log(userData)
                 setImageArr([])
-                setRefreshPage(userData)
                 navigate(`/trips/${tripId}`)
             });
         } else {

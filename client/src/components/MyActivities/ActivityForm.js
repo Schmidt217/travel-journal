@@ -1,36 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 
-/**
- * Single Activity Form
- *  - create new activities
- *  - edit existing activities
- * 
- * In the activity form itself
- *  - form should start empty always
- *  - if an existing activity ID is present in params
- *    - fetch that activity
- *    - populate form values
- *    - allows user to edit
- * 
- *  <ActivityForm />
- * 
- * === Structuring URLS ===
- * some_entity/entity_id
- *  - /users -> all users
- *  - /users/123 -> user with id 123
- * some_entity/entity_id/sub_entity/sub_entity_id
- *  - /users/123/friends -> user with id 123, all friends
- *  - /users/123/friends/789 user with id 123, and that users friend with ID 789
- * 
- *  /add-activity/273 ???
- *  /trip/273/add-activity -> trip 273, add activity
- *
- * /activities/activity_id/edit-activity
- * /trip/:tripId/activities/:activityId/edit -> two URL params
- * 
- */
-
 const initialState ={
     title: "",
     category: "",
@@ -38,7 +8,7 @@ const initialState ={
     trip_id: "",
   }
 
-const ActivityForm = ({ setRefreshPage }) => {
+const ActivityForm = () => {
       
   const [isSending, setIsSending] = useState(false)
   const [errors, setErrors] = useState([]);
@@ -46,9 +16,7 @@ const ActivityForm = ({ setRefreshPage }) => {
 
   let navigate = useNavigate();
   let params = useParams();
-  console.log(params)
-  
-  
+
   useEffect(() => {
     //if params.activityId, fetch current activity info so user can edit it
     if(params.activityId){
@@ -105,7 +73,6 @@ const ActivityForm = ({ setRefreshPage }) => {
           if (res.ok) {
             res.json().then((activityData) => {
                 setActivityFormData('')
-                setRefreshPage(activityData)
                 setIsSending(false)
                 navigate(`/trips/${activityData.trip.id}`)
             });
@@ -130,7 +97,6 @@ const ActivityForm = ({ setRefreshPage }) => {
             res.json().then((activityData) => {
                 console.log(activityData)
                 setActivityFormData(initialState)
-                setRefreshPage(activityData)
                 setIsSending(false)
                 navigate(`/trips/${params.tripId}`)
             });
@@ -139,7 +105,6 @@ const ActivityForm = ({ setRefreshPage }) => {
           }
         })
       }
-    
     }
 
           //display message if any errors

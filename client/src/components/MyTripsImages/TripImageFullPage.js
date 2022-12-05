@@ -1,15 +1,14 @@
 import './StyleTripsImages.css'
 import { useEffect, useState } from 'react'
-import { Link, useParams, useNavigate } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import ImageCard from './ImageCard';
 
-const TripImageFullPage = ( setRefreshPage, refreshPage ) => {
+const TripImageFullPage = () => {
      const [errors, setErrors] = useState([]);
     const [userTrip, setUserTrip] = useState('')
     const [refreshImages, setRefreshImages] = useState(false)
     // const [openModal, setOpenModal] = useState(false)
   
-    let navigate = useNavigate()
     let params = useParams()
     const tripId = parseInt(params.id)
 

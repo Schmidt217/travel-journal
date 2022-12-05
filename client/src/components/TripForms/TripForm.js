@@ -1,6 +1,7 @@
 import './StyleTripForm.css'
-import {useState} from 'react'
+import { useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { TripContext } from '../../Context/state'
 
 const initialFormState ={
     name: "",
@@ -9,12 +10,14 @@ const initialFormState ={
     details: "",
   }
 
-const TripForm = ({ userId, setRefreshPage }) => {
+const TripForm = ({ userId }) => {
 
     const [errors, setErrors] = useState([]);
     const [userInputTextData, setUserInputTextData] = useState(initialFormState)
     const [isPrivate, setIsPrivate] = useState(false)
     const [imageArr, setImageArr] = useState([])
+
+    const tripCtx = useContext(TripContext)
 
     let navigate = useNavigate();
 
@@ -47,7 +50,7 @@ const TripForm = ({ userId, setRefreshPage }) => {
           ]
         })
       }
-      return imageArr   
+      return imageArr
     }
 
     const handleSubmit = (e) =>{
@@ -79,8 +82,8 @@ const TripForm = ({ userId, setRefreshPage }) => {
                 console.log(userData)
                 setImageArr([])
                 setUserInputTextData(initialFormState)
-                setRefreshPage(userData)
-                navigate('/')
+                tripCtx.refreshFunction()
+                navigate('/user/trips')
             });
           } else {
             res.json().then((err) => setErrors(err.errors))
