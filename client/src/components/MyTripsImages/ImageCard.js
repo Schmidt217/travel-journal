@@ -1,10 +1,13 @@
-import { useState } from 'react'
+import { useContext, useState } from 'react'
+import { TripContext } from '../../Context/state'
 import ModalComponent from '../ModalComponent'
 
 
 const ImageCard = ({ tripId, imageInfo, refreshImages, setRefreshImages }) => {
   const [openModal, setOpenModal] = useState(false)
-// console.log(setRefreshPage)
+
+  const tripCtx = useContext(TripContext)
+
 
   const handleDelete = () => {
     fetch(`/deleteImage/${tripId}/${imageInfo.id}`,{

@@ -1,10 +1,9 @@
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
+import { TripContext } from '../../Context/state'
 
 
-const EditProfile = ({ user, setRefreshPage }) => {
-  console.log(user)
-  
+const EditProfile = ({ user }) => {
     const initFormData = {
         name: user.name,
         username: user.username,
@@ -12,13 +11,16 @@ const EditProfile = ({ user, setRefreshPage }) => {
     }
 
     const [formData, setFormData] = useState(initFormData)
-    const [avatarFile, setAvatarFile] = useState('')
+    // const [avatarFile, setAvatarFile] = useState(false)
     const [errors, setErrors] = useState([])
     const [isLoading, setIsLoading] = useState(false)
+
+    const tripCtx = useContext(TripContext)
 
     let navigate = useNavigate()
     let params = useParams()
     const userId = parseInt(params.id)
+
     //handle form data from user input
     const handleOnChange = (e) => {
         const { name, value } = e.target
@@ -33,18 +35,18 @@ const EditProfile = ({ user, setRefreshPage }) => {
     }
 
     //handle file upload
-    const handleAvatarUpload = (e) => {
-      setAvatarFile(e.target.files[0])
-    }
+    // const handleAvatarUpload = (e) => {
+    //   setAvatarFile(e.target.files[0])
+    // }
 
     //submit signup form
     function handleSubmit(e) {
       e.preventDefault();
       setIsLoading(true)
 
-      //utilize this FormData method in JS to get all data from the form 
+      //utilize this FormData method in JS to get all data from the form
+      //only works if adding 1 image, not multiplle images (will need state and to append for multiple images)
       const entireFormData = new FormData(e.target);
-      entireFormData.append('avatar', avatarFile)
 
       //do not want to send a content-type b/c will not be json w/ file attached, also do not want to send JSON.stringify
 
@@ -55,14 +57,15 @@ const EditProfile = ({ user, setRefreshPage }) => {
         },
         body: entireFormData,
       }).then((res) => {
-        setIsLoading(false)
         if (res.ok) {
             res.json().then((userData) => {
-              console.log(userData)
-              setRefreshPage(userData)
-              navigate('/profile')
+              setIsLoading(false)
+              tripCtx.refreshFunction()
+              console.log('patch changes submitted', userData)
+              navigate('/user/profile')
           })
         }else{
+          setIsLoading(false)
           res.json().then((err) => setErrors(err.errors))
         }
       });
@@ -99,7 +102,6 @@ const EditProfile = ({ user, setRefreshPage }) => {
                     id='file-upload'
                     type="file"
                     name="avatar"
-                    onChange={handleAvatarUpload}
                 />
 
                 <label htmlFor="bio">Bio</label>

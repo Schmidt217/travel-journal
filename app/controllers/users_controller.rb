@@ -36,10 +36,10 @@ class UsersController < ApplicationController
      #default bio param will have "complete your bio" displayed in it on creation of a user, can change this with profile edit funciton
 
      def user_params
-         params.permit(:name, :username, :bio,:password, :password_confirmation)
+         params.permit(:name, :username, :bio, :password, :password_confirmation)
      end
 
      def user_update_params
-        params.permit(:name, :username, :bio, :avatar, :attachment)
+        params.permit(:id, :name, :username, :bio, :avatar, :attachment)
      end
 end

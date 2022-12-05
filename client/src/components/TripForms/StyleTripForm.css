@@ -13,6 +13,7 @@
 .trip-form-container h2{
     padding-top: 50px;
     margin: 0;
+    color: var(--dark-blue);
 }
 .trip-form{
     /* background-color: aquamarine; */
@@ -24,6 +25,7 @@
     max-width: 500px;
     border-radius: 15px;
     margin: 20px auto;
+    color: var(--dark-blue);
 }
 
 .trip-form input{

@@ -1,9 +1,12 @@
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
+import { TripContext } from '../../Context/state'
 
-const EditProfileImage = ({ setRefreshPage  }) => {
+const EditProfileImage = () => {
     const [errors, setErrors] = useState([])
     const [isLoading, setIsLoading] = useState(false)
+
+    const tripCtx = useContext(TripContext)
 
     let navigate = useNavigate()
     let params = useParams()
@@ -26,10 +29,10 @@ const EditProfileImage = ({ setRefreshPage  }) => {
           body: newProfileImg,
         }).then((res) => {
           if (res.ok) {
-              res.json().then((userData) => {
+              res.json().then(() => {
                 setIsLoading(false)
-                setRefreshPage(userData)
-                navigate('/profile')
+                tripCtx.refreshFunction()
+                navigate('/user/profile')
             })
           }else{
             res.json().then((err) => setErrors(err.errors))

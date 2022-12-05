@@ -1,12 +1,15 @@
-import {useState, useEffect} from 'react'
+import  {useContext, useState, useEffect} from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
+import { TripContext } from '../../Context/state';
 
-const EditTrip = ({ setRefreshPage }) => {
+const EditTrip = () => {
     const [errors, setErrors] = useState([]);
     const [tripFormData, setTripFormData] = useState('')
     const [userId, setUserId] = useState('')
     const [imageArr, setImageArr] = useState([])
-    const [isPrivate, setIsPrivate] = useState(true)
+    const [isPrivate, setIsPrivate] = useState(false)
+
+    const tripCtx = useContext(TripContext)
 
     let navigate = useNavigate();
     let params = useParams();
@@ -26,15 +29,12 @@ const EditTrip = ({ setRefreshPage }) => {
                     date: tripData.date,
                     details: tripData.details,
                   })
-                  setRefreshPage(tripData)
               });
             } else {
               res.json().then((err) => setErrors(err.errors))
             }
           })
     }, [tripId])
-
-    console.log(tripFormData)
 
 //get user input from changes to text input areas
 const handleUserTextInput = (e) => {
@@ -94,11 +94,9 @@ const handleSubmit = (e) =>{
     })
     .then((res) => {
       if (res.ok) {
-        res.json().then((userData) => {
-            console.log(userData)
+        res.json().then(() => {
+            tripCtx.refreshFunction()
             setImageArr([])
-            // setTripFormData({})
-            setRefreshPage(userData)
             navigate(`/trips/${tripId}`)
         });
       } else {
@@ -108,7 +106,7 @@ const handleSubmit = (e) =>{
 
 }
 
-const formErrorMsg = errors.map((err) => (
+const formErrorMsg = errors?.map((err) => (
     <li key={err}>{err}</li>
   ))
 

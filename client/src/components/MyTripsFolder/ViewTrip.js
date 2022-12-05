@@ -1,14 +1,17 @@
 import '../MyActivities/StyleMyActivities.css'
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { useParams, useNavigate, Link } from 'react-router-dom'
 import MyActivityCard from '../MyActivities/MyActivityCard'
 import ModalComponent from '../ModalComponent'
 import PlaceholderImage from '../../ImageFolder/placeholder-image2.png'
+import { TripContext } from '../../Context/state'
 
-const ViewTrip = ({ setRefreshPage, refreshPage }) => {
+const ViewTrip = () => {
     const [errors, setErrors] = useState([]);
     const [userTrip, setUserTrip] = useState('')
     const [openModal, setOpenModal] = useState(false)
+
+    const tripCtx = useContext(TripContext)
 
     let navigate = useNavigate()
     let params = useParams()
@@ -26,13 +29,13 @@ const ViewTrip = ({ setRefreshPage, refreshPage }) => {
                   res.json().then((err) => setErrors(err.errors))
                 }
               })
-        }, [tripId, refreshPage])
+        }, [tripId, tripCtx.refreshPage])
 
         //map over and display any activities 
         const renderActivities = userTrip.activities?.map(act =>{
             return(
                 //activity is nested again so to get to individual activity, need act.activity
-                <MyActivityCard key={act.activity.id} activity={act.activity} refreshPage={refreshPage} setRefreshPage={setRefreshPage}/>
+                <MyActivityCard key={act.activity.id} activity={act.activity} />
             )
         })
 
@@ -52,7 +55,7 @@ const ViewTrip = ({ setRefreshPage, refreshPage }) => {
       fetch(`/trips/${tripId}`, {
         method: 'DELETE',
       })
-      .then(setRefreshPage(refreshPage => !refreshPage))
+      .then(tripCtx.refreshFunction())
       .then(navigate('/user/trips'))
     }
       //open/close modal for delete trip

@@ -1,18 +1,25 @@
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import { Link } from 'react-router-dom'
+import { TripContext } from '../../Context/state'
 import ModalComponent from '../ModalComponent'
 
-const MyActivityCard = ({activity, refreshPage, setRefreshPage}) => {
+const MyActivityCard = ({ activity }) => {
   const [openModal, setOpenModal] = useState(false)
+
+  const tripCtx = useContext(TripContext)
+  console.log(activity)
 
   //delete an activity
   function handleDelete(){
     fetch(`/activities/${activity.id}`, {
       method: 'DELETE',
     })
-    .then(setRefreshPage(refreshPage => !refreshPage))
+    .then(tripCtx.refreshFunction())
     .then(setOpenModal(false))
+  
   }
+  
+  
     //open/close modal for delete activity
     const handleOpen = () => setOpenModal(true);
     const handleClose = () => setOpenModal(false);

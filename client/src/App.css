@@ -20,8 +20,14 @@
   padding: 0;
 }
 
+
+ul{
+  color: var(--dark-blue);
+}
+
 li{
   list-style: none;
+  
 }
 
 .page-container{
