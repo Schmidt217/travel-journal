@@ -12,7 +12,8 @@ const ActivityForm = () => {
       
   const [isSending, setIsSending] = useState(false)
   const [errors, setErrors] = useState([]);
-  const [activityFormData, setActivityFormData] = useState(initialState)
+  const [activityFormData, setActivityFormData] = useState(initialState);
+  const [tripTitle, setTripTitle] = useState('')
 
   let navigate = useNavigate();
   let params = useParams();
@@ -24,6 +25,7 @@ const ActivityForm = () => {
         .then((res)=> {
             if(res.ok){
                 res.json().then((actData) => {
+                    setTripTitle(actData.trip.name)
                     setActivityFormData({
                         title: actData.title,
                         category: actData.category,
@@ -33,7 +35,6 @@ const ActivityForm = () => {
                 })
             }else{
                 res.json().then((data) => {
-                    console.log(data)
                     setErrors(data.error)
                 })
             }
@@ -43,7 +44,6 @@ const ActivityForm = () => {
         setActivityFormData(initialState)
     }
   }, [params])
-
 
     //get user input from changes to form
     const handleUserTextInput = (e) => {
@@ -78,7 +78,6 @@ const ActivityForm = () => {
             });
           } else {
             res.json().then((err) => {
-                console.log(err)
                 setErrors(err.errors)
             })
           }
@@ -114,13 +113,14 @@ const ActivityForm = () => {
 
           //render title edit vs add activity based on params activityId(edit) vs tripId(add new activity)
 
-          const formTitle = params.activityId? 'Edit Activity' : 'Add New Activity'
+          const formTitle = params.activityId? `Edit ${tripTitle} Activity ` : 'Add New Activity'
 
 
   return (
     <div className='activity-form-page'>
+      <div className="activity-form-layer"></div>
       <h2> {formTitle}</h2>
-        <form className="trip-form add-activity-form" autoComplete='off' onSubmit={handleSubmit} >
+        <form className="add-activity-form" autoComplete='off' onSubmit={handleSubmit} >
                 <label>Activity Name </label>
                 <input type='text'id="title" name="title" value={activityFormData.title} onChange={handleUserTextInput} required />
 
@@ -135,7 +135,7 @@ const ActivityForm = () => {
                 <textarea type='text'id="description" name="description" value={activityFormData.description} onChange={handleUserTextInput} required/>
                 
         
-                <button className='submit-btn' type="submit">{isSending ? 'SUBMITTING...' : 'SUBMIT'}</button>
+                <button className='add-activity-btn' type="submit">{isSending ? 'SUBMITTING...' : 'SUBMIT'}</button>
                 
             </form>
             <button className='form-cancel-btn' onClick={()=> navigate(-1)}>Cancel</button>

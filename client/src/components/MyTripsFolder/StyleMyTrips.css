@@ -73,6 +73,7 @@
     overflow-y: scroll;
     background-position: fixed;
     max-width: 1800px;
+    min-height: 80vh;
 
 }
 
@@ -82,7 +83,6 @@
     flex-direction: row;
     flex-wrap: none;
     justify-content: space-evenly;
-    /* border: 2px solid black; */
     width: 70vw;
     max-width: 1600px;
     margin: 50px auto;
@@ -131,7 +131,7 @@
 
 }
 .view-images:hover{
-    color: var(--dark-blue);
+    color: var(--orange);
     background-color: transparent;
     text-decoration: underline;
 

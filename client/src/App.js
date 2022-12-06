@@ -13,10 +13,8 @@ import Explore from './components/ExploreFolder/Explore'
 import TripForm from './components/TripForms/TripForm'
 import EditTrip from './components/TripForms/EditTrip'
 import EditProfile from './components/UserProfile/EditProfile'
-import EditProfileImage from './components/UserProfile/EditProfileImage'
 import ViewTrip from './components/MyTripsFolder/ViewTrip'
 import TripImageFullPage from './components/MyTripsImages/TripImageFullPage'
-import AddTripImages from './components/MyTripsImages/AddTripImages'
 import ActivityForm from './components/MyActivities/ActivityForm'
 import { TripContext } from './Context/state'
 
@@ -68,13 +66,10 @@ function App() {
         <Route path="trips/publicTrips" element ={ <Explore user={user} publicTrips={publicTrips} search={search} setSearch={setSearch}/> } />
         <Route path="trips/:id" element ={ <ViewTrip user={user} /> } />
         <Route path="trips/:id/images" element ={ <TripImageFullPage user={user} /> } />
-        <Route path="trips/:id/addImages" element ={ <AddTripImages user={user} /> } />
         <Route path="trips/add" element ={ <TripForm user={user} /> } />
         <Route path="trips/:id/edit" element ={ <EditTrip /> } />
         <Route path="user/:id/profile/edit" element ={ <EditProfile user={user}/> } />
-        <Route path="user/:id/profile/editImage" element ={ <EditProfileImage user={user}/> } />
-
-        <Route path="trip/:tripId/add-activity" element ={ <ActivityForm /> } />
+       <Route path="trip/:tripId/add-activity" element ={ <ActivityForm /> } />
 
         <Route path="activities/:activityId/edit" element ={ <ActivityForm /> } />
 

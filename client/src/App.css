@@ -1,20 +1,11 @@
 :root{
-
-  /* --dark-blue: rgb(61, 61, 108); */
-  /* --blue: rgb(95, 95, 155); */
-  /* --ocean-blue: #7fb9c6; */
   --white: #fcf9f5;
   --white-see-through: rgba(239, 243, 251, 0.8);
-  --light-grey: rgb(216, 214, 214);
-  --delete-red: rgb(211, 59, 9);
-  --light-red: rgb(239, 68, 20);
-
   --balck: #2A292D;
-  --dard-grey:#5C5A61;
   --brown: #4B4442;
-  --blue-see-through: rgba(120, 139, 164, 0.8);
+  --blue-see-through: rgba(93, 111, 135, 0.7);
   --deep-blue: rgb(57, 57, 76);
-  --dark-blue:#46566c;
+  --dark-blue:#39495f;
   --blue: #546c86;
   --light-blue:#8C9FB7;
   --orange: #f16b4f;
@@ -22,6 +13,13 @@
   --tan: #F0BD85;
   --sand: #DDCCB4;
   --cream: #fff2e1;
+
+--font1: 'League Spartan', sans-serif;
+--font2: 'Martel', serif;
+--font3: 'Questrial', sans-serif;
+--font4: 'Secular One', sans-serif;
+--font5: 'Solway', serif;
+
 
 }
 
@@ -32,6 +30,8 @@
   /* background-color: var(--blue); */
   margin: 0;
   padding: 0;
+  font-family: var(--font1);
+  font-weight: 400;
 }
 
 
@@ -68,8 +68,9 @@ button{
   color: var(--white);
   background-color: var(--dark-blue);
   /* box-shadow: 5px 5px 10px var(--deep-blue); */
-  font-size: 16px;
-  font-weight: bold;
+  font-family: var(--font1);
+  font-size: 18px;
+  font-weight: 400;
 }
 
 button:hover{
@@ -80,12 +81,37 @@ button:hover{
 
 .form-cancel-btn{
   background-color: transparent;
-  color: var(--blue)
+  color: var(--dark-blue);
+  font-weight: bold;
 }
 .form-cancel-btn:hover{
   background-color: transparent;
-  color: var(--dark-blue);
+  color: var(--white);
   text-decoration: underline;
+}
+
+
+
+/* Font for the whole website */
+
+h1{
+  font-size: 3rem;
+}
+
+h2{
+  font-family: var(--font1);
+  font-size: 1.7rem;
+}
+
+h3{
+  font-size: 1.3rem;
+}
+h4{
+  font-size: 1.2rem;
+}
+
+p{
+  font-size: 1.1rem;
 }
 
 /*-------NavBar---------*/
@@ -159,7 +185,7 @@ button:hover{
   
 }
 .logout-btn:hover{
-  background-color: var(--delete-red);
+  background-color: var(--orange);
   color: var(--white);
   
 }
@@ -198,27 +224,55 @@ button:hover{
 
 /* ------- Home Page -------- */
 
-.footer-img{
-  background-image: url('./ImageFolder/mouontain-brush-9.png');
+.home-page{
+  min-height: 60vh;
+  width: 100vw;
+  position: relative;
+  margin: 0px auto;
+  padding: none;
+  background-color: var(--white);
+}
+.home-img{
+    position: absolute;
+    bottom: 0px;
+    z-index: 1;
+    background-image: url('./ImageFolder/mouontain-brush-9.png');
     background-size: cover;
     background-position: top 2% right 0%;;
     background-repeat: no-repeat;
     width: 100vw;
-    height: 30vh;
+    height: 50vh;
     max-width: 1600px;
     margin: 0 auto;;
-    /* border-top: 5px solid var(--dark-blue); */
 }
-.home-info-container {
-  padding-bottom: 50px;
-}
-.home-info-container p{
-  width: 40vw;
+
+.home-info-container{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content:flex-start;
+  z-index: 2;
+  padding: 10px 10px 30px 10px;
+  width: 38vw;
   margin: 0 auto;
-  padding-bottom: 20px;
+  backdrop-filter: blur(3px);
+  background-color: rgba(239, 243, 251, 0.2);
+}
+
+.home-info-container img{
+  margin-top: 0 auto 100px auto;
+}
+
+.home-info-container p{
+  width: 35vw;
+  color: var(--white);
+  margin: 0 auto;
+  font-size: 1.5rem;
 }
 .home-info-container button{
-  box-shadow: 5px 5px 10px var(--deep-blue);
+  margin: 20px auto;
+
+ 
 }
 
 
@@ -233,6 +287,7 @@ button:hover{
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  margin: 0;
 
 }
 
@@ -250,11 +305,11 @@ button:hover{
 .confirm-delete-btn{
   margin-top: 30px;
   font-size: 20px;
-  background-color: var(--blue);
+  background-color: var(--dark-blue);
 }
 .confirm-delete-btn:hover{
-  background-color: var(--delete-red);
-  font-weight: normal;
+  background-color: var(--orange);
+  font-weight: bold;
   color: var(--white);
 }
 

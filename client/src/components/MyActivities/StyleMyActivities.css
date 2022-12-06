@@ -1,11 +1,16 @@
 /* -------Activities --------*/
 .activities-container{
     position: relative;
-    width: 80vw;
+    width: 70vw;
     margin: 5px auto;
-    border-top: 2px solid var(--light-grey);
+    border-top: 2px solid var(--blue-see-through);
     max-width: 1600px;
-    padding-bottom: 100px;
+    padding: 50px;
+}
+
+.activities-container h3{
+    font-size: 1.7rem;
+    font-weight: 700;
 }
 
 .myActivity-card{
@@ -33,7 +38,7 @@
     position: absolute;
     top: 5px;
     right: 10px;
-    width: 15vw;
+    width: 8vw;
 }
 
 .edit-activity{
@@ -47,21 +52,78 @@
 }
 
 .activity-form-page{
+    background-image: url('../../ImageFolder/map-planning.jpg');
+    background-repeat: no-repeat;
+    background-position: top 48% right 0%;
+    background-size: cover;
     color: var(--dark-blue);
     margin: 0 auto;
     padding-top: 50px;
+    min-height: 72vh;
+    position:relative;
+    z-index: 1;
+}
+
+.activity-form-layer{
+    background-color: rgba(210, 193, 187, 0.7);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    /* backdrop-filter: blur(2px);
+     */
 }
 
 .add-activity-form{
-    /* color: var(--dark-blue);
-    margin: 0 auto; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 30vw;
+    margin: 0 auto;
+    /* background-color: yellow; */
+    padding: 20px 0;
+}
+
+.add-activity-form label{
+    padding: 10px;
+    font-weight: bold;
+}
+.add-activity-form input{
+    color: var(--dark-blue);
+    font-weight: bold;
+    font-size: 14px;
+    width: 60%;
+    border-radius: 20px;
+    padding: 8px;
+    border: none;
+    background-color: var(--white-see-through);
+}
+
+.add-activity-form textarea{
+    width: 70%;
+    height: 10vh;
+    border-radius: 10px;
+    padding: 10px;
+    border: none;
+    color: var(--dark-blue);
+    font-weight: bold;
+    font-size: 14px;
+    background-color: var(--white-see-through);
+
 }
 
 .add-activity-form select{
-    width: 20vw;
+    width: 40%;
     margin: 0 auto;
-    padding: 5px;
-    border-radius: 7px;
+    padding: 8px;
+    border-radius: 10px;
+    border: none;
+    font-weight: bold;
+    color: var(--dark-blue);
+    background-color: var(--white-see-through);
 }
 
 @media screen and (max-width: 768px) {

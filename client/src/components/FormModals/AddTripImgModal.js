@@ -1,20 +1,15 @@
-import { useState } from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
+import { useContext, useState } from 'react'
+import { TripContext } from '../../Context/state'
+import Modal from "@mui/material/Modal"
+import Box from "@mui/material/Box"
 
-const AddTripImages = ({ user}) => {
+
+const AddTripImgModal = ({ openEditImageModal, handleCloseEditImgModal, userTrip } ) => {
     const [errors, setErrors] = useState([])
+    const [isLoading, setIsLoading] = useState(false)
     const [imageArr, setImageArr] = useState([])
 
-    let navigate = useNavigate()
-    let params = useParams()
-    const tripId = parseInt(params.id)
-
-    //get more info from the user data fro the selected trip id
-    const selectedTrip = user.trips.find(trip => {
-        if(trip.id === tripId){
-            return trip
-        } else return false
-    })
+    const tripCtx = useContext(TripContext)
 
     //upload images
     const handleImageUpload = (e) =>{
@@ -31,11 +26,12 @@ const AddTripImages = ({ user}) => {
         })
         }
         return imageArr
-  }
+    }
 
     //update a trip w/ new images
     const handleSubmit = (e) =>{
         e.preventDefault()
+        setIsLoading(true)
         const entireFormData = new FormData();
 
     //add each element of images array to form data
@@ -43,7 +39,7 @@ const AddTripImages = ({ user}) => {
         entireFormData.append(`images[]`, imageArr[i])
         }
 
-        fetch(`/trips/${tripId}`,  {
+        fetch(`/trips/${userTrip.id}`,  {
             method: "PATCH",
             headers: {
             accept: "application/json",
@@ -51,11 +47,13 @@ const AddTripImages = ({ user}) => {
             body: entireFormData
         })
         .then((res) => {
+            setIsLoading(false)
         if (res.ok) {
             res.json().then((userData) => {
                 console.log(userData)
                 setImageArr([])
-                navigate(`/trips/${tripId}`)
+                tripCtx.refreshFunction()
+                handleCloseEditImgModal()
             });
         } else {
             res.json().then((err) => setErrors(err.errors))
@@ -63,32 +61,64 @@ const AddTripImages = ({ user}) => {
         })
 
     }
-    const formErrorMsg = errors?.map((err) => (
+
+      //Error message if errors exist
+      const formErrorMsg = errors?.map((err) => (
         <li key={err}>{err}</li>
       ))
+
   return (
+  <Modal
+  open={openEditImageModal}
+  onClose={handleCloseEditImgModal}
+  aria-labelledby="modal-modal-title"
+  aria-describedby="modal-modal-description"
+>
+  <Box 
+        sx={{backgroundColor: "var(--blue-see-through)",
+          backdropFilter: "blur(10px)",
+          color: "white",
+					display: "flex",
+          justifyContent: "center",
+          textAlign: "center",
+          flexDirection: "column",
+          alignContent: "center",
+					padding: "1rem",
+					margin: "10vh auto",
+					width: "30%",
+					borderRadius: "10px",
+					boxShadow: 10,
+					alignItems: "center",
+          fontSize: "25px",
+          }}>
+
+    <>
     <div className='add-images-form-page'>
-        <h2> Add Images to {selectedTrip.name}</h2>
+        <h3> Add Images to {userTrip.name}</h3>
 
              <form className="add-images-form" autoComplete='off' onSubmit={handleSubmit} >
                 <label htmlFor="images"></label>
                 <input
-                    id="file-upload-trip-form"
+                    id="file-upload"
                     type="file"
                     name="images"
                     multiple
                     onChange={handleImageUpload}
                 />
-                <div className="btn-container">
-                    <button className='submit-btn' type="submit">SUBMIT</button>
-                    <button className='form-cancel-btn' onClick={()=> navigate(-1)}>Cancel</button>
-                </div>
+                    <button className='submit-btn' type="submit">{isLoading ? 'Loading...' : 'Submit'}</button>
              </form>
 
              <ul>{formErrorMsg}</ul>
 
     </div>
+            <button className='form-cancel-btn' onClick={handleCloseEditImgModal}>Cancel</button>
+
+        <ul>{formErrorMsg}</ul>
+    </>
+
+  </Box>
+</Modal>
   )
 }
 
-export default AddTripImages
+export default AddTripImgModal

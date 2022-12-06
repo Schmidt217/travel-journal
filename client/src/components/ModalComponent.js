@@ -12,7 +12,8 @@ const ModalComponent = ({openModal, handleClose, handleDelete}) => {
   aria-describedby="modal-modal-description"
 >
   <Box 
-        sx={{backgroundColor: "var(--dark-blue)",
+        sx={{backgroundColor: "var(--blue-see-through)",
+          backdropFilter: "blur(5px)",
           color: "white",
 					display: "flex",
           justifyContent: "center",
