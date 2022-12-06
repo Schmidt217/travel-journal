@@ -14,7 +14,7 @@
   --brown: #4B4442;
   --blue-see-through: rgba(120, 139, 164, 0.8);
   --deep-blue: rgb(57, 57, 76);
-  --dark-blue:#46566c;
+  --dark-blue:#39495f;
   --blue: #546c86;
   --light-blue:#8C9FB7;
   --orange: #f16b4f;
@@ -80,7 +80,7 @@ button:hover{
 
 .form-cancel-btn{
   background-color: transparent;
-  color: var(--blue)
+  color: var(--deep-blue)
 }
 .form-cancel-btn:hover{
   background-color: transparent;

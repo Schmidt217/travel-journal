@@ -83,8 +83,8 @@
 /*------EDIT FULL PROFILE FORM*/
 
 .edit-full-profile-form{
-    max-width: 50vw;
-    color: var(--dark-blue); 
+    max-width: 80vw;
+    color: var(--blue); 
     display: flex;
     flex-direction: column;
     /* border: 1px solid var(--dark-blue); */
@@ -116,7 +116,8 @@
  #file-upload{
     border: none;
     background-color: var(--light-blue);
-    width: 30%;
+    width: 90%;
+    padding: 7px;
  }
 
 
@@ -125,20 +126,29 @@
 
 .edit-profile-img-btn:hover{
     background-color: transparent;
-    color: white;
+    color: var(--light-blue);
     font-weight: bold;
 }
 
 .edit-profile-img-form {
-    padding-top: 50px;
-    height: 60vh;
-}
-.edit-profile-img-form label{
-    color: transparent;
-    padding: 20px;
+    color: white;
+    /* padding-top: 50px; */
+    height: 30vh;
 }
 
-.submit-profile-img{
-    margin-top: 40px;
+.edit-profile-img-form label{
+    color: transparent;
 }
+
+#submit-profile-img{
+    margin-top: 20px;
+    background-color: var(--dark-blue);
+}
+#submit-profile-img:hover{
+    color: var(--dark-blue);
+    background-color: var(--white);
+}
+
+
+
 
