@@ -3,6 +3,7 @@ import { useContext, useEffect, useState } from 'react'
 import { useParams, useNavigate, Link } from 'react-router-dom'
 import MyActivityCard from '../MyActivities/MyActivityCard'
 import ModalComponent from '../ModalComponent'
+import AddTripImgModal from '../FormModals/AddTripImgModal'
 import PlaceholderImage from '../../ImageFolder/placeholder-image2.png'
 import { TripContext } from '../../Context/state'
 
@@ -10,6 +11,7 @@ const ViewTrip = () => {
     const [errors, setErrors] = useState([]);
     const [userTrip, setUserTrip] = useState('')
     const [openModal, setOpenModal] = useState(false)
+    const [openEditImageModal, setOpenEditImageModal] = useState(false)
 
     const tripCtx = useContext(TripContext)
 
@@ -62,6 +64,10 @@ const ViewTrip = () => {
       const handleOpen = () => setOpenModal(true);
       const handleClose = () => setOpenModal(false);
 
+       //open/close modal for add/edit trip images image
+      const handleOpenImgEditModal = () => setOpenEditImageModal(true);
+      const handleCloseEditImgModal = () => setOpenEditImageModal(false);
+
       //display message if any errors
       const formErrorMsg = errors?.map((err) => (
           <li key={err}>{err}</li>
@@ -93,9 +99,9 @@ const ViewTrip = () => {
                         <p>Add trip photos!</p>
                         </div>
               )}
-            <Link to={`/trips/${tripId}/addImages`}>
-              <button title="Add images" className='add-images-btn'>+</button>
-            </Link>
+            {/* <Link to={`/trips/${tripId}/addImages`}> */}
+              <button title="Add images" className='add-images-btn' onClick={handleOpenImgEditModal}>+</button>
+            {/* </Link> */}
             </div>
 
             <Link to={`/trips/${tripId}/images`}>
@@ -120,6 +126,8 @@ const ViewTrip = () => {
         <ul>{formErrorMsg}</ul>
 
         <ModalComponent openModal={openModal} handleDelete={handleDelete} handleClose={handleClose}/>
+
+        <AddTripImgModal userTrip={userTrip} openEditImageModal={openEditImageModal} handleCloseEditImgModal={handleCloseEditImgModal}/>
     </div>
   )
 }

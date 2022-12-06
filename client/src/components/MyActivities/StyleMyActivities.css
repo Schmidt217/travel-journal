@@ -87,17 +87,14 @@
     font-weight: bold;
 }
 .add-activity-form input{
+    color: var(--dark-blue);
+    font-weight: bold;
+    font-size: 14px;
     width: 60%;
     border-radius: 20px;
     padding: 8px;
     border: none;
     background-color: var(--white-see-through);
-}
-.add-activity-form input:focus{
-    color: var(--dark-blue);
-    font-weight: bold;
-    font-size: 14px;
-    background-color: var(--white);
 }
 
 .add-activity-form textarea{
@@ -119,6 +116,8 @@
     padding: 8px;
     border-radius: 10px;
     border: none;
+    font-weight: bold;
+    color: var(--dark-blue);
     background-color: var(--white-see-through);
 }
 

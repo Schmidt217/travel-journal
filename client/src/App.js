@@ -16,7 +16,7 @@ import EditProfile from './components/UserProfile/EditProfile'
 // import EditProfileImage from './components/UserProfile/EditProfileImage'
 import ViewTrip from './components/MyTripsFolder/ViewTrip'
 import TripImageFullPage from './components/MyTripsImages/TripImageFullPage'
-import AddTripImages from './components/MyTripsImages/AddTripImages'
+// import AddTripImages from './components/MyTripsImages/AddTripImages'
 import ActivityForm from './components/MyActivities/ActivityForm'
 import { TripContext } from './Context/state'
 
@@ -68,7 +68,7 @@ function App() {
         <Route path="trips/publicTrips" element ={ <Explore user={user} publicTrips={publicTrips} search={search} setSearch={setSearch}/> } />
         <Route path="trips/:id" element ={ <ViewTrip user={user} /> } />
         <Route path="trips/:id/images" element ={ <TripImageFullPage user={user} /> } />
-        <Route path="trips/:id/addImages" element ={ <AddTripImages user={user} /> } />
+        {/* <Route path="trips/:id/addImages" element ={ <AddTripImages user={user} /> } /> */}
         <Route path="trips/add" element ={ <TripForm user={user} /> } />
         <Route path="trips/:id/edit" element ={ <EditTrip /> } />
         <Route path="user/:id/profile/edit" element ={ <EditProfile user={user}/> } />

@@ -2,6 +2,7 @@
 
 .trip-images-page{
     margin:0 auto;
+    min-height: 68vh;;
     padding: 40px 0;
     width: 90%;
     display: flex;
@@ -16,6 +17,8 @@
 
 .img-card{
     margin: 10px auto;
+    height: 400px;
+    width: 400px;
     /* border: 1px solid black; */
     position: relative;
 
@@ -59,12 +62,12 @@
     background-color: var(--dark-blue);
 }
 
+/*-------ADD IMGs Form -------*/
 
 .add-images-form-page{
-    height: 68vh;
-    padding-top: 100px;
-    background-color: var(--white);
-    max-width: 1600px;
+    /* height: 40vh; */
+    /* background-color: var(--white); */
+    width: 30vw;
     margin: 0 auto;
 }
 
@@ -73,21 +76,23 @@
     flex-direction: column;
     justify-content: center;
     /* border: 1px solid var(--dark-blue); */
-    padding: 10px;
-    width: 80vw;
+    width: 80%;
     max-width: 500px;
     border-radius: 15px;
-    margin: 50px auto 0 auto;
+    margin: 70px auto 0 auto;
 }
+
+/* #file-upload styled in StyleProfile.css */
+
 .add-images-form input{
-    margin: 0 auto;
+    margin: 10px auto;
     background-color: var(--light-blue);
     padding: 10px;
     border-radius: 7px;
     color: (--white);
 }
 
-.btn-container{
+/* .btn-container{
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -95,7 +100,7 @@
     max-width: 400px;
     margin: 0 auto;
     padding: 30px;
-}
+} */
 
 
 .add-images-form-page h2{

@@ -1,18 +1,21 @@
 import './StyleTripsImages.css'
-import { useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { useContext, useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
+import { TripContext } from '../../Context/state'
 import ImageCard from './ImageCard';
+import AddTripImgModal from '../FormModals/AddTripImgModal'
 
 const TripImageFullPage = () => {
      const [errors, setErrors] = useState([]);
     const [userTrip, setUserTrip] = useState('')
-    const [refreshImages, setRefreshImages] = useState(false)
-    // const [openModal, setOpenModal] = useState(false)
+    const [openEditImageModal, setOpenEditImageModal] = useState(false)
   
     let params = useParams()
     const tripId = parseInt(params.id)
 
-    //get all Trip Details
+    const tripCtx = useContext(TripContext)
+
+    //get all Trip Details including the associated images
     useEffect(() => {
         fetch(`/trips/${tripId}`)
         .then((res) => {
@@ -25,19 +28,23 @@ const TripImageFullPage = () => {
               res.json().then((err) => setErrors(err.errors))
             }
           })
-    }, [tripId, refreshImages])
+    }, [tripId, tripCtx.refreshPage])
 
       //map over and display images if any images exist
       const renderImages = userTrip.images_format?.map((img, index) => {
         return(
-          <ImageCard tripId={tripId} imageInfo={img} key={img.id} refreshImages={refreshImages} setRefreshImages={setRefreshImages}/>
+          <ImageCard tripId={tripId} imageInfo={img} key={img.id}/>
         )
       })
 
-         //display message if any errors
-         const formErrorMsg = errors?.map((err) => (
-          <li key={err}>{err}</li>
-        ))
+      //open/close modal for add/edit single profile image
+      const handleOpenImgEditModal = () => setOpenEditImageModal(true);
+      const handleCloseEditImgModal = () => setOpenEditImageModal(false);
+
+        //display message if any errors
+        const formErrorMsg = errors?.map((err) => (
+        <li key={err}>{err}</li>
+      ))
 
   return (
     <div className='page-container'>
@@ -49,11 +56,15 @@ const TripImageFullPage = () => {
                  ) : (
                           <h2>Add trip photos!</h2>
               )}
-        <Link to={`/trips/${tripId}/addImages`}>
-          <button title="Add images" className='add-trip-img-btn'>+</button>
-        </Link>
+        {/* <Link to={`/trips/${tripId}/addImages`}> */}
+          <button title="Add images" className='add-trip-img-btn' onClick={handleOpenImgEditModal}>+</button>
+        {/* </Link> */}
       </div>
+      
       <ul>{formErrorMsg}</ul>
+
+      <AddTripImgModal userTrip={userTrip} openEditImageModal={openEditImageModal} handleCloseEditImgModal={handleCloseEditImgModal}/>
+
     </div>
   )
 }

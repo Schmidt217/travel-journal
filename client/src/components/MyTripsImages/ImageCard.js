@@ -3,7 +3,7 @@ import { TripContext } from '../../Context/state'
 import ModalComponent from '../ModalComponent'
 
 
-const ImageCard = ({ tripId, imageInfo, refreshImages, setRefreshImages }) => {
+const ImageCard = ({ tripId, imageInfo }) => {
   const [openModal, setOpenModal] = useState(false)
 
   const tripCtx = useContext(TripContext)
@@ -13,7 +13,10 @@ const ImageCard = ({ tripId, imageInfo, refreshImages, setRefreshImages }) => {
     fetch(`/deleteImage/${tripId}/${imageInfo.id}`,{
       method: 'DELETE',
     })
-    .then(setRefreshImages(refreshImages => !refreshImages))
+    .then(() => {
+      tripCtx.refreshFunction()
+      handleClose();
+    })
   }
   
    //open/close modal for delete image

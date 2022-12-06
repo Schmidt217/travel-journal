@@ -25,7 +25,6 @@ const ActivityForm = () => {
         .then((res)=> {
             if(res.ok){
                 res.json().then((actData) => {
-                  console.log(actData)
                     setTripTitle(actData.trip.name)
                     setActivityFormData({
                         title: actData.title,
@@ -36,7 +35,6 @@ const ActivityForm = () => {
                 })
             }else{
                 res.json().then((data) => {
-                    console.log(data)
                     setErrors(data.error)
                 })
             }
@@ -57,9 +55,6 @@ const ActivityForm = () => {
           }
       })
     }
-
-    console.log(tripTitle)
-    
 
     //submit activity edit form
     const handleSubmit = (e) => {
@@ -83,7 +78,6 @@ const ActivityForm = () => {
             });
           } else {
             res.json().then((err) => {
-                console.log(err)
                 setErrors(err.errors)
             })
           }

@@ -13,7 +13,7 @@ const ModalComponent = ({openModal, handleClose, handleDelete}) => {
 >
   <Box 
         sx={{backgroundColor: "var(--blue-see-through)",
-          backdropFilter: "blur(10px)",
+          backdropFilter: "blur(5px)",
           color: "white",
 					display: "flex",
           justifyContent: "center",
