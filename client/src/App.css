@@ -12,7 +12,7 @@
   --balck: #2A292D;
   --dard-grey:#5C5A61;
   --brown: #4B4442;
-  --blue-see-through: rgba(120, 139, 164, 0.8);
+  --blue-see-through: rgba(93, 111, 135, 0.8);
   --deep-blue: rgb(57, 57, 76);
   --dark-blue:#39495f;
   --blue: #546c86;
@@ -80,11 +80,11 @@ button:hover{
 
 .form-cancel-btn{
   background-color: transparent;
-  color: var(--deep-blue)
+  color: var(--dark-blue)
 }
 .form-cancel-btn:hover{
   background-color: transparent;
-  color: var(--dark-blue);
+  color: var(--white);
   text-decoration: underline;
 }
 
@@ -159,7 +159,7 @@ button:hover{
   
 }
 .logout-btn:hover{
-  background-color: var(--delete-red);
+  background-color: var(--orange);
   color: var(--white);
   
 }
@@ -204,14 +204,14 @@ button:hover{
     background-position: top 2% right 0%;;
     background-repeat: no-repeat;
     width: 100vw;
-    height: 30vh;
+    height: 40vh;
     max-width: 1600px;
     margin: 0 auto;;
     /* border-top: 5px solid var(--dark-blue); */
 }
-.home-info-container {
+/* .home-info-container {
   padding-bottom: 50px;
-}
+} */
 .home-info-container p{
   width: 40vw;
   margin: 0 auto;

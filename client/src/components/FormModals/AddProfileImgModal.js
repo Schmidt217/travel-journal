@@ -51,17 +51,18 @@ const AddProfileImgModal = ({ openEditImageModal, handleCloseEditImgModal, userI
   aria-describedby="modal-modal-description"
 >
   <Box 
-        sx={{backgroundColor: "var(--blue)",
+        sx={{backgroundColor: "var(--blue-see-through)",
+          backdropFilter: "blur(10px)",
           color: "white",
 					display: "flex",
           justifyContent: "center",
           textAlign: "center",
           flexDirection: "column",
           alignContent: "center",
-					padding: "2rem",
+					padding: "1rem",
 					margin: "10vh auto",
 					width: "30%",
-					borderRadius: "7px",
+					borderRadius: "10px",
 					boxShadow: 10,
 					alignItems: "center",
           fontSize: "25px",

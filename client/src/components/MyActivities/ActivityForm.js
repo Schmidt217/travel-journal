@@ -119,8 +119,9 @@ const ActivityForm = () => {
 
   return (
     <div className='activity-form-page'>
+      <div className="activity-form-layer"></div>
       <h2> {formTitle}</h2>
-        <form className="trip-form add-activity-form" autoComplete='off' onSubmit={handleSubmit} >
+        <form className="add-activity-form" autoComplete='off' onSubmit={handleSubmit} >
                 <label>Activity Name </label>
                 <input type='text'id="title" name="title" value={activityFormData.title} onChange={handleUserTextInput} required />
 
@@ -135,7 +136,7 @@ const ActivityForm = () => {
                 <textarea type='text'id="description" name="description" value={activityFormData.description} onChange={handleUserTextInput} required/>
                 
         
-                <button className='submit-btn' type="submit">{isSending ? 'SUBMITTING...' : 'SUBMIT'}</button>
+                <button className='add-activity-btn' type="submit">{isSending ? 'SUBMITTING...' : 'SUBMIT'}</button>
                 
             </form>
             <button className='form-cancel-btn' onClick={()=> navigate(-1)}>Cancel</button>
