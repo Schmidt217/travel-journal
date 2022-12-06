@@ -2,6 +2,7 @@ import './App.css'
 import { useState, useEffect, useContext } from "react"
 import { Routes, Route } from 'react-router-dom'
 import NavBar from './components/NavBar'
+import Footer from './components/Footer'
 import LoginContainer from './components/LoginFolder/LoginContainer'
 import Login from './components/LoginFolder/Login'
 import Signup from './components/LoginFolder/Signup'
@@ -78,6 +79,7 @@ function App() {
         <Route path="activities/:activityId/edit" element ={ <ActivityForm /> } />
 
       </Routes>
+      <Footer/>
     </div>
   );
 }

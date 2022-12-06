@@ -32,7 +32,7 @@ const MyTrips = ({ user, search, setSearch }) => {
       <div className="display-my-trips-cards">
         <h1>{user.name}'s Trips</h1>
         <SearchBar search={search} setSearch={setSearch}/>
-        <Link to='/'>
+        <Link to='/trips/add'>
           <span className='add-new-trip-link'>Add New Trip</span>
         </Link>
         <div className="myTrips-page">

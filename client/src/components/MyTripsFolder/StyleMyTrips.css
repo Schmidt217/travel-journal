@@ -17,21 +17,19 @@
     flex-wrap: wrap;
     justify-content: center;
     /* border: 2px solid black; */
-    width: 90vw;
-    /* height: 100vh;  */
+    width: 80vw;
     max-width: 1600px;
-    /* background-position: fixed; */
-    /* overflow-y: scroll; */
 }
 
 .myTrip-card{
-    background-color: var(--dark-blue);
+    background-color: var(--blue);
+    color: var(--white);
     margin: 30px;
     width: 15vw;
     max-width: 400px;
     padding: 10px;
     border-radius: 7px;
-    box-shadow: 5px 5px 10px var(--deep-blue);
+    box-shadow: 5px 5px 10px var(--blue);
 }
 
 .myTrip-card-img{
@@ -39,35 +37,36 @@
     width: 150px;
     object-fit: cover;
     border-radius: 7px;
-    box-shadow: 5px 5px 10px var(--deep-blue);
+    border: 2px solid var(--white);
+    box-shadow: 5px 5px 10px var(--dark-blue);
 }
 
 .view-single-trip{
-    background-color: var(--ocean-blue);
+    background-color: var(--light-blue);
     color: var(--dark-blue);
-    box-shadow: 5px 5px 10px var(--deep-blue);
+    box-shadow: 5px 5px 10px var(--dark-blue);
 }
 .view-single-trip:hover{
-    background-color: var(--blue);
-    color: var(--yellow);
+    background-color: var(--white);
+    /* color: var(--white); */
 }
 
 .add-new-trip-link{
     position: absolute;
     top: 20px;
     right: 35px;
-    color: var(--ocean-blue);
+    color: var(--dark-blue);
 }
 
 .add-new-trip-link:hover{
    text-decoration: underline;
-   color: var(--yellow);
+   color: var(--orange);
 }
 
 /* ------- Single Trip View -------*/
 .single-trip-page{
     position: relative;
-    background-color: var(--blue);
+    background-color: var(--white);
     margin: 0 auto;
     /* height: 100vh; */
     width: 100%;
@@ -84,9 +83,9 @@
     flex-wrap: none;
     justify-content: space-evenly;
     /* border: 2px solid black; */
-    width: 80vw;
+    width: 70vw;
     max-width: 1600px;
-    margin: 100px auto;
+    margin: 50px auto;
     padding: 10px;
 }
 .single-trip-details, .single-trip-images{
@@ -94,7 +93,13 @@
 }
 
 .single-trip-details{
-    border-right: 2px solid var(--light-grey); 
+    /* border-right: 2px solid var(--light-grey);  */
+}
+
+.single-trip-details p{
+    width: 80%;
+    margin: 0 auto;
+    padding: 10px;
 }
 
 /* on the view trip page (only 3 images max are shown here) */
@@ -121,8 +126,14 @@
     top:0px;
     right: 60px;
     border: none;
+    color: var(--blue);
+    background-color: transparent;
+
+}
+.view-images:hover{
     color: var(--dark-blue);
     background-color: transparent;
+    text-decoration: underline;
 
 }
 

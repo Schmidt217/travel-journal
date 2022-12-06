@@ -3,13 +3,11 @@
   /* --dark-blue: rgb(61, 61, 108); */
   /* --blue: rgb(95, 95, 155); */
   /* --ocean-blue: #7fb9c6; */
-  --white: rgb(251, 243, 239);
-  --white-see-through: rgba(239, 243, 251, 0.5);
+  --white: #fcf9f5;
+  --white-see-through: rgba(239, 243, 251, 0.8);
   --light-grey: rgb(216, 214, 214);
   --delete-red: rgb(211, 59, 9);
   --light-red: rgb(239, 68, 20);
-  /* --orange: #F16B50; */
-  --yellow: #ffd984;
 
   --balck: #2A292D;
   --dard-grey:#5C5A61;
@@ -18,7 +16,7 @@
   --deep-blue: rgb(57, 57, 76);
   --dark-blue:#46566c;
   --blue: #546c86;
-  --light-blue:#B4BBC0;
+  --light-blue:#8C9FB7;
   --orange: #f16b4f;
   --peach: #df8f74;
   --tan: #F0BD85;
@@ -30,7 +28,7 @@
 .App {
   text-align: center;
   /* background-color: var(--white); */
-  color: var(--white);
+  color: var(--blue);
   /* background-color: var(--blue); */
   margin: 0;
   padding: 0;
@@ -78,6 +76,16 @@ button:hover{
   /* color: var(--dark-blue); */
   cursor: pointer;
   background-color: var(--blue);
+}
+
+.form-cancel-btn{
+  background-color: transparent;
+  color: var(--blue)
+}
+.form-cancel-btn:hover{
+  background-color: transparent;
+  color: var(--dark-blue);
+  text-decoration: underline;
 }
 
 /*-------NavBar---------*/
@@ -191,13 +199,15 @@ button:hover{
 /* ------- Home Page -------- */
 
 .footer-img{
-  background-image: url('./ImageFolder/loginPageMountain.jpeg');
+  background-image: url('./ImageFolder/mouontain-brush-9.png');
     background-size: cover;
-    background-position: top 30% right 0%;
+    background-position: top 2% right 0%;;
     background-repeat: no-repeat;
     width: 100vw;
-    height: 20vh;
-    border-top: 5px solid var(--dark-blue);
+    height: 30vh;
+    max-width: 1600px;
+    margin: 0 auto;;
+    /* border-top: 5px solid var(--dark-blue); */
 }
 .home-info-container {
   padding-bottom: 50px;
@@ -213,6 +223,29 @@ button:hover{
 
 
 
+/* ------- Footer -------- */
+.footer{
+  height: 15vh;
+  width: 100%;
+  background-color: var(--peach);
+  border-top: 8px solid var(--dark-blue);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.footer img{
+  height: 100px;
+  width: 100px;
+
+}
+
+.footer span{
+  font-size: 22px;
+  font-weight: bold;
+}
 /* ------- Modal Delete -------- */
 .confirm-delete-btn{
   margin-top: 30px;

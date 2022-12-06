@@ -17,13 +17,6 @@
     padding: 10px;
 }
 
-.add-activity{
-    position: absolute;
-    top: 5px;
-    right: 10px;
-    width: 15vw;
-}
-
 .edit-activity, .delete-activity{
     position: absolute;
     width: 40px;
@@ -36,9 +29,21 @@
     /* border: 2px solid var(--dark-blue); */
 }
 
+.add-activity{
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    width: 15vw;
+}
+
 .edit-activity{
     right: 45px;
     padding: 9px;
+}
+
+.edit-activity:hover, .delete-activity:hover{
+    background-color: var(--dark-blue);
+    color: var(--white);
 }
 
 .activity-form-page{

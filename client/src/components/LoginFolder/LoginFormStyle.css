@@ -1,10 +1,8 @@
 .login-container{
-    background-image: url('../../ImageFolder/loginPageMountain.jpeg');
+    background-image: url('../../ImageFolder/yello-van-img.jpg');
     background-size: cover;
-    background-position: center;
+    background-position: top 30% right 0%;
     background-repeat: no-repeat;
-    /* background: linear-gradient(var(--dark-blue), var(--tan)); */
-    /* background: linear-gradient(var(--dark-blue), var(--tan)); */
     width: 100vw;
     height: 100vh;
     margin: 0;
@@ -17,7 +15,7 @@
 }
 
 .layer {
-    background-color: rgba(183, 158, 148, 0.7);
+    background-color: rgba(183, 158, 148, 0.6);
     position: absolute;
     top: 0;
     left: 0;
