@@ -2,6 +2,7 @@ import './App.css'
 import { useState, useEffect, useContext } from "react"
 import { Routes, Route } from 'react-router-dom'
 import NavBar from './components/NavBar'
+import Footer from './components/Footer'
 import LoginContainer from './components/LoginFolder/LoginContainer'
 import Login from './components/LoginFolder/Login'
 import Signup from './components/LoginFolder/Signup'
@@ -9,6 +10,7 @@ import Home from './components/Home'
 import Profile from './components/UserProfile/Profile'
 import MyTrips from './components/MyTripsFolder/MyTrips'
 import Explore from './components/ExploreFolder/Explore'
+import TripForm from './components/TripForms/TripForm'
 import EditTrip from './components/TripForms/EditTrip'
 import EditProfile from './components/UserProfile/EditProfile'
 import EditProfileImage from './components/UserProfile/EditProfileImage'
@@ -67,6 +69,7 @@ function App() {
         <Route path="trips/:id" element ={ <ViewTrip user={user} /> } />
         <Route path="trips/:id/images" element ={ <TripImageFullPage user={user} /> } />
         <Route path="trips/:id/addImages" element ={ <AddTripImages user={user} /> } />
+        <Route path="trips/add" element ={ <TripForm user={user} /> } />
         <Route path="trips/:id/edit" element ={ <EditTrip /> } />
         <Route path="user/:id/profile/edit" element ={ <EditProfile user={user}/> } />
         <Route path="user/:id/profile/editImage" element ={ <EditProfileImage user={user}/> } />
@@ -76,6 +79,7 @@ function App() {
         <Route path="activities/:activityId/edit" element ={ <ActivityForm /> } />
 
       </Routes>
+      <Footer/>
     </div>
   );
 }

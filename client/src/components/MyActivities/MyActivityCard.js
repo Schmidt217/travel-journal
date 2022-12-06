@@ -27,7 +27,7 @@ const MyActivityCard = ({ activity }) => {
   return (
     <div className='myActivity-card'>
         <h4>{activity.title}</h4>
-        <p>Category: {activity.category}</p>
+        {/* <p><em>Category:</em> {activity.category}</p> */}
         <p>{activity.description}</p>
 
         <Link to={`/activities/${activity.id}/edit`}>

@@ -57,7 +57,7 @@
     height: 40px;
     width: 40px;
     background-color: transparent;
-    color: var(--delete-red);
+    color: var(--orange);
     font-size: 30px;
     font-weight: bold;
     right: 20px;
@@ -66,7 +66,7 @@
 
 .like-btn:hover{
     background-color: transparent;
-    color: var(--light-red);
+    color: var(--delete-red);
 }
 
 .public-trip-card span{

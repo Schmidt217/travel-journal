@@ -78,7 +78,7 @@ const EditProfile = ({ user }) => {
 
   return (
     <div className='user-profile-form-page profile-page'>
-            <form className='user-profile-form profile-form' onSubmit={handleSubmit}>
+            <form className='edit-full-profile-form' onSubmit={handleSubmit}>
                 <h1>Edit Profile</h1>
 
                 <label htmlFor="name">Name</label>

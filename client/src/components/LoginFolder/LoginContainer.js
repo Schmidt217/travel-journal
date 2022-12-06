@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import Login from './Login'
 import Signup from './Signup'
 
+
 const LoginContainer = ({ setUser }) => {
     const [showLogin, setShowLogin] = useState(true)
 
@@ -12,9 +13,9 @@ const LoginContainer = ({ setUser }) => {
          {showLogin ? (
                 <div className="login">
                     <Login setUser={setUser}/>
-                    <p>Don't have an account?</p>
+                    <p>Need an account?</p>
                     <Link to='signup'>
-                        <button onClick={() => setShowLogin(false)}>Sign Up!</button>
+                        <button className='login-btn2' onClick={() => setShowLogin(false)}>Sign Up!</button>
                     </Link>
                 </div>
 

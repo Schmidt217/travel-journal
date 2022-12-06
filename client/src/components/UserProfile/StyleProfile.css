@@ -2,7 +2,7 @@
 /* ------- Profile -------- */
 
 .profile{
-    height: 100vh;
+    height: 90vh;
     max-width: 1600px;
     margin: 0 auto;
     /* padding-top: 60px; */
@@ -27,14 +27,14 @@
     object-fit: cover;
     border-radius: 50%;
     border: 5px solid var(--dark-blue);
-    box-shadow: 5px 5px 10px var(--deep-blue);
+    box-shadow: 5px 5px 10px var(--dark-blue);
 }
 
 .view-myTrips-btn{
     width: 10%;
     background-color: var(--dark-blue);
     color: white;
-    box-shadow: 5px 5px 10px var(--deep-blue);
+    box-shadow: 5px 5px 10px var(--dark-blue);
 
 }
 
@@ -45,29 +45,6 @@
     margin: 50px auto;
     /* background-color: aquamarine; */
 }
-
-.profile-form{
-    max-width: 50vw;
-    /* background-color: aquamarine; */
-    /* border: 1px solid var(--dark-blue); */
-    padding: 50px;
-    border-radius: 15px;
-    margin: 20px auto;
-}
-
-.profile-form textarea{
-    padding: 5px;
-    border-radius: 15px;
-    border: 1px solid var(--dark-blue);
-    width: 60%;
-    height: 15vh;
-    margin: 10px auto;
-}
- #file-upload{
-    border: none;
-    width: 30%;
- }
-
 .edit-profile-btn, .delete-profile-btn{
     position: absolute;
     box-shadow: 5px 5px 10px var(--deep-blue);
@@ -93,13 +70,75 @@
     right: 40px;
     bottom: -10px;
     background-color: transparent;
+    color: var(--blue);
     border: none;
     font-size: 25px;
 }
+.edit-profile-img-btn:hover{
+    background-color: var(--dark-blue);
+    /* color: var(--dark-blue); */
+
+}
+
+/*------EDIT FULL PROFILE FORM*/
+
+.edit-full-profile-form{
+    max-width: 50vw;
+    color: var(--dark-blue); 
+    display: flex;
+    flex-direction: column;
+    /* border: 1px solid var(--dark-blue); */
+    padding: 50px;
+    border-radius: 15px;
+    margin: 0 auto;
+}
+.edit-full-profile-form input{
+    width: 30%;
+    margin: 10px auto;
+    padding: 7px;
+    background-color: var(--light-blue);
+    color: var(--white);
+    border: none;
+    border-radius: 15px;
+}
+
+.edit-full-profile-form textarea{
+    padding: 5px;
+    border-radius: 15px;
+    border: 1px solid var(--dark-blue);
+    background-color: var(--light-blue);
+    color: var(--white);
+    border: none;
+    width: 60%;
+    height: 15vh;
+    margin: 10px auto;
+}
+ #file-upload{
+    border: none;
+    background-color: var(--light-blue);
+    width: 30%;
+ }
+
+
+/* 
+     -------- Edit single image ACTUAL FORM ------- */
 
 .edit-profile-img-btn:hover{
     background-color: transparent;
     color: white;
     font-weight: bold;
+}
+
+.edit-profile-img-form {
+    padding-top: 50px;
+    height: 60vh;
+}
+.edit-profile-img-form label{
+    color: transparent;
+    padding: 20px;
+}
+
+.submit-profile-img{
+    margin-top: 40px;
 }
 

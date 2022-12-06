@@ -49,7 +49,8 @@ const EditProfileImage = () => {
 
   return (
     <div>
-        <form className='user-profile-form profile-form' onSubmit={handleSubmit}>
+        <form className='user-profile-form edit-profile-img-form' onSubmit={handleSubmit}>
+          <h2>Edit Profile Image</h2>
         <label htmlFor="avatar">Change Profile Image</label>
                 <input
                     id='file-upload'
@@ -57,7 +58,7 @@ const EditProfileImage = () => {
                     name="avatar"
                 />
 
-        <button type="submit">{isLoading ? "Loading..." : "Submit Changes"}</button>
+        <button className="submit-profile-img" type="submit">{isLoading ? "Loading..." : "Submit Changes"}</button>
         </form>
         <button className='form-cancel-btn' onClick={()=> navigate(-1)}>Cancel</button>
         <ul>{formErrorMsg}</ul>

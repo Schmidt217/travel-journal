@@ -99,6 +99,7 @@ const TripForm = ({ userId }) => {
   return (
     <div className='trip-form-container'>
         <form className="trip-form" autoComplete='off' onSubmit={handleSubmit} >
+            <h1>Add a New Trip</h1>
                 <label>Trip Name </label>
                 <input type='text'id="name" name="name" value={userInputTextData.name} onChange={handleUserTextInput} required />
                
