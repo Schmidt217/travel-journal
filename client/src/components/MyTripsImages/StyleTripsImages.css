@@ -47,7 +47,7 @@
 }
 
 .delete-img:hover{
-    background-color: var(--delete-red);
+    background-color: var(--orange);
 }
 
 .add-trip-img-btn{

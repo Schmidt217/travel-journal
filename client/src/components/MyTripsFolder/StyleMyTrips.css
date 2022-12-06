@@ -131,7 +131,7 @@
 
 }
 .view-images:hover{
-    color: var(--dark-blue);
+    color: var(--orange);
     background-color: transparent;
     text-decoration: underline;
 

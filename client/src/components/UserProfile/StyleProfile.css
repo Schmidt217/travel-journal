@@ -27,14 +27,29 @@
     object-fit: cover;
     border-radius: 50%;
     border: 5px solid var(--dark-blue);
-    box-shadow: 5px 5px 10px var(--dark-blue);
+    box-shadow: 5px 5px 10px var(--blue);
+}
+
+.profileInfo-container{
+    width: 35vw;
+    margin: 20px auto;
+    color: white;
+    background-color: var(--light-blue);
+    padding: 15px;
+    border-radius: 7px;
+    box-shadow: 5px 5px 10px var(--blue);
+}
+
+.profileInfo-container span{
+    font-weight: bold;
+    font-size: 1.2rem;
 }
 
 .view-myTrips-btn{
     width: 10%;
     background-color: var(--dark-blue);
     color: white;
-    box-shadow: 5px 5px 10px var(--dark-blue);
+    box-shadow: 5px 5px 10px var(--blue);
 
 }
 
@@ -42,12 +57,20 @@
     position: relative;
     width: 90vw;
     max-width: 1600px;
-    margin: 50px auto;
+    margin: 25px auto;
     /* background-color: aquamarine; */
 }
 .edit-profile-btn, .delete-profile-btn{
     position: absolute;
-    box-shadow: 5px 5px 10px var(--deep-blue);
+    background-color: transparent;
+    color: var(--dark-blue);
+    /* box-shadow: 5px 5px 10px var(--blue); */
+}
+.edit-profile-btn:hover, .delete-profile-btn:hover{
+   background-color: transparent;
+   color: var(--orange);
+   text-decoration: underline;
+
 }
 
 .edit-profile-btn{
@@ -58,12 +81,6 @@
     left: 25px;
 }
 
-.delete-profile-img-btn{
-    position: absolute;
-    /* right: 100px; */
-    background-color: transparent;
-
-}
 
 .edit-profile-img-btn{
     position: absolute;

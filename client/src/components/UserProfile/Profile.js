@@ -31,16 +31,16 @@ const Profile = ({ user, setUser }) => {
     <div className='page-container'>
       <div className="profile">
         <h1>Welcome {user.name}!</h1>
-        <img className='profile-img' src={user.avatar_format?.url ? user.avatar_format.url : PlaceholderImg} alt="profile-pic" />
         <div className="profileImg-container">
+        <img className='profile-img' src={user.avatar_format?.url ? user.avatar_format.url : PlaceholderImg} alt="profile-pic" />
 
             <button title="add/edit image" className='edit-profile-img-btn' onClick={handleOpenImgEditModal}>✎</button>
          
         </div>
-
-        <h2>Bio</h2>
-        <p>{user.bio}</p>
-        <p>{user.username}</p>
+        <div className="profileInfo-container">
+          <p><span>Username:</span> {user.username}</p>
+          <p>{user.bio}</p>
+        </div>
 
         <Link to="/user/trips">
           <button className='view-myTrips-btn'>View My Trips</button>

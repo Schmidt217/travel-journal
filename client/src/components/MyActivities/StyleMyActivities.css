@@ -1,11 +1,16 @@
 /* -------Activities --------*/
 .activities-container{
     position: relative;
-    width: 80vw;
+    width: 70vw;
     margin: 5px auto;
-    border-top: 2px solid var(--light-grey);
+    border-top: 2px solid var(--blue-see-through);
     max-width: 1600px;
-    padding-bottom: 100px;
+    padding: 50px;
+}
+
+.activities-container h3{
+    font-size: 1.7rem;
+    font-weight: 700;
 }
 
 .myActivity-card{
@@ -33,7 +38,7 @@
     position: absolute;
     top: 5px;
     right: 10px;
-    width: 15vw;
+    width: 8vw;
 }
 
 .edit-activity{
