@@ -12,7 +12,8 @@ const ActivityForm = () => {
       
   const [isSending, setIsSending] = useState(false)
   const [errors, setErrors] = useState([]);
-  const [activityFormData, setActivityFormData] = useState(initialState)
+  const [activityFormData, setActivityFormData] = useState(initialState);
+  const [tripTitle, setTripTitle] = useState('')
 
   let navigate = useNavigate();
   let params = useParams();
@@ -24,6 +25,8 @@ const ActivityForm = () => {
         .then((res)=> {
             if(res.ok){
                 res.json().then((actData) => {
+                  console.log(actData)
+                    setTripTitle(actData.trip.name)
                     setActivityFormData({
                         title: actData.title,
                         category: actData.category,
@@ -44,7 +47,6 @@ const ActivityForm = () => {
     }
   }, [params])
 
-
     //get user input from changes to form
     const handleUserTextInput = (e) => {
       const { name, value } = e.target
@@ -55,6 +57,9 @@ const ActivityForm = () => {
           }
       })
     }
+
+    console.log(tripTitle)
+    
 
     //submit activity edit form
     const handleSubmit = (e) => {
@@ -114,7 +119,7 @@ const ActivityForm = () => {
 
           //render title edit vs add activity based on params activityId(edit) vs tripId(add new activity)
 
-          const formTitle = params.activityId? 'Edit Activity' : 'Add New Activity'
+          const formTitle = params.activityId? `Edit ${tripTitle} Activity ` : 'Add New Activity'
 
 
   return (
