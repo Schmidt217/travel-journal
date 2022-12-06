@@ -224,26 +224,55 @@ p{
 
 /* ------- Home Page -------- */
 
-.footer-img{
-  background-image: url('./ImageFolder/mouontain-brush-9.png');
+.home-page{
+  min-height: 60vh;
+  width: 100vw;
+  position: relative;
+  margin: 0px auto;
+  padding: none;
+  background-color: var(--white);
+}
+.home-img{
+    position: absolute;
+    bottom: 0px;
+    z-index: 1;
+    background-image: url('./ImageFolder/mouontain-brush-9.png');
     background-size: cover;
     background-position: top 2% right 0%;;
     background-repeat: no-repeat;
     width: 100vw;
-    height: 40vh;
+    height: 50vh;
     max-width: 1600px;
     margin: 0 auto;;
-    /* border-top: 5px solid var(--dark-blue); */
+}
+
+.home-info-container{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content:flex-start;
+  z-index: 2;
+  padding: 10px 10px 30px 10px;
+  width: 38vw;
+  margin: 0 auto;
+  backdrop-filter: blur(3px);
+  background-color: rgba(239, 243, 251, 0.2);
+}
+
+.home-info-container img{
+  margin-top: 0 auto 100px auto;
 }
 
 .home-info-container p{
-  width: 40vw;
+  width: 35vw;
+  color: var(--white);
   margin: 0 auto;
-  padding-bottom: 20px;
   font-size: 1.5rem;
 }
 .home-info-container button{
-  box-shadow: 5px 5px 10px var(--deep-blue);
+  margin: 20px auto;
+
+ 
 }
 
 
@@ -258,6 +287,7 @@ p{
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  margin: 0;
 
 }
 
