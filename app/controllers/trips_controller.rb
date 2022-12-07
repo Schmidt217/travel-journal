@@ -31,6 +31,7 @@ class TripsController < ApplicationController
     #DELETE a trip
     def destroy
         trip = Trip.find(params[:id])
+        trip.images.purge
         trip.destroy
         head :no_content
     end

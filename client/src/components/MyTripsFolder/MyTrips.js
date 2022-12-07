@@ -1,9 +1,11 @@
 import './StyleMyTrips.css'
-import { Link } from 'react-router-dom'
+import { useState } from 'react'
 import MyTripsCard from './MyTripsCard'
 import SearchBar from '../SearchBar'
+import AddTripFormModal from '../FormModals/AddTripFormModal'
 
 const MyTrips = ({ user, search, setSearch }) => {
+  const [openAddTripModal, setOpenAddTripModal] = useState(false)
 
   //searchBar filter of all user's trips
   const filterTrips = user.trips.filter((trip, index)=> {
@@ -20,6 +22,10 @@ const MyTrips = ({ user, search, setSearch }) => {
     }else return false
   })
 
+   //open/close modal for add trip
+   const handleOpenAddTripModal = () => setOpenAddTripModal(true);
+   const handleCloseAddTripModal = () => setOpenAddTripModal(false);
+
     //map over and display trips (potentially filtered trips from searchbar input) to page via trip cards
     const renderTrips = filterTrips.map(trip => {
       return(
@@ -32,13 +38,14 @@ const MyTrips = ({ user, search, setSearch }) => {
       <div className="display-my-trips-cards">
         <h1>{user.name}'s Trips</h1>
         <SearchBar search={search} setSearch={setSearch}/>
-        <Link to='/trips/add'>
-          <span className='add-new-trip-link'>Add New Trip</span>
-        </Link>
+
+          <span className='add-new-trip-link' onClick={handleOpenAddTripModal}>Add New Trip</span>
+  
         <div className="myTrips-page">
           {renderTrips}
         </div>
       </div>
+      <AddTripFormModal user={user} openAddTripModal={openAddTripModal} handleCloseAddTripModal={handleCloseAddTripModal}/>
     </div>
   )
 }

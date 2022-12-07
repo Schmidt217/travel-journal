@@ -1,31 +1,31 @@
-.trip-form-page{
+/* .trip-form-page{
     height: 100vh;
     background-color: var(--blue);
     max-width: 1600px;
     margin: 0 auto;
-}
+} */
 
-.trip-form-container{
-    max-width: 1600px;
-    /* border: 1px solid var(--dark-blue); */
-}
 
 .trip-form-container h2{
-    padding-top: 50px;
-    margin: 0;
-    color: var(--dark-blue);
+    padding-top: 20px;
+    margin: 10px auto 30px auto;
+    color: var(--white);
 }
 .trip-form{
     /* background-color: aquamarine; */
     display: flex;
     flex-direction: column;
-    /* border: 1px solid var(--dark-blue); */
+    border: none;
     padding: 10px;
     width: 80vw;
     max-width: 500px;
     border-radius: 15px;
-    margin: 20px auto;
-    color: var(--dark-blue);
+    margin: 0px auto;
+    color: var(--white);
+}
+
+.trip-form label{
+    font-size: 18px;
 }
 
 .trip-form input{
@@ -33,26 +33,34 @@
     margin: 10px auto;
     padding: 5px;
     border-radius: 15px;
-    border: 1px solid var(--dark-blue);
+    background-color: var(--white-see-through);
+    color: var(--dark-blue);
+    font-weight: bold;
+    border: none;
 }
 
 .trip-form textarea{
     padding: 5px;
     border-radius: 15px;
-    border: 1px solid var(--dark-blue);
+    background-color: var(--white-see-through);
+    color: var(--dark-blue);
+    font-weight: bold;
     width: 40vw;
     max-width: 400px;
     height: 15vh;
     margin: 10px auto;
+    border: none;
 }
 
 #file-upload-trip-form{
     width: 50%;
     border: none;
+    background-color: var(--light-blue);
     /* border: 1px solid var(--dark-blue); */
 
 }
 
-.edit-trip-form{
+
+/* .edit-trip-form{
     margin-top: 50px;
-}
+} */

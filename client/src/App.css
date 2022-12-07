@@ -76,7 +76,7 @@ button{
 button:hover{
   /* color: var(--dark-blue); */
   cursor: pointer;
-  background-color: var(--blue);
+  background-color: var(--light-blue);
 }
 
 .form-cancel-btn{
@@ -271,6 +271,7 @@ p{
 }
 .home-info-container button{
   margin: 20px auto;
+  box-shadow: 5px 5px 10px var(--deep-blue);
 
  
 }

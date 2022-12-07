@@ -10,7 +10,6 @@ import Home from './components/Home'
 import Profile from './components/UserProfile/Profile'
 import MyTrips from './components/MyTripsFolder/MyTrips'
 import Explore from './components/ExploreFolder/Explore'
-import TripForm from './components/TripForms/TripForm'
 import EditTrip from './components/TripForms/EditTrip'
 import EditProfile from './components/UserProfile/EditProfile'
 import ViewTrip from './components/MyTripsFolder/ViewTrip'
@@ -66,7 +65,6 @@ function App() {
         <Route path="trips/publicTrips" element ={ <Explore user={user} publicTrips={publicTrips} search={search} setSearch={setSearch}/> } />
         <Route path="trips/:id" element ={ <ViewTrip user={user} /> } />
         <Route path="trips/:id/images" element ={ <TripImageFullPage user={user} /> } />
-        <Route path="trips/add" element ={ <TripForm user={user} /> } />
         <Route path="trips/:id/edit" element ={ <EditTrip /> } />
         <Route path="user/:id/profile/edit" element ={ <EditProfile user={user}/> } />
        <Route path="trip/:tripId/add-activity" element ={ <ActivityForm /> } />

@@ -32,7 +32,10 @@ Rails.application.configure do
   end
 
   # Store uploaded files on the local file system (see config/storage.yml for options).
-  config.active_storage.service = :local
+  # config.active_storage.service = :local
+  
+  #store uploaded files on aws s3
+  config.active_storage.service = :amazon
 
   #don't replace old images with additional ones uploaded
   # config.active.storage.replace_on_assign_to_many = false
