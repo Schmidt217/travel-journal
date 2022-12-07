@@ -17,7 +17,6 @@ const PublicTripCard = ({ trip, user }) => {
         setIsLiked(tripAlreadyLiked)
         //set like count state to initial amount of likes - display below and handle w/ like button clicking
         setLikeCounter(trip.likes?.length)
-        console.log(tripAlreadyLiked)
 
     }, [user.id, trip])
 
@@ -58,7 +57,7 @@ const PublicTripCard = ({ trip, user }) => {
     <div className='public-trip-card'>
         <div className="public-trip-card-info">
             <h3>{trip.location}</h3>
-            <img className='public-trip-card-avatar' src={trip.user.avatar_format?.url} alt="profile pic" />
+            <img className='public-trip-card-avatar' src={trip.user.avatar_format?.url ? trip.user.avatar_format.url : PlaceholderImage} alt="profile pic" />
             <p>Created by {trip.user.username}</p>
         </div>
         <div className="public-trip-card-image-container">
@@ -71,7 +70,7 @@ const PublicTripCard = ({ trip, user }) => {
 
                  ) : (
                         <div>
-                        <img className='trip-img-profile-page' src={PlaceholderImage} alt="trip"/>
+                        <img className='trip-img-profile-page' src={PlaceholderImage} alt="trip photos"/>
                         <p>Add trip photos!</p>
                         </div>
               )}
