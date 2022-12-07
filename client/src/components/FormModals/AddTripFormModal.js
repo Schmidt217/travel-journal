@@ -1,7 +1,9 @@
-import './StyleTripForm.css'
+import '../TripForms/StyleTripForm.css'
 import { useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { TripContext } from '../../Context/state'
+import Modal from "@mui/material/Modal"
+import Box from "@mui/material/Box"
 
 const initialFormState ={
     name: "",
@@ -10,22 +12,18 @@ const initialFormState ={
     details: "",
   }
 
-const TripForm = ({ user }) => {
-    const [errors, setErrors] = useState([]);
-    const [isLoading, setIsLoading] = useState(false);
+const AddTripFormModal = ({ openAddTripModal, handleCloseAddTripModal, user } ) => {
+    const [errors, setErrors] = useState([])
+    const [isLoading, setIsLoading] = useState(false)
     const [userInputTextData, setUserInputTextData] = useState(initialFormState)
     const [isPrivate, setIsPrivate] = useState(false)
     const [imageArr, setImageArr] = useState([])
 
     const tripCtx = useContext(TripContext)
-
     let navigate = useNavigate();
 
-    console.log(user)
-    
-
-    //get user input form text input areas
-    const handleUserTextInput = (e) => {
+     //get user input form text input areas
+     const handleUserTextInput = (e) => {
         const { name, value } = e.target
         setUserInputTextData(userInputTextData => {
             return{
@@ -68,7 +66,7 @@ const TripForm = ({ user }) => {
         entireFormData.append("private", isPrivate)
   
         entireFormData.append('user_id', user.id)
-      //trying to append each element of images arr to form data
+      // append each element of images array to form data
         for(let i=0; i< imageArr.length; i++){
           entireFormData.append(`images[]`, imageArr[i])
         }
@@ -84,10 +82,10 @@ const TripForm = ({ user }) => {
           setIsLoading(false)
           if (res.ok) {
             res.json().then((userData) => {
-                console.log(userData)
                 setImageArr([])
                 setUserInputTextData(initialFormState)
                 tripCtx.refreshFunction()
+                handleCloseAddTripModal()
                 navigate('/user/trips')
             });
           } else {
@@ -96,15 +94,40 @@ const TripForm = ({ user }) => {
         })
        
     }
-
-    const formErrorMsg = errors?.map((err) => (
+  
+      //Error message if errors exist
+      const formErrorMsg = errors?.map((err) => (
         <li key={err}>{err}</li>
       ))
 
   return (
-    <div className='trip-form-container'>
-        <form className="trip-form" autoComplete='off' onSubmit={handleSubmit} >
-            <h1>Add a New Trip</h1>
+  <Modal
+  open={openAddTripModal}
+  onClose={handleCloseAddTripModal}
+  aria-labelledby="modal-modal-title"
+  aria-describedby="modal-modal-description"
+>
+  <Box 
+        sx={{backgroundColor: "var(--blue-see-through)",
+          backdropFilter: "blur(10px)",
+          color: "white",
+					display: "flex",
+          justifyContent: "center",
+          textAlign: "center",
+          flexDirection: "column",
+          alignContent: "center",
+					padding: "1rem",
+					margin: "4vh auto",
+					width: "40%",
+					borderRadius: "10px",
+					boxShadow: 10,
+					alignItems: "center",
+          fontSize: "25px",
+          }}>
+
+<div className='trip-form-container'>
+    <form className="trip-form" autoComplete='off' onSubmit={handleSubmit} >
+            <h2>Add a New Trip</h2>
                 <label>Trip Name </label>
                 <input type='text'id="name" name="name" value={userInputTextData.name} onChange={handleUserTextInput} required />
                
@@ -133,13 +156,15 @@ const TripForm = ({ user }) => {
                     onChange={handleImageUpload}
                 />
             
-                <button className='submit-btn' type="submit">{isLoading ? 'Loading...' : 'Submit'}</button>
+                <button className='submit-form-btn' type="submit">{isLoading ? 'Loading...' : 'Submit'}</button>
             </form>
-            <button className='form-cancel-btn' onClick={()=> navigate(-1)}>Cancel</button>
-
-            <ul>{formErrorMsg}</ul>
+        <button className='form-cancel-btn' onClick={handleCloseAddTripModal}>Cancel</button>
+        <ul>{formErrorMsg}</ul>
     </div>
+
+  </Box>
+</Modal>
   )
 }
 
-export default TripForm
+export default AddTripFormModal

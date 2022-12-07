@@ -99,9 +99,9 @@ const ViewTrip = () => {
                         <p>Add trip photos!</p>
                         </div>
               )}
-            {/* <Link to={`/trips/${tripId}/addImages`}> */}
+           
               <button title="Add images" className='add-images-btn' onClick={handleOpenImgEditModal}>+</button>
-            {/* </Link> */}
+            
             </div>
 
             <Link to={`/trips/${tripId}/images`}>
