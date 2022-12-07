@@ -56,11 +56,13 @@
     top: 20px;
     right: 35px;
     color: var(--dark-blue);
+    background-color: transparent;
 }
 
 .add-new-trip-link:hover{
    text-decoration: underline;
    color: var(--orange);
+   background-color: transparent;
 }
 
 /* ------- Single Trip View -------*/

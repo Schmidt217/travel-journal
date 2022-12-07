@@ -4,6 +4,7 @@ import { useParams, useNavigate, Link } from 'react-router-dom'
 import MyActivityCard from '../MyActivities/MyActivityCard'
 import ModalComponent from '../ModalComponent'
 import AddTripImgModal from '../FormModals/AddTripImgModal'
+import EditTripFormModal from '../FormModals/EditTripFormModal'
 import PlaceholderImage from '../../ImageFolder/placeholder-image2.png'
 import { TripContext } from '../../Context/state'
 
@@ -12,6 +13,7 @@ const ViewTrip = () => {
     const [userTrip, setUserTrip] = useState('')
     const [openModal, setOpenModal] = useState(false)
     const [openEditImageModal, setOpenEditImageModal] = useState(false)
+    const [openAddTripModal, setOpenAddTripModal] = useState(false)
 
     const tripCtx = useContext(TripContext)
 
@@ -68,6 +70,11 @@ const ViewTrip = () => {
       const handleOpenImgEditModal = () => setOpenEditImageModal(true);
       const handleCloseEditImgModal = () => setOpenEditImageModal(false);
 
+
+      //open/close modal for add trip
+      const handleOpenAddTripModal = () => setOpenAddTripModal(true);
+      const handleCloseAddTripModal = () => setOpenAddTripModal(false);
+
       //display message if any errors
       const formErrorMsg = errors?.map((err) => (
           <li key={err}>{err}</li>
@@ -118,9 +125,7 @@ const ViewTrip = () => {
               
         </div>
 
-        <Link to={`/trips/${userTrip.id}/edit`}>
-             <button className='edit-trip-btn'>Edit Trip</button>
-        </Link>
+             <button className='edit-trip-btn' onClick={handleOpenAddTripModal}>Edit Trip</button>
 
         <button className="delete-trip-btn" onClick={handleOpen}>Delete Trip</button>
         <ul>{formErrorMsg}</ul>
@@ -128,6 +133,8 @@ const ViewTrip = () => {
         <ModalComponent openModal={openModal} handleDelete={handleDelete} handleClose={handleClose}/>
 
         <AddTripImgModal userTrip={userTrip} openEditImageModal={openEditImageModal} handleCloseEditImgModal={handleCloseEditImgModal}/>
+
+        <EditTripFormModal userTrip={userTrip} openAddTripModal={openAddTripModal} handleCloseAddTripModal={handleCloseAddTripModal}/>
     </div>
   )
 }
