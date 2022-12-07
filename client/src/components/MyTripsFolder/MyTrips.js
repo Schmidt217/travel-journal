@@ -39,12 +39,13 @@ const MyTrips = ({ user, search, setSearch }) => {
         <h1>{user.name}'s Trips</h1>
         <SearchBar search={search} setSearch={setSearch}/>
 
-          <span className='add-new-trip-link' onClick={handleOpenAddTripModal}>Add New Trip</span>
+          <button className='add-new-trip-link' onClick={handleOpenAddTripModal}>Add New Trip</button>
   
         <div className="myTrips-page">
           {renderTrips}
         </div>
       </div>
+      
       <AddTripFormModal user={user} openAddTripModal={openAddTripModal} handleCloseAddTripModal={handleCloseAddTripModal}/>
     </div>
   )

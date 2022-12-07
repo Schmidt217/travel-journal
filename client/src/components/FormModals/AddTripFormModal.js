@@ -1,4 +1,4 @@
-import '../TripForms/StyleTripForm.css'
+import './StyleTripForm.css'
 import { useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { TripContext } from '../../Context/state'
