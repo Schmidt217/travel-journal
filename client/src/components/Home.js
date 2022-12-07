@@ -15,7 +15,7 @@ const Home = ({ user }) => {
        <img src={Logo} alt="Sum Trip Logo" className='home-logo' />
         <p>Keep track of your travels with Sum Trip! With the option to make a trip public, you can share your epic adventures and activities. Explore trips shared by other users and get more ideas for your next adventure!</p>
         {/* <Link to="/trips/add"> */}
-          <button onClick={handleOpenAddTripModal}>Add a New Trip!</button>
+          <button onClick={handleOpenAddTripModal}>Add a Trip!</button>
         {/* </Link> */}
       </div>
       <div className="home-img"></div>

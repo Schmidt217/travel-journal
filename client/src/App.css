@@ -321,23 +321,26 @@ p{
 		display: block;
     color: var(--white);
     z-index: 10;
-    margin-top: 5px;
+    margin-top: 0px;
+	}
+  .hamburger:hover {
+    background-color: var(--blue);
 	}
 
   .nav-menu{
     flex-direction: column;
     justify-content: left;
-    margin-top: 200px;
+    margin-top: 225px;
     padding: 10px 0;
-    /* background-color: black; */
+    background-color: var(--blue-see-through);
     border-radius: 0 0 7px 0;
     transform: translateX(-100%);
 		transition: 0.2s ease-in-out;
   }
 
   .nav-menu a{
-    padding: 5px;
-    color: var(--dark-blue);
+    padding: 10px;
+    color: var(--white);
     font-size: 18px;
   }
 
