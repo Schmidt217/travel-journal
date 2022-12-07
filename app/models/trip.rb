@@ -3,7 +3,7 @@ class Trip < ApplicationRecord
   belongs_to :user
   has_many :activities, dependent: :destroy
   has_many :likes, dependent: :destroy 
-  has_many_attached :images, dependent: :purge
+  has_many_attached :images
 
   validates :name, :location, :date, :user_id, presence: true, on: :create
 

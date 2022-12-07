@@ -11,8 +11,8 @@ const initialFormState ={
   }
 
 const TripForm = ({ user }) => {
-
     const [errors, setErrors] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
     const [userInputTextData, setUserInputTextData] = useState(initialFormState)
     const [isPrivate, setIsPrivate] = useState(false)
     const [imageArr, setImageArr] = useState([])
@@ -58,6 +58,7 @@ const TripForm = ({ user }) => {
 
     const handleSubmit = (e) =>{
         e.preventDefault()
+        setIsLoading(true)
         const entireFormData = new FormData();
         //must append each form area separately and not w/ e.target (this only works w/ single image, not array of images)
         entireFormData.append("name", userInputTextData.name)
@@ -80,6 +81,7 @@ const TripForm = ({ user }) => {
             body: entireFormData,
         })
         .then((res) => {
+          setIsLoading(false)
           if (res.ok) {
             res.json().then((userData) => {
                 console.log(userData)
@@ -131,7 +133,7 @@ const TripForm = ({ user }) => {
                     onChange={handleImageUpload}
                 />
             
-                <button className='submit-btn' type="submit">SUBMIT</button>
+                <button className='submit-btn' type="submit">{isLoading ? 'Loading...' : 'Submit'}</button>
             </form>
             <button className='form-cancel-btn' onClick={()=> navigate(-1)}>Cancel</button>
 
