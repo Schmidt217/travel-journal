@@ -281,6 +281,9 @@ p{
 
  
 }
+.home-info-container button:hover{
+  background-color: var(--blue);
+}
 
 
 
