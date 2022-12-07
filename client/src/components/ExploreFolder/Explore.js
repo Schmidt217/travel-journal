@@ -4,7 +4,7 @@ import SearchBar from '../SearchBar'
 
 const Explore = ({ publicTrips, user, search, setSearch}) => {
 
-  console.log(publicTrips)
+  console.log('public trips list',publicTrips)
   
   //filter trips w/ searchbar input
     //searchBar filter of all user's trips

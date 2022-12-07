@@ -27,6 +27,9 @@ const Profile = ({ user, setUser }) => {
     const handleOpenImgEditModal = () => setOpenEditImageModal(true);
     const handleCloseEditImgModal = () => setOpenEditImageModal(false);
 
+    console.log('user:',user)
+    
+
   return (
     <div className='page-container'>
       <div className="profile">
