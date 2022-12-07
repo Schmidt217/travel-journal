@@ -225,38 +225,41 @@ p{
 /* ------- Home Page -------- */
 
 .home-page{
-  min-height: 60vh;
+  min-height: 80vh;
   width: 100vw;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
   margin: 0px auto;
   padding: none;
   background-color: var(--white);
 }
-.home-img{
-    position: absolute;
+.home-info-container{
     bottom: 0px;
     z-index: 1;
     background-image: url('./ImageFolder/mouontain-brush-9.png');
-    background-size: cover;
-    background-position: top 2% right 0%;;
+    background-size: contain;
+    background-position: bottom -10% right 0%;
     background-repeat: no-repeat;
     width: 100vw;
-    height: 50vh;
+    height: 100%;
     max-width: 1600px;
-    margin: 0 auto;;
+    margin: 0px auto;
+    /* border: 2px solid red; */
 }
 
-.home-info-container{
-  position: relative;
+.home-info-details{
   display: flex;
   flex-direction: column;
   justify-content:flex-start;
   z-index: 2;
-  padding: 10px 10px 30px 10px;
-  width: 38vw;
-  margin: 0 auto;
+  padding: 30px;
+  width: 35vw;
+  margin: 0 auto 30px auto;
+  border-radius: 15px;
   backdrop-filter: blur(3px);
-  background-color: rgba(239, 243, 251, 0.2);
+  background-color: rgba(94, 100, 117, 0.5);
 }
 
 .home-info-container img{
@@ -268,12 +271,18 @@ p{
   color: var(--white);
   margin: 0 auto;
   font-size: 1.5rem;
+  font-weight: bold;
+  line-height: 1.05;
 }
 .home-info-container button{
   margin: 20px auto;
+  background-color: var(--peach);
   box-shadow: 5px 5px 10px var(--deep-blue);
 
  
+}
+.home-info-container button:hover{
+  background-color: var(--blue);
 }
 
 
