@@ -31,7 +31,7 @@ end
 
 puts "Seeding Activities 🌶!"
 30.times do
-    Activity.create(title: "Another Activity", activity_type: activityTypes.sample, description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin diam justo, scelerisque non felis porta, placerat vestibulum nisi. Vestibulum ac elementum massa. In rutrum quis risus quis sollicitudin.", trip_id: Trip.all.sample.id )
+    Activity.create(title: "Another Activity", category: activityTypes.sample, description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin diam justo, scelerisque non felis porta, placerat vestibulum nisi. Vestibulum ac elementum massa. In rutrum quis risus quis sollicitudin.", trip_id: Trip.all.sample.id )
 end
 
 puts "done seeding! ✅"
