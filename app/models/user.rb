@@ -4,8 +4,8 @@ class User < ApplicationRecord
     has_many :activities, through: :trips
     has_many :likes, dependent: :destroy
     has_many :liked_trips, through: :likes, :source => :trip
-    has_one_attached :avatar
-    has_one_attached :attachment
+    has_one_attached :avatar, dependent: :purge
+    # has_one_attached :attachment, dependent: :destroy
 
     has_secure_password
     PASSWORD_REQUIREMENTS = /\A
@@ -21,7 +21,7 @@ class User < ApplicationRecord
     validates :username, uniqueness: true
     
      validates :avatar, content_type: [:png, :jpg, :jpeg], size: { less_than: 3.megabytes , message: '/ Profile Image is too large' }
-        validates :attachment, content_type: { in: 'application/pdf', message: 'is not a PDF' }
+        # validates :attachment, content_type: { in: 'application/pdf', message: 'is not a PDF' }
     
     #helps us store locally during development 
     def image_url

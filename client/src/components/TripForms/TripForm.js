@@ -10,7 +10,7 @@ const initialFormState ={
     details: "",
   }
 
-const TripForm = ({ userId }) => {
+const TripForm = ({ user }) => {
 
     const [errors, setErrors] = useState([]);
     const [userInputTextData, setUserInputTextData] = useState(initialFormState)
@@ -20,6 +20,9 @@ const TripForm = ({ userId }) => {
     const tripCtx = useContext(TripContext)
 
     let navigate = useNavigate();
+
+    console.log(user)
+    
 
     //get user input form text input areas
     const handleUserTextInput = (e) => {
@@ -63,7 +66,7 @@ const TripForm = ({ userId }) => {
         entireFormData.append("details", userInputTextData.details)
         entireFormData.append("private", isPrivate)
   
-        entireFormData.append('user_id', userId)
+        entireFormData.append('user_id', user.id)
       //trying to append each element of images arr to form data
         for(let i=0; i< imageArr.length; i++){
           entireFormData.append(`images[]`, imageArr[i])

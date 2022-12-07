@@ -1,5 +1,5 @@
 class UserSerializer < ActiveModel::Serializer
-  attributes :id, :name, :username, :bio, :avatar_format, :attachment_format
+  attributes :id, :name, :username, :bio, :avatar_format
   has_many :trips
 
   #create extra method to send along in attributes
@@ -13,12 +13,12 @@ class UserSerializer < ActiveModel::Serializer
       .tap { |attrs| attrs['name'] = attrs.delete('filename') }
   end
 
-  def attachment_format
-    return unless object.attachment.attached?
-    object.attachment.blob.attributes
-      .slice('filenamme', 'byte_size')
-      .merge(url: object.image_url)
-      .tap { |attrs| attrs['name'] = attrs.delete('filename') }
-  end
+  # def attachment_format
+  #   return unless object.attachment.attached?
+  #   object.attachment.blob.attributes
+  #     .slice('filenamme', 'byte_size')
+  #     .merge(url: object.image_url)
+  #     .tap { |attrs| attrs['name'] = attrs.delete('filename') }
+  # end
 
 end
