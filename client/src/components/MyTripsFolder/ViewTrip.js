@@ -35,6 +35,9 @@ const ViewTrip = () => {
               })
         }, [tripId, tripCtx.refreshPage])
 
+        console.log(userTrip.private)
+        
+
         //map over and display any activities 
         const renderActivities = userTrip.activities?.map(act =>{
             return(
@@ -90,6 +93,7 @@ const ViewTrip = () => {
                 <h3>{userTrip.location}</h3>
                 <p>{userTrip.date}</p>
                 <p>{userTrip.details}</p>
+            
             </div>
 
             <div className="single-trip-images">
@@ -124,8 +128,9 @@ const ViewTrip = () => {
                 </Link>
               
         </div>
+        <span>This trip is {userTrip.private ? 'private' : 'public'}.</span>
 
-             <button className='edit-trip-btn' onClick={handleOpenAddTripModal}>Edit Trip</button>
+        <button className='edit-trip-btn' onClick={handleOpenAddTripModal}>Edit Trip</button>
 
         <button className="delete-trip-btn" onClick={handleOpen}>Delete Trip</button>
         <ul>{formErrorMsg}</ul>
