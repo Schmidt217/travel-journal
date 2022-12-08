@@ -1,5 +1,5 @@
 import './StyleTripForm.css'
-import { useContext, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { TripContext } from '../../Context/state'
 import Modal from "@mui/material/Modal"
@@ -13,17 +13,22 @@ const EditTripFormModal = ({ openAddTripModal, handleCloseAddTripModal, userTrip
         date: userTrip.date,
         details: userTrip.details,
     }
-
+  
     //STATE
     const [errors, setErrors] = useState([])
     const [isLoading, setIsLoading] = useState(false)
-    const [tripFormData, setTripFormData] = useState(initialFormData)
+    const [tripFormData, setTripFormData] = useState({})
     // const [userId, setUserId] = useState('')
     const [imageArr, setImageArr] = useState([])
     const [isPrivate, setIsPrivate] = useState(userTrip.private)
 
     const tripCtx = useContext(TripContext)
     let navigate = useNavigate();
+
+   useEffect(() => {
+    setTripFormData(initialFormData)
+   }, [userTrip])
+    
 
     //get user input from changes to text input areas
     const handleUserTextInput = (e) => {
