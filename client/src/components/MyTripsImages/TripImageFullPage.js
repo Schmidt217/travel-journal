@@ -29,8 +29,6 @@ const TripImageFullPage = () => {
             }
           })
     }, [tripId, tripCtx.refreshPage])
-
-    console.log('singe trip:', userTrip)
     
 
       //map over and display images if any images exist
