@@ -94,7 +94,6 @@ const ActivityForm = () => {
         .then((res) => {
           if (res.ok) {
             res.json().then((activityData) => {
-                console.log(activityData)
                 setActivityFormData(initialState)
                 setIsSending(false)
                 navigate(`/trips/${params.tripId}`)
@@ -135,7 +134,7 @@ const ActivityForm = () => {
                 <textarea type='text'id="description" name="description" value={activityFormData.description} onChange={handleUserTextInput} required/>
                 
         
-                <button className='add-activity-btn' type="submit">{isSending ? 'SUBMITTING...' : 'SUBMIT'}</button>
+                <button className='add-activity-btn' type="submit">{isSending ? 'Loading...' : 'Submit'}</button>
                 
             </form>
             <button className='form-cancel-btn' onClick={()=> navigate(-1)}>Cancel</button>

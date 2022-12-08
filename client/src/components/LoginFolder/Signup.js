@@ -34,7 +34,6 @@ const Signup = ({ setUser }) => {
     //submit signup form
     function handleSubmit(e) {
       e.preventDefault();
-    //   console.log(formData)
       setIsLoading(true)
       fetch("/signup", {
         method: "POST",

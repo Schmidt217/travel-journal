@@ -22,7 +22,6 @@ const TripImageFullPage = () => {
             if (res.ok) {
               res.json().then((tripData) => {
                 setUserTrip(tripData)
-                console.log(tripData)
               });
             } else {
               res.json().then((err) => setErrors(err.errors))

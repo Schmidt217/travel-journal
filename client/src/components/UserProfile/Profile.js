@@ -33,11 +33,8 @@ const Profile = ({ user, setUser }) => {
     const handleOpenEditProfile = () => setOpenEditProfileModal(true);
     const handleCloseEditProfile = () => setOpenEditProfileModal(false);
 
-    console.log('user:',user)
-    
 
   return (
-    <div className='page-container'>
       <div className="profile">
         <h1>Welcome {user.name}!</h1>
         <div className="profileImg-container">
@@ -55,10 +52,10 @@ const Profile = ({ user, setUser }) => {
           <button className='view-myTrips-btn'>View My Trips</button>
         </Link>
 
-        <div className="profile-btn-container">
+       
           <button className='edit-profile-btn' onClick={handleOpenEditProfile}>Edit Profile</button>
           <button className='delete-profile-btn' onClick={handleOpen}>Delete Profile</button>
-        </div>
+        
 
         <ModalComponent openModal={openModal} handleDelete={handleDelete} handleClose={handleClose}/>
 
@@ -67,7 +64,7 @@ const Profile = ({ user, setUser }) => {
         <EditProfileModal user={user} openEditProfileModal={openEditProfileModal}handleCloseEditProfile={handleCloseEditProfile}/>
 
       </div>
-    </div>
+
   )
 }
 

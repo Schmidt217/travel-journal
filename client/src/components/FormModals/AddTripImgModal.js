@@ -50,7 +50,6 @@ const AddTripImgModal = ({ openEditImageModal, handleCloseEditImgModal, userTrip
             setIsLoading(false)
         if (res.ok) {
             res.json().then((userData) => {
-                console.log(userData)
                 setImageArr([])
                 tripCtx.refreshFunction()
                 handleCloseEditImgModal()
