@@ -29,9 +29,4 @@ class User < ApplicationRecord
        "https://sum-trip-travel-journal.onrender.com#{path}"
     end
 
-    #helps us store locally during development 
-    # def image_url
-    #     url_for(self.avatar)
-    # end
-
 end

@@ -20,13 +20,14 @@ const EditTripFormModal = ({ openAddTripModal, handleCloseAddTripModal, userTrip
     const [tripFormData, setTripFormData] = useState({})
     // const [userId, setUserId] = useState('')
     const [imageArr, setImageArr] = useState([])
-    const [isPrivate, setIsPrivate] = useState(userTrip.private)
+    const [isPrivate, setIsPrivate] = useState(false)
 
     const tripCtx = useContext(TripContext)
     let navigate = useNavigate();
 
    useEffect(() => {
     setTripFormData(initialFormData)
+    setIsPrivate(false)
    }, [userTrip])
     
 

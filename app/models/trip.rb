@@ -21,9 +21,4 @@ class Trip < ApplicationRecord
     "https://sum-trip-travel-journal.onrender.com#{path}"
  end
 
-  # def image_url(img)
-  #   url_for(img)
-  # end
-
-
 end

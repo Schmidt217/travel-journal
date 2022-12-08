@@ -105,6 +105,10 @@
 
 }
 
+.single-trip-page span{
+    padding-bottom: 20px;
+}
+
 .single-trip-container{
     display: flex;
     /* margin: 0 auto; */
