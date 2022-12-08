@@ -3,11 +3,13 @@ import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import ModalComponent from '../ModalComponent'
 import AddProfileImgModal from '../FormModals/AddProfileImgModal'
+import EditProfileModal from '../FormModals/EditProfileModal'
 import PlaceholderImg from '../../ImageFolder/placeholder-image2.png'
 
 const Profile = ({ user, setUser }) => {
   const [openModal, setOpenModal] = useState(false)
   const [openEditImageModal, setOpenEditImageModal] = useState(false)
+  const [openEditProfileModal, setOpenEditProfileModal] = useState(false)
   // const[userProfileImg, setUserProfileImg] = useState('')
 
   let navigate = useNavigate()
@@ -26,6 +28,10 @@ const Profile = ({ user, setUser }) => {
     //open/close modal for add/edit single profile image
     const handleOpenImgEditModal = () => setOpenEditImageModal(true);
     const handleCloseEditImgModal = () => setOpenEditImageModal(false);
+
+    //open/close modal for add/edit single profile image
+    const handleOpenEditProfile = () => setOpenEditProfileModal(true);
+    const handleCloseEditProfile = () => setOpenEditProfileModal(false);
 
     console.log('user:',user)
     
@@ -50,15 +56,15 @@ const Profile = ({ user, setUser }) => {
         </Link>
 
         <div className="profile-btn-container">
-          <Link to={`/user/${user.id}/profile/edit`}>
-          <button className='edit-profile-btn'>Edit Profile</button>
-          </Link>
+          <button className='edit-profile-btn' onClick={handleOpenEditProfile}>Edit Profile</button>
           <button className='delete-profile-btn' onClick={handleOpen}>Delete Profile</button>
         </div>
 
         <ModalComponent openModal={openModal} handleDelete={handleDelete} handleClose={handleClose}/>
 
         <AddProfileImgModal userId={user.id} openEditImageModal={openEditImageModal} handleCloseEditImgModal={handleCloseEditImgModal}/>
+
+        <EditProfileModal user={user} openEditProfileModal={openEditProfileModal}handleCloseEditProfile={handleCloseEditProfile}/>
 
       </div>
     </div>

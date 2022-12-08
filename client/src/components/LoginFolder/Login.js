@@ -33,8 +33,8 @@ const Login = ({ setUser }) => {
       });
     }
 
-    const formErrorMsg = errors.map((err) => (
-      <li key={err}>{err}</li>
+    const formErrorMsg = errors?.map((err) => (
+      <li className='login-error-msg' key={err}>{err}</li>
     ))
   return (
 

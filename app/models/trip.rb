@@ -16,14 +16,14 @@ class Trip < ApplicationRecord
   #   images.map{ |img| Rails.application.routes.url_helpers.url_for(img)}
   # end
 
-  def image_url(img)
-    path = rails_blob_path(img, only_path: true)
-    "https://sum-trip-travel-journal.onrender.com#{path}"
- end
+#   def image_url(img)
+#     path = rails_blob_path(img, only_path: true)
+#     "https://sum-trip-travel-journal.onrender.com#{path}"
+#  end
 
-  # def image_url(img)
-  #   url_for(img)
-  # end
+  def image_url(img)
+    url_for(img)
+  end
 
 
 end

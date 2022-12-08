@@ -99,12 +99,12 @@
 
 /*------EDIT FULL PROFILE FORM*/
 
-.edit-full-profile-form{
+/* .edit-full-profile-form{
     max-width: 80vw;
     color: var(--blue); 
     display: flex;
     flex-direction: column;
-    /* border: 1px solid var(--dark-blue); */
+    border: 1px solid var(--dark-blue);
     padding: 50px;
     border-radius: 15px;
     margin: 0 auto;
@@ -129,7 +129,8 @@
     width: 60%;
     height: 15vh;
     margin: 10px auto;
-}
+} */
+
  #file-upload{
     border: none;
     background-color: var(--light-blue);

@@ -26,7 +26,7 @@
 
 .login{
     width: 30vw;
-    height: 100%;
+    height: 100vh;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -90,6 +90,5 @@
 
 .login-btn{
     width: 65%;
-    /* box-shadow: 5px 5px 10px var(--deep-blue); */
 }
 
