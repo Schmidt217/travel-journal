@@ -13,6 +13,8 @@ class UserSerializer < ActiveModel::Serializer
       .tap { |attrs| attrs['name'] = attrs.delete('filename') }
   end
 
+ 
+
   # def attachment_format
   #   return unless object.attachment.attached?
   #   object.attachment.blob.attributes

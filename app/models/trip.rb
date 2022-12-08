@@ -17,7 +17,13 @@ class Trip < ApplicationRecord
   # end
 
   def image_url(img)
-    url_for(img)
-  end
+    path = rails_blob_path(img, only_path: true)
+    "https://sum-trip-travel-journal.onrender.com#{path}"
+ end
+
+  # def image_url(img)
+  #   url_for(img)
+  # end
+
 
 end

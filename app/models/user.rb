@@ -25,7 +25,12 @@ class User < ApplicationRecord
     
     #helps us store locally during development 
     def image_url
-        url_for(self.avatar)
+       path = rails_blob_path(self.avatar, only_path: true)
+       "https://sum-trip-travel-journal.onrender.com#{path}"
     end
+
+    # def image_url
+    #     url_for(self.avatar)
+    # end
 
 end
