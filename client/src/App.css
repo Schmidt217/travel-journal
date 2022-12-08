@@ -9,6 +9,7 @@
   --blue: #546c86;
   --light-blue:#8C9FB7;
   --orange: #f16b4f;
+  --red: rgb(197, 57, 57);
   --peach: #df8f74;
   --tan: #F0BD85;
   --sand: #DDCCB4;
@@ -34,14 +35,23 @@
   font-weight: 400;
 }
 
-
+/* --------Error handling ul/li -------- */
 ul{
   color: var(--deep-blue);
+  padding: 0;
+  text-align: center;
+  margin: 0 auto;
+  width: 80%;
 }
+
 
 li{
   list-style: none;
-  
+  color: var(--red);
+  background-color:  rgba(239, 243, 251, 0.6) ;
+  padding: 5px;
+  border-radius: 5px;
+  margin: 0 auto;
 }
 
 .page-container{
@@ -200,7 +210,6 @@ p{
   padding: 50px 0 20px 0;
   /* background-color: var(--white); */
   width: 50vw;
-  /* border: 2px solid black; */
   max-width: 1500px;
   overflow-y: none;
 }
@@ -212,15 +221,21 @@ p{
 }
 
 .search label{
-  color: var(--main-plum);
+  color: var(--orange);
 }
 
 .search input{
   width: 300px;
   border-radius: 25px;
   border: none;
-  background-color: var(--light-blue);
+  background-color: var(--blue-see-through);
+  color: var(--white);
+  font-weight: bold;
 }
+.search input::placeholder{
+  color: var(--white);
+}
+
 
 /* ------- Home Page -------- */
 

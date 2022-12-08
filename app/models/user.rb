@@ -23,12 +23,13 @@ class User < ApplicationRecord
      validates :avatar, content_type: [:png, :jpg, :jpeg], size: { less_than: 3.megabytes , message: '/ Profile Image is too large' }
         # validates :attachment, content_type: { in: 'application/pdf', message: 'is not a PDF' }
     
-    #helps us store locally during development 
+
     def image_url
        path = rails_blob_path(self.avatar, only_path: true)
        "https://sum-trip-travel-journal.onrender.com#{path}"
     end
 
+    #helps us store locally during development 
     # def image_url
     #     url_for(self.avatar)
     # end

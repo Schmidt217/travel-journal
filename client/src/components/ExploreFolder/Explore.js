@@ -3,8 +3,6 @@ import PublicTripCard from './PublicTripCard'
 import SearchBar from '../SearchBar'
 
 const Explore = ({ publicTrips, user, search, setSearch}) => {
-
-  console.log('public trips list',publicTrips)
   
   //filter trips w/ searchbar input
     //searchBar filter of all user's trips
@@ -35,9 +33,14 @@ const Explore = ({ publicTrips, user, search, setSearch}) => {
 
   return (
     <div className='public-trips-page'>
-      <h1>Explore Adventures</h1>
-      <SearchBar search={search} setSearch={setSearch}/>
-      {renderPublicTrips}
+      <div className="titleWrapper">
+        <div className="explore-layer"></div>
+        <h1>Explore Adventures</h1>
+        <SearchBar search={search} setSearch={setSearch}/>
+      </div>
+      <div className="public-trips-list">
+        {renderPublicTrips}
+      </div>
 
     </div>
   )

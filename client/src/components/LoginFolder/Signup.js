@@ -34,7 +34,6 @@ const Signup = ({ setUser }) => {
     //submit signup form
     function handleSubmit(e) {
       e.preventDefault();
-    //   console.log(formData)
       setIsLoading(true)
       fetch("/signup", {
         method: "POST",
@@ -56,8 +55,8 @@ const Signup = ({ setUser }) => {
       });
     }
     //Error message if errors exist
-    const formErrorMsg = errors.map((err) => (
-      <li key={err}>{err}</li>
+    const formErrorMsg = errors?.map((err) => (
+      <li className='login-error-msg' key={err}>{err}</li>
     ))
 
   return (

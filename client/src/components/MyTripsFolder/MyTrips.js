@@ -34,7 +34,8 @@ const MyTrips = ({ user, search, setSearch }) => {
     })
 
   return (
-    <div className='page-container'>
+    <div className='page-container my-trips-container'>
+      <div className="myTrips-layer"></div>
       <div className="display-my-trips-cards">
         <h1>{user.name}'s Trips</h1>
         <SearchBar search={search} setSearch={setSearch}/>
@@ -45,7 +46,7 @@ const MyTrips = ({ user, search, setSearch }) => {
           {renderTrips}
         </div>
       </div>
-      
+
       <AddTripFormModal user={user} openAddTripModal={openAddTripModal} handleCloseAddTripModal={handleCloseAddTripModal}/>
     </div>
   )

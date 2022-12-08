@@ -7,7 +7,6 @@ const MyActivityCard = ({ activity }) => {
   const [openModal, setOpenModal] = useState(false)
 
   const tripCtx = useContext(TripContext)
-  console.log(activity)
 
   //delete an activity
   function handleDelete(){

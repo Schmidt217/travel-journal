@@ -35,7 +35,7 @@ Rails.application.configure do
   # config.active_storage.service = :local
   
   #store uploaded files on aws s3
-  config.active_storage.service = :amazon
+  config.active_storage.service = :local
 
   #don't replace old images with additional ones uploaded
   # config.active.storage.replace_on_assign_to_many = false
