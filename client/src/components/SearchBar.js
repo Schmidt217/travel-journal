@@ -8,6 +8,7 @@ const SearchBar = ({ search, setSearch }) => {
             <input
             type="text"
             id="search"
+            autocomplete="off"
             placeholder="Search trips..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
