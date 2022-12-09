@@ -94,5 +94,3 @@ Rails.application.configure do
   config.require_master_key = true
 
 end
-
-# Rails.application.routes.default_url_options[:host] = "https://sum-trip-travel-journal.onrender.com"
