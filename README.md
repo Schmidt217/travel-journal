@@ -4,4 +4,3 @@ Document your travels with Sum Trip! Organize adventure details and favorite pho
 
 This application was created using a React.js frontend and Ruby on Rails API backend. This app utilizes Active Storage from Ruby on Rails and is connected to an AWS s3 account for managing image file storage while the applicaiton is deployed to Render. During development, Active Storage utilizes a  local environment for storing uploaded images. 
 
-* ...
