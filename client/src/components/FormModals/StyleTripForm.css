@@ -6,18 +6,23 @@
 } */
 
 
+.trip-form-container{
+    margin: 0 auto;
+    width: 90%;
+}
 .trip-form-container h2{
     padding-top: 20px;
     margin: 10px auto 30px auto;
     color: var(--white);
 }
+
 .trip-form{
     /* background-color: aquamarine; */
     display: flex;
     flex-direction: column;
     border: none;
     padding: 10px;
-    width: 80vw;
+    width: 90%;
     max-width: 500px;
     border-radius: 15px;
     margin: 0px auto;
@@ -45,11 +50,11 @@
     background-color: var(--white-see-through);
     color: var(--dark-blue);
     font-weight: bold;
-    width: 40vw;
+    width: 100%;
     max-width: 400px;
     height: 15vh;
-    margin: 10px auto;
     border: none;
+    margin: 10px auto;
 }
 
 #file-upload-trip-form{
@@ -60,7 +65,24 @@
 
 }
 
+@media screen and (max-width: 768px) {
 
-/* .edit-trip-form{
-    margin-top: 50px;
-} */
+    .trip-form-container h2{
+       font-size: 25px;
+    }
+
+    .trip-form input{
+        width: 90%;
+    }
+
+    #file-upload-trip-form{
+        width: 100%;
+    }
+}
+@media screen and (max-width: 500px) {
+
+    .trip-form label{
+        font-size: 12px;
+    }
+
+}

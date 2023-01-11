@@ -36,9 +36,10 @@
 
 .add-activity{
     position: absolute;
+    font-size: 14px;
     top: 5px;
     right: 10px;
-    width: 8vw;
+    width: 10vw;
 }
 
 .edit-activity{
@@ -81,7 +82,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 30vw;
+    width: 50vw;
     margin: 0 auto;
     /* background-color: yellow; */
     padding: 20px 0;
@@ -130,5 +131,28 @@
 
 .add-activity{
     font-size: 12px;
+    width: 20vw;
 }
+
+.add-activity-form{
+   width: 90vw;
+}
+}
+
+@media screen and (max-width: 500px) {
+
+.myActivity-card{
+    width: 100%;
+}
+
+.add-activity{
+    font-size: 12px;
+    width: 20vw;
+    right: 15px;
+}
+
+.activities-container h4{
+    width: 50%;
+}
+
 }

@@ -36,7 +36,7 @@
 }
 
 .profileInfo-container{
-    width: 35vw;
+    width: 60%;
     max-width: 600px;
     margin: 20px auto;
     color: white;
@@ -135,6 +135,69 @@
     background-color: var(--white);
 }
 
+/* ---------- MEDIA QUERIES ------------ */
+
+@media screen and (max-width: 1200px) {
+  .profileImg-container{
+    width: 45%;
+  }
+
+  .profileInfo-container{
+    width: 70%;
+  }
+
+  .view-myTrips-btn{
+    width: 20%;
+
+}
+  }
+@media screen and (max-width: 800px) {
+  .profileImg-container{
+    width: 75%;
+  }
+  .profile-img{
+    width: 250px;
+    height: 250px;
+  }
+  .profileInfo-container p{
+    font-size: 16px;
+  }
+
+  .view-myTrips-btn{
+    width: 25%;
+    font-size: 16px;
+
+}
+  }
+
+@media screen and (max-width: 400px) {
+    .edit-profile-img-form h3{
+        font-size: 18px;
+    }
+
+    .profile h1{
+    font-size: 30px;
+
+    }
+
+    .profileImg-container{
+        width: 100%;
+    }
+    .profile-img{
+        width: 200px;
+        height: 200px;
+    }
+
+    .view-myTrips-btn{
+        width: 30%;
+        font-size: 14px;
+    
+    }
+
+    .edit-profile-btn, .delete-profile-btn{
+        font-size: 14px;
+    }
+  }
 
 
 
