@@ -1,9 +1,16 @@
 import './StylePublicTrips.css'
+
+import { useEffect } from 'react'
 import PublicTripCard from './PublicTripCard'
 import SearchBar from '../SearchBar'
 
 const Explore = ({ publicTrips, user, search, setSearch}) => {
   
+  //Clear searchbar upon mount of this component
+  useEffect(() => {
+    setSearch("")
+  }, [])
+
   //filter trips w/ searchbar input
     //searchBar filter of all user's trips
     const filterTrips = publicTrips.filter((trip, index)=> {

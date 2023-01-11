@@ -1,11 +1,16 @@
 import './StyleMyTrips.css'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import MyTripsCard from './MyTripsCard'
 import SearchBar from '../SearchBar'
 import AddTripFormModal from '../FormModals/AddTripFormModal'
 
 const MyTrips = ({ user, search, setSearch }) => {
   const [openAddTripModal, setOpenAddTripModal] = useState(false)
+
+  //Clear searchbar upon mount of this component
+  useEffect(() => {
+    setSearch("")
+  }, [])
 
   //searchBar filter of all user's trips
   const filterTrips = user.trips.filter((trip, index)=> {

@@ -18,7 +18,8 @@ class Trip < ApplicationRecord
 
   def image_url(img)
     path = rails_blob_path(img, only_path: true)
-    "https://sum-trip-travel-journal.onrender.com#{path}"
+    "http://localhost:3000#{path}"
+    # "https://sum-trip-travel-journal.onrender.com#{path}"
  end
 
 end
