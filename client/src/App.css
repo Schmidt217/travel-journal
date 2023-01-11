@@ -136,7 +136,7 @@ p{
   align-items:center;
   align-content: center;
   flex-direction: row;
-  z-index: 1;
+  z-index: 10;
   backdrop-filter: blur(5px);
   background-color: var(--dark-blue);
 }
@@ -145,6 +145,7 @@ p{
   display: flex;
   justify-content: space-between;
   padding-left: 25px;
+  z-index: 10;
 }
 
 .nav-menu a{
@@ -185,6 +186,7 @@ p{
 	top: 10px;
 	left: 10px;
 	display: none;
+  z-index: 11;
 }
 
 .logout-btn{
@@ -371,7 +373,33 @@ p{
   .expanded {
     transform: translateX(0%);
   }
+
 }
+
+@media screen and (max-width: 400px) {
+  /* SEARCHBAR */
+
+  .search input{
+    width: 70vw;
+  }
+
+  .search label{
+    display: none;
+  }
+
+  .delete-modal{
+    width: 100%;
+    font-size: 14px;
+    margin: 0 auto;
+  }
+  .confirm-delete-btn{
+
+    font-size: 14px;
+  
+  }
+}
+
+
 
 .hidden{
   display: none;

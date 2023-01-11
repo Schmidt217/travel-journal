@@ -22,19 +22,20 @@ const ModalComponent = ({openModal, handleClose, handleDelete}) => {
           alignContent: "center",
 					padding: "3rem",
 					margin: "45vh auto",
-					width: "30%",
+					width: "70%",
+          maxWidth: "400px",
 					borderRadius: "7px",
 					boxShadow: 10,
 					alignItems: "center",
-          fontSize: "25px",
+          fontSize: "20px",
           }}>
 
-  <>
+  <div className='delete-modal'>
       <div >
         Are you sure you want to delete? This cannot be undone. 
       </div>
       <button className='submit-btn confirm-delete-btn' onClick={() => handleDelete()} >Confirm Delete</button>
-    </>
+    </div>
   </Box>
 </Modal>
   )

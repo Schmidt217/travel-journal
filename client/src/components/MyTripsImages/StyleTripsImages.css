@@ -67,7 +67,7 @@
 .add-images-form-page{
     /* height: 40vh; */
     /* background-color: var(--white); */
-    width: 30vw;
+    width: 90%;
     margin: 0 auto;
 }
 
@@ -92,15 +92,9 @@
     color: (--white);
 }
 
-/* .btn-container{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    width: 20vw;
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 30px;
-} */
+#file-upload{
+    width: 100%;
+}
 
 
 .add-images-form-page h2{
@@ -121,10 +115,14 @@
         width: 250px;
        }
 
-       .add-trip-img-btn{
+    .add-trip-img-btn{
         border: none;
         font-size: 20px;
         
        } 
+
+       .add-images-form-page h3{
+        font-size: 18px;
+    }
 
 }

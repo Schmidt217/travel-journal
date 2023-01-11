@@ -35,7 +35,10 @@ const NavBar = ({ user, setUser }) => {
                   </svg>
               </button>
 
-           <div className={isNavExpanded ? 'nav-menu expanded' : 'nav-menu'}>
+           <div className={isNavExpanded ? 'nav-menu expanded' : 'nav-menu'} 
+              onClick={() => {
+                setIsNavExpanded(!isNavExpanded)
+                  }}>
               <NavLink to='/'>Home</NavLink>
               <NavLink to='user/profile'>Profile</NavLink>
               <NavLink to='user/trips'> My Trips</NavLink>

@@ -27,11 +27,9 @@
 
 .display-my-trips-cards{
     padding: 40px;
-    /* width: 100vw; */
     height: 100vh;
     max-width: 1600px;
     margin: 0 auto;
-    /* border: 2px solid red; */
     background-position: fixed;
     overflow-y: scroll;
 }
@@ -53,7 +51,7 @@
     backdrop-filter: blur(5px);
     color: var(--dark-blue);
     margin: 30px;
-    width: 15vw;
+    width: 18vw;
     max-width: 350px;
     padding: 20px;
     border-radius: 5px;
@@ -194,8 +192,27 @@
     bottom: 10px;
 }
 
+@media screen and (max-width: 1170px) {
+    .myTrip-card{
+        /* margin: 20px auto; */
+        width: 25vw;
+    }
+}
 
 @media screen and (max-width: 768px) {
+
+    /* multiple trips displayed page */
+
+    .myTrips-page{
+        flex-direction: column;
+    }
+
+    .myTrip-card{
+        margin: 20px auto;
+        width: 35vw;
+    }
+
+    /* Single Trip */
 
     .single-trip-container{
         flex-direction: column;
@@ -208,14 +225,34 @@
         margin-bottom: 30px;
     }
 
+    .single-trip-details, .single-trip-images{
+        width: 100%;
+    }
+
     .view-images{
         position:inherit;
         width: 80vw;
     }
 
     .add-images-btn{
-        right: -80px;
+        right: -70px;
     }
 
 }
+
+@media screen and (max-width: 500px) {
+    .my-trips-container h1{
+        font-size: 38px;
+    }
+
+    .myTrip-card{
+        margin: 20px auto;
+        width: 60vw;
+    }
+
+    .add-images-btn{
+        right: -40px;
+    }
+}
+
 
