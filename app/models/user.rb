@@ -26,7 +26,8 @@ class User < ApplicationRecord
 
     def image_url
        path = rails_blob_path(self.avatar, only_path: true)
-       "https://sum-trip-travel-journal.onrender.com#{path}"
+       "http://localhost:3000#{path}"
+    #  "https://sum-trip-travel-journal.onrender.com#{path}"
     end
 
 end
