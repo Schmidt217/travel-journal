@@ -196,6 +196,7 @@ p{
   background-color: var(--blue);
   
 }
+
 .logout-btn:hover{
   background-color: var(--orange);
   color: var(--white);
@@ -272,7 +273,7 @@ p{
   justify-content:flex-start;
   z-index: 2;
   padding: 30px;
-  width: 35vw;
+  width: 40%;
   margin: 0 auto 30px auto;
   border-radius: 15px;
   backdrop-filter: blur(3px);
@@ -284,7 +285,7 @@ p{
 }
 
 .home-info-container p{
-  width: 35vw;
+  width:90%;
   color: var(--white);
   margin: 0 auto;
   font-size: 1.5rem;
@@ -341,6 +342,13 @@ p{
 }
 
 /* ------- Media Queries -------- */
+@media screen and (max-width: 1200px) {
+
+  .home-info-container{
+    background-size: cover;
+    background-position: bottom -10% right 40%;
+  }
+}
 
 @media screen and (max-width: 768px) {
   .hamburger {
@@ -374,9 +382,39 @@ p{
     transform: translateX(0%);
   }
 
+  .logout-btn{
+    right: 30px;
+  }
+
+  .nav span{
+    right: 110px;
+  }
+
+  /* HOMEPAGE */
+  .home-info-details{
+    width: 70%;
+  }
+
+  .home-info-container img{
+    height: 350px;
+    width: 350px;
+    object-fit: contain;
+  }
+
+
 }
 
 @media screen and (max-width: 400px) {
+
+  .logout-btn{
+    right: 20px;
+    font-size: 14px;
+  }
+
+  .nav span{
+    right: 90px;
+  }
+
   /* SEARCHBAR */
 
   .search input{
@@ -393,9 +431,19 @@ p{
     margin: 0 auto;
   }
   .confirm-delete-btn{
-
     font-size: 14px;
-  
+  }
+
+  /* HOMEPAGE */
+
+  .home-info-container p{
+    font-size: 1.1rem;
+  }
+
+  .home-info-container img{
+    height: 250px;
+    width: 250px;
+    object-fit: contain;
   }
 }
 
