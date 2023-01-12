@@ -110,16 +110,17 @@
 
 }
 @media screen and (max-width: 768px) {
-    .single-trip-img{
+    .img-card, .single-trip-img{
         height: 250px;
         width: 250px;
-       }
+    }
 
     .add-trip-img-btn{
         border: none;
         font-size: 20px;
-        
-       } 
+        height: 30px;
+        width: 30px;
+       }
 
        .add-images-form-page h3{
         font-size: 18px;

@@ -122,9 +122,6 @@
     width: 50%;
 }
 
-.single-trip-details{
-    /* border-right: 2px solid var(--light-grey);  */
-}
 
 .single-trip-details p{
     width: 80%;
@@ -194,7 +191,6 @@
 
 @media screen and (max-width: 1170px) {
     .myTrip-card{
-        /* margin: 20px auto; */
         width: 25vw;
     }
 }
@@ -252,6 +248,8 @@
 
     .add-images-btn{
         right: -40px;
+        height: 30px;
+        width: 30px;
     }
 }
 
