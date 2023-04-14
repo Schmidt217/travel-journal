@@ -1,0 +1,17 @@
+export default Colors = {
+  white: '#fcf9f5',
+  whiteSeeThrough: 'rgba(239, 243, 251, 0.8)',
+  black: '#2A292D',
+  brown: '#4B4442',
+  blueSeeThrough: 'rgba(93, 111, 135, 0.7)',
+  deepBlue: 'rgb(57, 57, 76)',
+  darkBlue: '#39495f',
+  blue: '#546c86',
+  lightBlue: '#8C9FB7',
+  orange: '#f16b4f',
+  red: 'rgb(197, 57, 57)',
+  peach: '#df8f74',
+  tan: '#F0BD85',
+  sand: '#DDCCB4',
+  cream: '#fff2e1',
+};
